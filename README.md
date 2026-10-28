@@ -1,6 +1,5 @@
-# Proto_Travelmaker
-
-**Travelmaker** adalah prototipe sistem rekomendasi destinasi wisata berbasis *Case-Based Reasoning* (CBR).
+# Proto_
+**Tourguider** adalah prototipe sistem rekomendasi destinasi wisata berbasis *Case-Based Reasoning* (CBR).
 
 Proyek ini dikembangkan untuk mengeksplorasi rekomendasi destinasi wisata berdasarkan kemiripan preferensi wisatawan dan respons historis terhadap destinasi.
 
@@ -21,7 +20,7 @@ Proyek ini dikembangkan untuk mengeksplorasi rekomendasi destinasi wisata berdas
 ## Struktur Proyek
 
 ```text
-Proto_Travelmaker/
+Proto_Tourguider/
 ├── app.py
 ├── requirements.txt
 ├── .gitignore
@@ -40,7 +39,7 @@ Clone repository:
 
 ```bash
 git clone <URL_REPOSITORY>
-cd Proto_Travelmaker
+cd Proto_Tourguider
 ```
 
 Buat virtual environment:
