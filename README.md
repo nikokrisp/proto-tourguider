@@ -1,4 +1,4 @@
-# Proto_
+# Proto_Tourguider
 **Tourguider** adalah prototipe sistem rekomendasi destinasi wisata berbasis *Case-Based Reasoning* (CBR).
 
 Proyek ini dikembangkan untuk mengeksplorasi rekomendasi destinasi wisata berdasarkan kemiripan preferensi wisatawan dan respons historis terhadap destinasi.
