@@ -30,7 +30,7 @@ Pengguna menjawab pertanyaan yang mengikuti alur aturan, lalu melihat maksimal l
 
 ## Menjalankan di komputer lokal
 
-Memerlukan **Python 3.11 atau lebih baru**. Proyek diuji menggunakan Python 3.14 di macOS. Dataset, model terlatih, aturan, dan font sudah disertakan; koneksi internet diperlukan untuk mengunduh repositori dan memasang dependensi.
+Memerlukan **Python 3.11 atau lebih baru**. Proyek diuji menggunakan Python 3.14 di macOS dan Python 3.12.10 di Windows. Dataset, model terlatih, aturan, dan font sudah disertakan; koneksi internet diperlukan untuk mengunduh repositori dan memasang dependensi.
 
 ### 1. Unduh proyek
 
@@ -122,24 +122,32 @@ proto-tourguider/
 
 ## Pengujian dan pelatihan ulang
 
-Setelah lingkungan Python aktif:
+## Pengujian dan Pelatihan Ulang
+
+Setelah lingkungan virtual Python diaktifkan, instal dependensi pengembangan dan jalankan pengujian backend:
 
 ```bash
 python -m pip install -r requirements-dev.txt
 python -m pytest -q
 ```
 
-Pengujian frontend memerlukan Node.js:
+Pengujian frontend memerlukan Node.js. Jalankan perintah berikut untuk mengeksekusi pengujian regresi frontend:
 
 ```bash
 node --test tests/frontend_regression.cjs
 ```
 
-Untuk membentuk ulang model dan menghitung ulang validasi:
+Untuk membentuk ulang model dan menghitung ulang hasil evaluasi, jalankan kedua perintah berikut secara berurutan:
 
 ```bash
 python -m backend.train
 python -m backend.audit --write-evaluation
+```
+
+Pada lingkungan Windows tertentu, jika terjadi `UnicodeDecodeError`, aktifkan mode UTF-8 di Git Bash sebelum menjalankan pelatihan dan evaluasi:
+
+```bash
+export PYTHONUTF8=1
 ```
 
 Mulai ulang server setelah pelatihan agar model baru dimuat. Penjelasan pengodean fitur, rumus CBR, API, dan batasan evaluasi tersedia pada [dokumentasi metodologi](docs/METODOLOGI.md). Dokumentasi API interaktif tersedia di [http://127.0.0.1:8765/docs](http://127.0.0.1:8765/docs) saat server aktif.
