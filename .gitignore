@@ -1,34 +1,26 @@
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-
-# Virtual environment
+# Lingkungan Python dan cache
 .venv/
 venv/
 env/
-
-# Environment variables and secrets
-.env
-.env.*
-
-# IDE
-.vscode/
-.idea/
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Streamlit
-.streamlit/secrets.toml
-
-# Local datasets
-data/*.csv
-data/*.xlsx
-data/*.xls
-
-# Test and cache files
+__pycache__/
+*.py[cod]
 .pytest_cache/
 .mypy_cache/
 .coverage
+htmlcov/
+
+# Konfigurasi pribadi dan rahasia
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+.vscode/
+.idea/
+
+# Berkas sistem dan hasil pemeriksaan lokal
+.DS_Store
+Thumbs.db
+artifacts/tests.xml
+artifacts/frontend-tests.tap
+artifacts/browser_audit.json
+artifacts/evaluation-before-audit.json

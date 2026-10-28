@@ -1,0 +1,30 @@
+{
+  "policy_version": "tourguider-audit-2",
+  "seed": 42,
+  "train_users": 48904,
+  "test_users": 12226,
+  "evaluated_users": 9457,
+  "excluded": {
+    "no_positive": 2697,
+    "fewer_than_five_candidates": 72
+  },
+  "candidate_policy": "Per pengguna uji: hanya destinasi dengan Yes/No, minimal 5 kandidat dan 1 Yes. Maybe dan destinasi tanpa penilaian tidak dianggap negatif. Kedua metode memakai kelompok pertanyaan pada jalur aturan yang sama. Jawaban belum tahu tidak menjadi dasar kemiripan CBR; destinasi yang hanya ditolak tetangga dikeluarkan dari rekomendasi CBR.",
+  "limitation": "Evaluasi kandidat yang sudah dinilai, bukan pengukuran keberhasilan top-5 pada seluruh katalog atau kepuasan perjalanan nyata. Pemilihan kandidat dipengaruhi paparan pada situs asal.",
+  "metrics": {
+    "forward_chaining": {
+      "precision_at_5": 0.568552,
+      "recall_at_5": 0.565678,
+      "ndcg_at_5": 0.66169
+    },
+    "cbr": {
+      "precision_at_5": 0.56703,
+      "recall_at_5": 0.569274,
+      "ndcg_at_5": 0.650382
+    },
+    "popularity": {
+      "precision_at_5": 0.569483,
+      "recall_at_5": 0.566213,
+      "ndcg_at_5": 0.661025
+    }
+  }
+}

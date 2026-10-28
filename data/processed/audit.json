@@ -1,0 +1,41 @@
+{
+  "source": "https://github.com/Stravl/Stravl-Data",
+  "csv_sha256": "16dd0d5e83c4c2952f073c4bbdd94f25678f5a537753cee4994bb2d6f0484792",
+  "generated_at": "2026-10-28T17:07:22.621907+00:00",
+  "raw_users": 80301,
+  "raw_columns": 38,
+  "destinations": 1486,
+  "raw_swipes": {
+    "yes": 304055,
+    "no": 518820,
+    "maybe": 28258
+  },
+  "missing_fields": {
+    "form_a": 1,
+    "form_b": 3,
+    "form_c": 3,
+    "form_f": 457,
+    "form_g": 1294,
+    "form_h": 1,
+    "form_i": 2,
+    "form_j": 2
+  },
+  "duplicate_records_removed": 452,
+  "repeated_swipes_removed_after_record_dedup": 34664,
+  "conflicting_pairs_removed_after_record_dedup": 1331,
+  "empty_records_excluded": 18719,
+  "usable_users": 61130,
+  "clean_interactions": {
+    "yes": 288756,
+    "no": 498184,
+    "maybe": 26862
+  },
+  "train_users": 48904,
+  "test_users": 12226,
+  "positive_training_pairs": 230898,
+  "tree_depth": 5,
+  "leaf_count": 32,
+  "rule_count": 94,
+  "rule_equivalence_records": 61130,
+  "feature_count": 45
+}

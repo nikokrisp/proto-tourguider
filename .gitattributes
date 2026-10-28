@@ -1,0 +1,7 @@
+# Simpan data sumber dan aset biner tanpa perubahan akhir baris.
+* text=auto
+*.png binary
+*.ttf binary
+*.joblib binary
+data/raw/** -text
+frontend/assets/*-OFL.txt -text

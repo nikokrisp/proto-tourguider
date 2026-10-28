@@ -1,0 +1,1183 @@
+{
+  "status": "passed",
+  "checked_at": "2026-10-28T17:44:41.768173+00:00",
+  "policy_version": "tourguider-audit-2",
+  "source_sha256": "16dd0d5e83c4c2952f073c4bbdd94f25678f5a537753cee4994bb2d6f0484792",
+  "model_sha256": "aee8888d2807070e1172b2b7f5cc39599999b39c2878ff8de7fd4753901365be",
+  "evaluation_sha256": "f6f10bbe7e8580ff533cee9397bf6bc752d5357d9e0e9ae8cfa3e73a23fd0b29",
+  "checks": [
+    {
+      "check": "source_checksum",
+      "passed": true,
+      "detail": "16dd0d5e83c4c2952f073c4bbdd94f25678f5a537753cee4994bb2d6f0484792"
+    },
+    {
+      "check": "destination_mapping",
+      "passed": true,
+      "detail": "1486 destination names"
+    },
+    {
+      "check": "raw_cleaning_counts",
+      "passed": true,
+      "detail": {
+        "raw_users": 80301,
+        "duplicate_records_removed": 452,
+        "repeated_swipes_removed_after_record_dedup": 34664,
+        "conflicting_pairs_removed_after_record_dedup": 1331,
+        "empty_records_excluded": 18719,
+        "usable_users": 61130
+      }
+    },
+    {
+      "check": "canonical_case_duplicates",
+      "passed": true,
+      "detail": 0
+    },
+    {
+      "check": "user_split",
+      "passed": true,
+      "detail": {
+        "train": 48904,
+        "test": 12226
+      }
+    },
+    {
+      "check": "feature_encoding",
+      "passed": true,
+      "detail": "48904 case profiles / 45 features"
+    },
+    {
+      "check": "case_base_yes",
+      "passed": true,
+      "detail": "230898 interactions match CSV"
+    },
+    {
+      "check": "case_base_no",
+      "passed": true,
+      "detail": "399365 interactions match CSV"
+    },
+    {
+      "check": "case_base_maybe",
+      "passed": true,
+      "detail": "21625 interactions match CSV"
+    },
+    {
+      "check": "all_rules_equal_tree",
+      "passed": true,
+      "detail": "61130 profiles; 32 leaves"
+    },
+    {
+      "check": "leaf_weighted_scores",
+      "passed": true,
+      "detail": "Independent per-user weights reproduce every leaf distribution"
+    },
+    {
+      "check": "leaf_support_counts",
+      "passed": true,
+      "detail": "All destination support counts and segment users match raw cases"
+    },
+    {
+      "check": "independent_cbr_and_outputs",
+      "passed": true,
+      "detail": "32 leaf representatives: cosine, neighbors, weighted votes, names, and displayed evidence"
+    },
+    {
+      "check": "live_evaluation_parity",
+      "passed": true,
+      "detail": "150 of 150 exact matches"
+    },
+    {
+      "check": "unknown_answers_fallback",
+      "passed": true,
+      "detail": "No inferred preference or similar-user claim from missing answers"
+    },
+    {
+      "check": "evaluation_policy",
+      "passed": true,
+      "detail": "tourguider-audit-2"
+    },
+    {
+      "check": "evaluation_population",
+      "passed": true,
+      "detail": "9457 eligible held-out users"
+    }
+  ],
+  "representative_outputs": [
+    {
+      "leaf": 5,
+      "answers": {
+        "form_a": [
+          "1"
+        ],
+        "form_f": [
+          "2",
+          "7"
+        ],
+        "form_g": [
+          "1",
+          "3",
+          "4",
+          "5"
+        ],
+        "form_i": [
+          "1"
+        ]
+      },
+      "rule_destinations": [
+        "Yosemite Village, California, United States",
+        "Naples, Italy",
+        "Reykjavik, Iceland",
+        "Oslo, Norway",
+        "Luzern, Switzerland"
+      ],
+      "cbr_destinations": [
+        "Berlin, Germany",
+        "Kaprun, Austria",
+        "Verona, Italy",
+        "Puerto Morelos, Mexico",
+        "Pretoria, South Africa"
+      ]
+    },
+    {
+      "leaf": 6,
+      "answers": {
+        "form_a": [
+          "1"
+        ],
+        "form_f": [
+          "2",
+          "3",
+          "7"
+        ],
+        "form_g": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "6"
+        ],
+        "form_i": [
+          "0"
+        ]
+      },
+      "rule_destinations": [
+        "Sevilla, Spain",
+        "Dublin, Ireland",
+        "Reykjavik, Iceland",
+        "Amsterdam, Netherlands",
+        "Cologne, Germany"
+      ],
+      "cbr_destinations": [
+        "Eger, Hungary",
+        "Gibraltar, Gibraltar, United Kingdom",
+        "Quebec City, Canada",
+        "Pisa, Italy",
+        "Athens, Greece"
+      ]
+    },
+    {
+      "leaf": 8,
+      "answers": {
+        "form_a": [
+          "1"
+        ],
+        "form_f": [
+          "7"
+        ],
+        "form_g": [
+          "7"
+        ],
+        "form_i": [
+          "2"
+        ],
+        "form_h": [
+          "2"
+        ]
+      },
+      "rule_destinations": [
+        "Dubrovnik, Croatia",
+        "Phuket, Thailand",
+        "Luzern, Switzerland",
+        "Chiang Mai, Thailand",
+        "Florence, Italy"
+      ],
+      "cbr_destinations": [
+        "Langkawi, Malaysia",
+        "Pigeon Forge, Tennessee, United States",
+        "Vienna, Austria",
+        "Reykjavik, Iceland",
+        "Mysore, India"
+      ]
+    },
+    {
+      "leaf": 9,
+      "answers": {
+        "form_a": [
+          "1"
+        ],
+        "form_f": [
+          "2"
+        ],
+        "form_g": [
+          "3"
+        ],
+        "form_i": [
+          "2"
+        ],
+        "form_h": [
+          "0"
+        ]
+      },
+      "rule_destinations": [
+        "Bogota, Colombia",
+        "Cartagena, Colombia",
+        "Salerno, Italy",
+        "Marsa Alam, Egypt",
+        "Skagen, Denmark"
+      ],
+      "cbr_destinations": [
+        "Bogota, Colombia",
+        "Verona, Italy",
+        "Trebinje, Bosnia and Herzegovina",
+        "San Andres, Colombia",
+        "Helsinki, Finland"
+      ]
+    },
+    {
+      "leaf": 12,
+      "answers": {
+        "form_a": [
+          "1"
+        ],
+        "form_f": [
+          "3",
+          "5",
+          "7"
+        ],
+        "form_g": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "rule_destinations": [
+        "Seoul, South Korea",
+        "Rome, Italy",
+        "Prague, Czech Republic",
+        "Vienna, Austria",
+        "Reykjavik, Iceland"
+      ],
+      "cbr_destinations": [
+        "Tallinn, Estonia",
+        "Prague, Czech Republic",
+        "Pisa, Italy",
+        "Buenos Aires, Argentina",
+        "Salta, Argentina"
+      ]
+    },
+    {
+      "leaf": 13,
+      "answers": {
+        "form_a": [
+          "1"
+        ],
+        "form_f": [
+          "3",
+          "5",
+          "6",
+          "7"
+        ],
+        "form_g": [
+          "0",
+          "1",
+          "2"
+        ]
+      },
+      "rule_destinations": [
+        "Tokyo, Japan",
+        "Brussels, Belgium",
+        "Oslo, Norway",
+        "Hamburg, Germany",
+        "London, England, United Kingdom"
+      ],
+      "cbr_destinations": [
+        "Seoul, South Korea",
+        "Pai, Thailand",
+        "Mardin, Turkey",
+        "Birmingham, England, United Kingdom",
+        "Luxor, Egypt"
+      ]
+    },
+    {
+      "leaf": 15,
+      "answers": {
+        "form_a": [
+          "1"
+        ],
+        "form_f": [
+          "2",
+          "3",
+          "5",
+          "7"
+        ],
+        "form_g": [
+          "0",
+          "1",
+          "3",
+          "4",
+          "7"
+        ]
+      },
+      "rule_destinations": [
+        "Bruges, Belgium",
+        "Singapore, Singapore",
+        "Tokyo, Japan",
+        "Milan, Italy",
+        "Dublin, Ireland"
+      ],
+      "cbr_destinations": [
+        "Münster, Germany",
+        "Butrint, Albania",
+        "Cairns, Australia",
+        "Sydney, Australia",
+        "Graz, Austria"
+      ]
+    },
+    {
+      "leaf": 16,
+      "answers": {
+        "form_a": [
+          "1"
+        ],
+        "form_f": [
+          "1",
+          "2",
+          "3",
+          "5",
+          "7"
+        ],
+        "form_g": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ]
+      },
+      "rule_destinations": [
+        "Reykjavik, Iceland",
+        "Edinburgh, Scotland, United Kingdom",
+        "Luzern, Switzerland",
+        "Athens, Greece",
+        "Rotterdam, Netherlands"
+      ],
+      "cbr_destinations": [
+        "San Miguel de Tucuman, Argentina",
+        "Helsinki, Finland",
+        "Florence, Italy",
+        "Marrakesh, Morocco",
+        "Alotau, Papua New Guinea"
+      ]
+    },
+    {
+      "leaf": 20,
+      "answers": {
+        "form_a": [
+          "1"
+        ],
+        "form_f": [
+          "0"
+        ],
+        "form_g": [
+          "2"
+        ],
+        "form_c": [
+          "2"
+        ]
+      },
+      "rule_destinations": [
+        "Dubrovnik, Croatia",
+        "San Juan, Puerto Rico, United States",
+        "Porto, Portugal",
+        "Barcelona, Spain",
+        "Phuket, Thailand"
+      ],
+      "cbr_destinations": [
+        "Santa Catalina, Panama",
+        "Launceston, Australia",
+        "Salzburg, Austria",
+        "Caye Caulker, Belize",
+        "La Serena, Chile"
+      ]
+    },
+    {
+      "leaf": 21,
+      "answers": {
+        "form_a": [
+          "2"
+        ],
+        "form_f": [
+          "0",
+          "2",
+          "3",
+          "5",
+          "6"
+        ],
+        "form_g": [
+          "1",
+          "2",
+          "7"
+        ],
+        "form_c": [
+          "3"
+        ]
+      },
+      "rule_destinations": [
+        "Nassau, Bahamas",
+        "Porto, Portugal",
+        "Puerto Morelos, Mexico",
+        "Herceg-Novi, Montenegro",
+        "Ilhabela, Brazil"
+      ],
+      "cbr_destinations": [
+        "Pompei, Italy",
+        "Cannes, France",
+        "Oxford, England, United Kingdom",
+        "Alkmaar, Netherlands",
+        "Valencia, Spain"
+      ]
+    },
+    {
+      "leaf": 23,
+      "answers": {
+        "form_a": [
+          "2"
+        ],
+        "form_f": [
+          "0"
+        ],
+        "form_g": [
+          "2",
+          "4",
+          "7"
+        ]
+      },
+      "rule_destinations": [
+        "Dubrovnik, Croatia",
+        "Pompei, Italy",
+        "Sydney, Australia",
+        "Yosemite Village, California, United States",
+        "Malaga, Spain"
+      ],
+      "cbr_destinations": [
+        "Ho Chi Minh City, Vietnam",
+        "Ilhabela, Brazil",
+        "Whitehorse, Canada",
+        "Varadero, Cuba",
+        "Tivat, Montenegro"
+      ]
+    },
+    {
+      "leaf": 24,
+      "answers": {
+        "form_a": [
+          "1"
+        ],
+        "form_f": [
+          "0",
+          "1",
+          "2",
+          "5",
+          "7"
+        ],
+        "form_g": [
+          "2",
+          "3",
+          "4",
+          "5",
+          "7"
+        ]
+      },
+      "rule_destinations": [
+        "Reykjavik, Iceland",
+        "Athens, Greece",
+        "Florence, Italy",
+        "Geneva, Switzerland",
+        "Cannes, France"
+      ],
+      "cbr_destinations": [
+        "Ho Chi Minh City, Vietnam",
+        "Brisbane, Australia",
+        "Galveston, Texas, United States",
+        "Dubrovnik, Croatia",
+        "Savusavu, Fiji"
+      ]
+    },
+    {
+      "leaf": 27,
+      "answers": {
+        "form_a": [
+          "1"
+        ],
+        "form_f": [
+          "0",
+          "3",
+          "5"
+        ],
+        "form_g": [
+          "0",
+          "1"
+        ]
+      },
+      "rule_destinations": [
+        "Sydney, Australia",
+        "Vienna, Austria",
+        "Florence, Italy",
+        "Auckland, New Zealand",
+        "Split, Croatia"
+      ],
+      "cbr_destinations": [
+        "Stockholm, Sweden",
+        "Birmingham, England, United Kingdom",
+        "Florence, Italy",
+        "Ardennes, Belgium",
+        "Ghent, Belgium"
+      ]
+    },
+    {
+      "leaf": 28,
+      "answers": {
+        "form_a": [
+          "1"
+        ],
+        "form_f": [
+          "0",
+          "2",
+          "3",
+          "7"
+        ],
+        "form_g": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "rule_destinations": [
+        "Madrid, Spain",
+        "Amsterdam, Netherlands",
+        "Copenhagen, Denmark",
+        "Puglia, Italy",
+        "Luzern, Switzerland"
+      ],
+      "cbr_destinations": [
+        "Ghent, Belgium",
+        "Copenhagen, Denmark",
+        "Frankfurt am Main, Germany",
+        "Rome, Italy",
+        "Malaga, Spain"
+      ]
+    },
+    {
+      "leaf": 30,
+      "answers": {
+        "form_a": [
+          "1"
+        ],
+        "form_f": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "7"
+        ],
+        "form_g": [
+          "0",
+          "2",
+          "3",
+          "7"
+        ]
+      },
+      "rule_destinations": [
+        "Taipei, Taiwan, Taiwan",
+        "Playa del Carmen, Mexico",
+        "Porto, Portugal",
+        "Tokyo, Japan",
+        "Naples, Italy"
+      ],
+      "cbr_destinations": [
+        "Nassau, Bahamas",
+        "Bogota, Colombia",
+        "Zagreb, Croatia",
+        "Barcelona, Spain",
+        "Monterey, California, United States"
+      ]
+    },
+    {
+      "leaf": 31,
+      "answers": {
+        "form_a": [
+          "1"
+        ],
+        "form_f": [
+          "0",
+          "1",
+          "2",
+          "5"
+        ],
+        "form_g": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "7"
+        ]
+      },
+      "rule_destinations": [
+        "Geneva, Switzerland",
+        "Granada, Spain",
+        "Puglia, Italy",
+        "Athens, Greece",
+        "Florence, Italy"
+      ],
+      "cbr_destinations": [
+        "Rio De Janeiro, Brazil",
+        "Syracuse, New York, United States",
+        "Caye Caulker, Belize",
+        "La Paz, Bolivia",
+        "Taba, Egypt"
+      ]
+    },
+    {
+      "leaf": 36,
+      "answers": {
+        "form_a": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "form_g": [
+          "5",
+          "6",
+          "7"
+        ]
+      },
+      "rule_destinations": [
+        "Osaka, Japan",
+        "Milos, Greece",
+        "Rostock, Germany",
+        "La Spezia, Italy",
+        "Istanbul, Turkey"
+      ],
+      "cbr_destinations": [
+        "Edfu, Egypt",
+        "Istanbul, Turkey",
+        "Zagori, Greece",
+        "Dahshur, Egypt",
+        "Neve Zohar, Israel"
+      ]
+    },
+    {
+      "leaf": 37,
+      "answers": {
+        "form_a": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "form_g": [
+          "3"
+        ]
+      },
+      "rule_destinations": [
+        "Osaka, Japan",
+        "Whittier, Alaska, United States",
+        "Milos, Greece",
+        "Rostock, Germany",
+        "Belém, Portugal"
+      ],
+      "cbr_destinations": [
+        "Healy, Alaska, United States",
+        "Whittier, Alaska, United States",
+        "Moab, Utah, United States",
+        "Mendoza, Argentina",
+        "Salta, Argentina"
+      ]
+    },
+    {
+      "leaf": 39,
+      "answers": {
+        "form_a": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "form_g": [
+          "1",
+          "4"
+        ]
+      },
+      "rule_destinations": [
+        "Weißenkirchen in der Wachau, Austria",
+        "Zagori, Greece",
+        "West Glacier, Montana, United States",
+        "Osaka, Japan",
+        "Milos, Greece"
+      ],
+      "cbr_destinations": [
+        "Savusavu, Fiji",
+        "Ajanta, India",
+        "Skulte, Latvia",
+        "Kahului, Hawaii, United States",
+        "Ardennes, Belgium"
+      ]
+    },
+    {
+      "leaf": 40,
+      "answers": {
+        "form_a": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "form_g": [
+          "3",
+          "4",
+          "7"
+        ]
+      },
+      "rule_destinations": [
+        "Zagori, Greece",
+        "Osaka, Japan",
+        "Weißenkirchen in der Wachau, Austria",
+        "Savusavu, Fiji",
+        "Copacabana, Bolivia"
+      ],
+      "cbr_destinations": [
+        "Mindo, Ecuador",
+        "Milos, Greece",
+        "Puglia, Italy",
+        "Osaka, Japan",
+        "Obertauern, Austria"
+      ]
+    },
+    {
+      "leaf": 43,
+      "answers": {
+        "form_a": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "form_g": [
+          "1",
+          "2",
+          "5",
+          "6"
+        ]
+      },
+      "rule_destinations": [
+        "Milos, Greece",
+        "Porto-Vecchio, Corsica, France",
+        "La Spezia, Italy",
+        "Paros, Greece",
+        "Puerto Viejo de Talamanca, Costa Rica"
+      ],
+      "cbr_destinations": [
+        "Lutsen, Minnesota, United States",
+        "Dubrovnik, Croatia",
+        "Calistoga, California, United States",
+        "Napa, California, United States",
+        "Cape Canaveral, Florida, United States"
+      ]
+    },
+    {
+      "leaf": 44,
+      "answers": {
+        "form_a": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "form_g": [
+          "1",
+          "2",
+          "6",
+          "7"
+        ]
+      },
+      "rule_destinations": [
+        "Santa Catalina, Panama",
+        "Osaka, Japan",
+        "Savusavu, Fiji",
+        "Manuel Antonio, Costa Rica",
+        "Milos, Greece"
+      ],
+      "cbr_destinations": [
+        "Milos, Greece",
+        "Nha Trang, Vietnam",
+        "Barcelona, Spain",
+        "Byron Bay, Australia",
+        "Armacao dos Buzios, Brazil"
+      ]
+    },
+    {
+      "leaf": 46,
+      "answers": {
+        "form_a": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "form_g": [
+          "1",
+          "2",
+          "4"
+        ]
+      },
+      "rule_destinations": [
+        "Porto-Vecchio, Corsica, France",
+        "Weißenkirchen in der Wachau, Austria",
+        "Milos, Greece",
+        "Zagori, Greece",
+        "Osaka, Japan"
+      ],
+      "cbr_destinations": [
+        "Milos, Greece",
+        "Heraklion, Crete, Greece",
+        "Herceg-Novi, Montenegro",
+        "Kathmandu, Nepal",
+        "Orange Beach, Alabama, United States"
+      ]
+    },
+    {
+      "leaf": 47,
+      "answers": {
+        "form_a": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "form_g": [
+          "2",
+          "3",
+          "4",
+          "7"
+        ]
+      },
+      "rule_destinations": [
+        "Milos, Greece",
+        "Osaka, Japan",
+        "Santa Catalina, Panama",
+        "Mindo, Ecuador",
+        "Weißenkirchen in der Wachau, Austria"
+      ],
+      "cbr_destinations": [
+        "Puerto Ayora, Ecuador",
+        "Milos, Greece",
+        "Queenstown, New Zealand",
+        "Jekyll Island, Georgia, United States",
+        "Mindo, Ecuador"
+      ]
+    },
+    {
+      "leaf": 51,
+      "answers": {
+        "form_a": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "form_g": [
+          "0",
+          "1",
+          "5"
+        ],
+        "form_f": [
+          "0",
+          "1",
+          "3"
+        ]
+      },
+      "rule_destinations": [
+        "Hiroshima, Japan",
+        "Kyoto, Japan",
+        "Yokohama, Japan",
+        "Milos, Greece",
+        "La Spezia, Italy"
+      ],
+      "cbr_destinations": [
+        "Porto-Vecchio, Corsica, France",
+        "Tangier, Morocco",
+        "Cape Town, South Africa",
+        "Yokohama, Japan",
+        "Taormina, Sicily, Italy"
+      ]
+    },
+    {
+      "leaf": 52,
+      "answers": {
+        "form_a": [
+          "1",
+          "3"
+        ],
+        "form_g": [
+          "0",
+          "1"
+        ],
+        "form_f": [
+          "0",
+          "3",
+          "5",
+          "6",
+          "7"
+        ]
+      },
+      "rule_destinations": [
+        "Hiroshima, Japan",
+        "Kyoto, Japan",
+        "Yokohama, Japan",
+        "Sapporo, Japan",
+        "Osaka, Japan"
+      ],
+      "cbr_destinations": [
+        "Miami, Florida, United States",
+        "Cancun, Mexico",
+        "Glasgow, Scotland, United Kingdom",
+        "Potosí, Bolivia",
+        "Cairo, Egypt"
+      ]
+    },
+    {
+      "leaf": 54,
+      "answers": {
+        "form_a": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "form_g": [
+          "0",
+          "1",
+          "3",
+          "4"
+        ]
+      },
+      "rule_destinations": [
+        "Milos, Greece",
+        "Weißenkirchen in der Wachau, Austria",
+        "Prague, Czech Republic",
+        "La Spezia, Italy",
+        "Tokyo, Japan"
+      ],
+      "cbr_destinations": [
+        "Zadar, Croatia",
+        "Helsinki, Finland",
+        "Alkmaar, Netherlands",
+        "Prague, Czech Republic",
+        "Heidelberg, Germany"
+      ]
+    },
+    {
+      "leaf": 55,
+      "answers": {
+        "form_a": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "form_g": [
+          "0",
+          "1",
+          "4",
+          "6",
+          "7"
+        ]
+      },
+      "rule_destinations": [
+        "Osaka, Japan",
+        "Weißenkirchen in der Wachau, Austria",
+        "Milos, Greece",
+        "Rostock, Germany",
+        "Belém, Portugal"
+      ],
+      "cbr_destinations": [
+        "Prague, Czech Republic",
+        "Paros, Greece",
+        "Zagori, Greece",
+        "Butrint, Albania",
+        "Zadar, Croatia"
+      ]
+    },
+    {
+      "leaf": 58,
+      "answers": {
+        "form_a": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "form_g": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "rule_destinations": [
+        "Porto-Vecchio, Corsica, France",
+        "Milos, Greece",
+        "La Spezia, Italy",
+        "Kyoto, Japan",
+        "Paphos, Cyprus"
+      ],
+      "cbr_destinations": [
+        "Milos, Greece",
+        "Tokyo, Japan",
+        "Syracuse, Sicily, Italy",
+        "Sydney, Australia",
+        "Brussels, Belgium"
+      ]
+    },
+    {
+      "leaf": 59,
+      "answers": {
+        "form_a": [
+          "1",
+          "3"
+        ],
+        "form_g": [
+          "0",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "rule_destinations": [
+        "Milos, Greece",
+        "Porto-Vecchio, Corsica, France",
+        "Paphos, Cyprus",
+        "Rostock, Germany",
+        "La Spezia, Italy"
+      ],
+      "cbr_destinations": [
+        "Sydney, Australia",
+        "Munich, Germany",
+        "Stuttgart, Germany",
+        "Aix-en-Provence, France",
+        "Nice, France"
+      ]
+    },
+    {
+      "leaf": 61,
+      "answers": {
+        "form_a": [
+          "3"
+        ],
+        "form_g": [
+          "0",
+          "1",
+          "2",
+          "7"
+        ]
+      },
+      "rule_destinations": [
+        "Milos, Greece",
+        "Kyoto, Japan",
+        "Barcelona, Spain",
+        "Nha Trang, Vietnam",
+        "Osaka, Japan"
+      ],
+      "cbr_destinations": [
+        "Copenhagen, Denmark",
+        "Tartu, Estonia",
+        "Paris, France",
+        "Key West, Florida, United States",
+        "Kissimmee, Florida, United States"
+      ]
+    },
+    {
+      "leaf": 62,
+      "answers": {
+        "form_a": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "form_g": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "6",
+          "7"
+        ]
+      },
+      "rule_destinations": [
+        "Milos, Greece",
+        "Osaka, Japan",
+        "Tamarindo, Costa Rica",
+        "Paphos, Cyprus",
+        "Belém, Portugal"
+      ],
+      "cbr_destinations": [
+        "Milos, Greece",
+        "Isla Verde, Puerto Rico, United States",
+        "Frederiksted, U.S. Virgin Islands, United States",
+        "Bombas, Brazil",
+        "Manaus, Brazil"
+      ]
+    }
+  ],
+  "evaluation": {
+    "policy_version": "tourguider-audit-2",
+    "seed": 42,
+    "train_users": 48904,
+    "test_users": 12226,
+    "evaluated_users": 9457,
+    "excluded": {
+      "no_positive": 2697,
+      "fewer_than_five_candidates": 72
+    },
+    "candidate_policy": "Per pengguna uji: hanya destinasi dengan Yes/No, minimal 5 kandidat dan 1 Yes. Maybe dan destinasi tanpa penilaian tidak dianggap negatif. Kedua metode memakai kelompok pertanyaan pada jalur aturan yang sama. Jawaban belum tahu tidak menjadi dasar kemiripan CBR; destinasi yang hanya ditolak tetangga dikeluarkan dari rekomendasi CBR.",
+    "limitation": "Evaluasi kandidat yang sudah dinilai, bukan pengukuran keberhasilan top-5 pada seluruh katalog atau kepuasan perjalanan nyata. Pemilihan kandidat dipengaruhi paparan pada situs asal.",
+    "metrics": {
+      "forward_chaining": {
+        "precision_at_5": 0.568552,
+        "recall_at_5": 0.565678,
+        "ndcg_at_5": 0.66169
+      },
+      "cbr": {
+        "precision_at_5": 0.56703,
+        "recall_at_5": 0.569274,
+        "ndcg_at_5": 0.650382
+      },
+      "popularity": {
+        "precision_at_5": 0.569483,
+        "recall_at_5": 0.566213,
+        "ndcg_at_5": 0.661025
+      }
+    }
+  }
+}

@@ -1,0 +1,846 @@
+[
+  {
+    "id": "R001",
+    "requires": "node:0",
+    "concludes": "node:1",
+    "node": 0,
+    "kind": "branch",
+    "feature": 3,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R002",
+    "requires": "node:0",
+    "concludes": "node:32",
+    "node": 0,
+    "kind": "branch",
+    "feature": 3,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R003",
+    "requires": "node:1",
+    "concludes": "node:2",
+    "node": 1,
+    "kind": "branch",
+    "feature": 15,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R004",
+    "requires": "node:1",
+    "concludes": "node:17",
+    "node": 1,
+    "kind": "branch",
+    "feature": 15,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R005",
+    "requires": "node:2",
+    "concludes": "node:3",
+    "node": 2,
+    "kind": "branch",
+    "feature": 24,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R006",
+    "requires": "node:2",
+    "concludes": "node:10",
+    "node": 2,
+    "kind": "branch",
+    "feature": 24,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R007",
+    "requires": "node:3",
+    "concludes": "node:4",
+    "node": 3,
+    "kind": "branch",
+    "feature": 39,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R008",
+    "requires": "node:3",
+    "concludes": "node:7",
+    "node": 3,
+    "kind": "branch",
+    "feature": 39,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R009",
+    "requires": "node:4",
+    "concludes": "node:5",
+    "node": 4,
+    "kind": "branch",
+    "feature": 18,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R010",
+    "requires": "node:4",
+    "concludes": "node:6",
+    "node": 4,
+    "kind": "branch",
+    "feature": 18,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R011",
+    "requires": "node:5",
+    "concludes": "leaf:5",
+    "node": 5,
+    "kind": "terminal"
+  },
+  {
+    "id": "R012",
+    "requires": "node:6",
+    "concludes": "leaf:6",
+    "node": 6,
+    "kind": "terminal"
+  },
+  {
+    "id": "R013",
+    "requires": "node:7",
+    "concludes": "node:8",
+    "node": 7,
+    "kind": "branch",
+    "feature": 33,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R014",
+    "requires": "node:7",
+    "concludes": "node:9",
+    "node": 7,
+    "kind": "branch",
+    "feature": 33,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R015",
+    "requires": "node:8",
+    "concludes": "leaf:8",
+    "node": 8,
+    "kind": "terminal"
+  },
+  {
+    "id": "R016",
+    "requires": "node:9",
+    "concludes": "leaf:9",
+    "node": 9,
+    "kind": "terminal"
+  },
+  {
+    "id": "R017",
+    "requires": "node:10",
+    "concludes": "node:11",
+    "node": 10,
+    "kind": "branch",
+    "feature": 31,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R018",
+    "requires": "node:10",
+    "concludes": "node:14",
+    "node": 10,
+    "kind": "branch",
+    "feature": 31,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R019",
+    "requires": "node:11",
+    "concludes": "node:12",
+    "node": 11,
+    "kind": "branch",
+    "feature": 21,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R020",
+    "requires": "node:11",
+    "concludes": "node:13",
+    "node": 11,
+    "kind": "branch",
+    "feature": 21,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R021",
+    "requires": "node:12",
+    "concludes": "leaf:12",
+    "node": 12,
+    "kind": "terminal"
+  },
+  {
+    "id": "R022",
+    "requires": "node:13",
+    "concludes": "leaf:13",
+    "node": 13,
+    "kind": "terminal"
+  },
+  {
+    "id": "R023",
+    "requires": "node:14",
+    "concludes": "node:15",
+    "node": 14,
+    "kind": "branch",
+    "feature": 29,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R024",
+    "requires": "node:14",
+    "concludes": "node:16",
+    "node": 14,
+    "kind": "branch",
+    "feature": 29,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R025",
+    "requires": "node:15",
+    "concludes": "leaf:15",
+    "node": 15,
+    "kind": "terminal"
+  },
+  {
+    "id": "R026",
+    "requires": "node:16",
+    "concludes": "leaf:16",
+    "node": 16,
+    "kind": "terminal"
+  },
+  {
+    "id": "R027",
+    "requires": "node:17",
+    "concludes": "node:18",
+    "node": 17,
+    "kind": "branch",
+    "feature": 24,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R028",
+    "requires": "node:17",
+    "concludes": "node:25",
+    "node": 17,
+    "kind": "branch",
+    "feature": 24,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R029",
+    "requires": "node:18",
+    "concludes": "node:19",
+    "node": 18,
+    "kind": "branch",
+    "feature": 28,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R030",
+    "requires": "node:18",
+    "concludes": "node:22",
+    "node": 18,
+    "kind": "branch",
+    "feature": 28,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R031",
+    "requires": "node:19",
+    "concludes": "node:20",
+    "node": 19,
+    "kind": "branch",
+    "feature": 13,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R032",
+    "requires": "node:19",
+    "concludes": "node:21",
+    "node": 19,
+    "kind": "branch",
+    "feature": 13,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R033",
+    "requires": "node:20",
+    "concludes": "leaf:20",
+    "node": 20,
+    "kind": "terminal"
+  },
+  {
+    "id": "R034",
+    "requires": "node:21",
+    "concludes": "leaf:21",
+    "node": 21,
+    "kind": "terminal"
+  },
+  {
+    "id": "R035",
+    "requires": "node:22",
+    "concludes": "node:23",
+    "node": 22,
+    "kind": "branch",
+    "feature": 27,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R036",
+    "requires": "node:22",
+    "concludes": "node:24",
+    "node": 22,
+    "kind": "branch",
+    "feature": 27,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R037",
+    "requires": "node:23",
+    "concludes": "leaf:23",
+    "node": 23,
+    "kind": "terminal"
+  },
+  {
+    "id": "R038",
+    "requires": "node:24",
+    "concludes": "leaf:24",
+    "node": 24,
+    "kind": "terminal"
+  },
+  {
+    "id": "R039",
+    "requires": "node:25",
+    "concludes": "node:26",
+    "node": 25,
+    "kind": "branch",
+    "feature": 31,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R040",
+    "requires": "node:25",
+    "concludes": "node:29",
+    "node": 25,
+    "kind": "branch",
+    "feature": 31,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R041",
+    "requires": "node:26",
+    "concludes": "node:27",
+    "node": 26,
+    "kind": "branch",
+    "feature": 22,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R042",
+    "requires": "node:26",
+    "concludes": "node:28",
+    "node": 26,
+    "kind": "branch",
+    "feature": 22,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R043",
+    "requires": "node:27",
+    "concludes": "leaf:27",
+    "node": 27,
+    "kind": "terminal"
+  },
+  {
+    "id": "R044",
+    "requires": "node:28",
+    "concludes": "leaf:28",
+    "node": 28,
+    "kind": "terminal"
+  },
+  {
+    "id": "R045",
+    "requires": "node:29",
+    "concludes": "node:30",
+    "node": 29,
+    "kind": "branch",
+    "feature": 20,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R046",
+    "requires": "node:29",
+    "concludes": "node:31",
+    "node": 29,
+    "kind": "branch",
+    "feature": 20,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R047",
+    "requires": "node:30",
+    "concludes": "leaf:30",
+    "node": 30,
+    "kind": "terminal"
+  },
+  {
+    "id": "R048",
+    "requires": "node:31",
+    "concludes": "leaf:31",
+    "node": 31,
+    "kind": "terminal"
+  },
+  {
+    "id": "R049",
+    "requires": "node:32",
+    "concludes": "node:33",
+    "node": 32,
+    "kind": "branch",
+    "feature": 24,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R050",
+    "requires": "node:32",
+    "concludes": "node:48",
+    "node": 32,
+    "kind": "branch",
+    "feature": 24,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R051",
+    "requires": "node:33",
+    "concludes": "node:34",
+    "node": 33,
+    "kind": "branch",
+    "feature": 26,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R052",
+    "requires": "node:33",
+    "concludes": "node:41",
+    "node": 33,
+    "kind": "branch",
+    "feature": 26,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R053",
+    "requires": "node:34",
+    "concludes": "node:35",
+    "node": 34,
+    "kind": "branch",
+    "feature": 28,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R054",
+    "requires": "node:34",
+    "concludes": "node:38",
+    "node": 34,
+    "kind": "branch",
+    "feature": 28,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R055",
+    "requires": "node:35",
+    "concludes": "node:36",
+    "node": 35,
+    "kind": "branch",
+    "feature": 27,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R056",
+    "requires": "node:35",
+    "concludes": "node:37",
+    "node": 35,
+    "kind": "branch",
+    "feature": 27,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R057",
+    "requires": "node:36",
+    "concludes": "leaf:36",
+    "node": 36,
+    "kind": "terminal"
+  },
+  {
+    "id": "R058",
+    "requires": "node:37",
+    "concludes": "leaf:37",
+    "node": 37,
+    "kind": "terminal"
+  },
+  {
+    "id": "R059",
+    "requires": "node:38",
+    "concludes": "node:39",
+    "node": 38,
+    "kind": "branch",
+    "feature": 31,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R060",
+    "requires": "node:38",
+    "concludes": "node:40",
+    "node": 38,
+    "kind": "branch",
+    "feature": 31,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R061",
+    "requires": "node:39",
+    "concludes": "leaf:39",
+    "node": 39,
+    "kind": "terminal"
+  },
+  {
+    "id": "R062",
+    "requires": "node:40",
+    "concludes": "leaf:40",
+    "node": 40,
+    "kind": "terminal"
+  },
+  {
+    "id": "R063",
+    "requires": "node:41",
+    "concludes": "node:42",
+    "node": 41,
+    "kind": "branch",
+    "feature": 28,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R064",
+    "requires": "node:41",
+    "concludes": "node:45",
+    "node": 41,
+    "kind": "branch",
+    "feature": 28,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R065",
+    "requires": "node:42",
+    "concludes": "node:43",
+    "node": 42,
+    "kind": "branch",
+    "feature": 31,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R066",
+    "requires": "node:42",
+    "concludes": "node:44",
+    "node": 42,
+    "kind": "branch",
+    "feature": 31,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R067",
+    "requires": "node:43",
+    "concludes": "leaf:43",
+    "node": 43,
+    "kind": "terminal"
+  },
+  {
+    "id": "R068",
+    "requires": "node:44",
+    "concludes": "leaf:44",
+    "node": 44,
+    "kind": "terminal"
+  },
+  {
+    "id": "R069",
+    "requires": "node:45",
+    "concludes": "node:46",
+    "node": 45,
+    "kind": "branch",
+    "feature": 31,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R070",
+    "requires": "node:45",
+    "concludes": "node:47",
+    "node": 45,
+    "kind": "branch",
+    "feature": 31,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R071",
+    "requires": "node:46",
+    "concludes": "leaf:46",
+    "node": 46,
+    "kind": "terminal"
+  },
+  {
+    "id": "R072",
+    "requires": "node:47",
+    "concludes": "leaf:47",
+    "node": 47,
+    "kind": "terminal"
+  },
+  {
+    "id": "R073",
+    "requires": "node:48",
+    "concludes": "node:49",
+    "node": 48,
+    "kind": "branch",
+    "feature": 26,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R074",
+    "requires": "node:48",
+    "concludes": "node:56",
+    "node": 48,
+    "kind": "branch",
+    "feature": 26,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R075",
+    "requires": "node:49",
+    "concludes": "node:50",
+    "node": 49,
+    "kind": "branch",
+    "feature": 28,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R076",
+    "requires": "node:49",
+    "concludes": "node:53",
+    "node": 49,
+    "kind": "branch",
+    "feature": 28,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R077",
+    "requires": "node:50",
+    "concludes": "node:51",
+    "node": 50,
+    "kind": "branch",
+    "feature": 21,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R078",
+    "requires": "node:50",
+    "concludes": "node:52",
+    "node": 50,
+    "kind": "branch",
+    "feature": 21,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R079",
+    "requires": "node:51",
+    "concludes": "leaf:51",
+    "node": 51,
+    "kind": "terminal"
+  },
+  {
+    "id": "R080",
+    "requires": "node:52",
+    "concludes": "leaf:52",
+    "node": 52,
+    "kind": "terminal"
+  },
+  {
+    "id": "R081",
+    "requires": "node:53",
+    "concludes": "node:54",
+    "node": 53,
+    "kind": "branch",
+    "feature": 31,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R082",
+    "requires": "node:53",
+    "concludes": "node:55",
+    "node": 53,
+    "kind": "branch",
+    "feature": 31,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R083",
+    "requires": "node:54",
+    "concludes": "leaf:54",
+    "node": 54,
+    "kind": "terminal"
+  },
+  {
+    "id": "R084",
+    "requires": "node:55",
+    "concludes": "leaf:55",
+    "node": 55,
+    "kind": "terminal"
+  },
+  {
+    "id": "R085",
+    "requires": "node:56",
+    "concludes": "node:57",
+    "node": 56,
+    "kind": "branch",
+    "feature": 31,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R086",
+    "requires": "node:56",
+    "concludes": "node:60",
+    "node": 56,
+    "kind": "branch",
+    "feature": 31,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R087",
+    "requires": "node:57",
+    "concludes": "node:58",
+    "node": 57,
+    "kind": "branch",
+    "feature": 28,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R088",
+    "requires": "node:57",
+    "concludes": "node:59",
+    "node": 57,
+    "kind": "branch",
+    "feature": 28,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R089",
+    "requires": "node:58",
+    "concludes": "leaf:58",
+    "node": 58,
+    "kind": "terminal"
+  },
+  {
+    "id": "R090",
+    "requires": "node:59",
+    "concludes": "leaf:59",
+    "node": 59,
+    "kind": "terminal"
+  },
+  {
+    "id": "R091",
+    "requires": "node:60",
+    "concludes": "node:61",
+    "node": 60,
+    "kind": "branch",
+    "feature": 27,
+    "threshold": 0.5,
+    "branch": "absent"
+  },
+  {
+    "id": "R092",
+    "requires": "node:60",
+    "concludes": "node:62",
+    "node": 60,
+    "kind": "branch",
+    "feature": 27,
+    "threshold": 0.5,
+    "branch": "present"
+  },
+  {
+    "id": "R093",
+    "requires": "node:61",
+    "concludes": "leaf:61",
+    "node": 61,
+    "kind": "terminal"
+  },
+  {
+    "id": "R094",
+    "requires": "node:62",
+    "concludes": "leaf:62",
+    "node": 62,
+    "kind": "terminal"
+  }
+]
