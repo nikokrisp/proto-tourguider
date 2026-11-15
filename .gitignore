@@ -24,3 +24,7 @@ artifacts/tests.xml
 artifacts/frontend-tests.tap
 artifacts/browser_audit.json
 artifacts/evaluation-before-audit.json
+
+# Basis kasus individual lokal berisi referensi pengulas internal
+artifacts/cbr-cases-v4.json
+artifacts/.cbr-cases-v4.*

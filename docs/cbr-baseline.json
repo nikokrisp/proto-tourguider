@@ -1,0 +1,6999 @@
+{
+  "policy_version": "mendeley-h58s544674-v1-cbr-3",
+  "artifact_sha256": "09aa4172ef311c169a184dac469675f2f29a3a4f3c42bfa033b479d45ab70dca",
+  "cleaning": {
+    "duplicate_key": [
+      "UserId",
+      "AttractionId",
+      "VisitYear",
+      "VisitMonth",
+      "VisitMode",
+      "Rating"
+    ],
+    "conflicting_ratings": "remove all conflicting values for the same visit context",
+    "excluded_destinations": [
+      947,
+      949,
+      975
+    ]
+  },
+  "audit": {
+    "raw_visits": 52930,
+    "duplicates_removed": 3722,
+    "conflicting_rows_removed": 2052,
+    "clean_visits": 47156,
+    "clean_reviewers": 33009,
+    "visits_by_region": {
+      "bali": 43014,
+      "malang": 827,
+      "yogyakarta": 3315
+    },
+    "catalog": [
+      {
+        "AttractionId": 369,
+        "AttractionCityId": 1,
+        "Attraction": "Kuta Beach - Bali",
+        "AttractionAddress": "Kuta",
+        "AttractionTypeId": 13,
+        "region": "bali",
+        "category": "nature",
+        "name": "Kuta Beach - Bali"
+      },
+      {
+        "AttractionId": 481,
+        "AttractionCityId": 1,
+        "Attraction": "Nusa Dua Beach",
+        "AttractionAddress": "Semenanjung Nusa Dua, Nusa Dua 80517 Indonesia",
+        "AttractionTypeId": 13,
+        "region": "bali",
+        "category": "nature",
+        "name": "Nusa Dua Beach"
+      },
+      {
+        "AttractionId": 640,
+        "AttractionCityId": 1,
+        "Attraction": "Sacred Monkey Forest Sanctuary",
+        "AttractionAddress": "Jl. Monkey Forest, Ubud 80571 Indonesia",
+        "AttractionTypeId": 63,
+        "region": "bali",
+        "category": "nature",
+        "name": "Sacred Monkey Forest Sanctuary"
+      },
+      {
+        "AttractionId": 650,
+        "AttractionCityId": 1,
+        "Attraction": "Sanur Beach",
+        "AttractionAddress": "Sanur",
+        "AttractionTypeId": 13,
+        "region": "bali",
+        "category": "nature",
+        "name": "Sanur Beach"
+      },
+      {
+        "AttractionId": 673,
+        "AttractionCityId": 1,
+        "Attraction": "Seminyak Beach",
+        "AttractionAddress": "Seminyak",
+        "AttractionTypeId": 13,
+        "region": "bali",
+        "category": "nature",
+        "name": "Seminyak Beach"
+      },
+      {
+        "AttractionId": 737,
+        "AttractionCityId": 1,
+        "Attraction": "Tanah Lot Temple",
+        "AttractionAddress": "Kecamatan Kediri, Kabupaten Tabanan, Beraban 82121 Indonesia",
+        "AttractionTypeId": 76,
+        "region": "bali",
+        "category": "culture",
+        "name": "Tanah Lot Temple"
+      },
+      {
+        "AttractionId": 748,
+        "AttractionCityId": 1,
+        "Attraction": "Tegalalang Rice Terrace",
+        "AttractionAddress": "Jalan Raya Ceking, Tegalalang 80517 Indonesia",
+        "AttractionTypeId": 72,
+        "region": "bali",
+        "category": "culture",
+        "name": "Tegalalang Rice Terrace"
+      },
+      {
+        "AttractionId": 749,
+        "AttractionCityId": 1,
+        "Attraction": "Tegenungan Waterfall",
+        "AttractionAddress": "Jl. Raya Tegenungan, Kemenuh, Ubud 80581 Indonesia",
+        "AttractionTypeId": 93,
+        "region": "bali",
+        "category": "waterfall",
+        "name": "Tegenungan Waterfall"
+      },
+      {
+        "AttractionId": 824,
+        "AttractionCityId": 1,
+        "Attraction": "Uluwatu Temple",
+        "AttractionAddress": "Jl. Raya Uluwatu Southern part of Bali, Pecatu 80361 Indonesia",
+        "AttractionTypeId": 76,
+        "region": "bali",
+        "category": "culture",
+        "name": "Uluwatu Temple"
+      },
+      {
+        "AttractionId": 841,
+        "AttractionCityId": 1,
+        "Attraction": "Waterbom Bali",
+        "AttractionAddress": "Jl. Kartika Plaza, Kuta 80361 Indonesia",
+        "AttractionTypeId": 92,
+        "region": "bali",
+        "category": "recreation",
+        "name": "Waterbom Bali"
+      },
+      {
+        "AttractionId": 877,
+        "AttractionCityId": 2,
+        "Attraction": "Balekambang Beach",
+        "AttractionAddress": "Malang District",
+        "AttractionTypeId": 13,
+        "region": "malang",
+        "category": "nature",
+        "name": "Balekambang Beach"
+      },
+      {
+        "AttractionId": 888,
+        "AttractionCityId": 2,
+        "Attraction": "Bromo Tengger Semeru National Park",
+        "AttractionAddress": "Asrikaton - Pakis, Malang 65100 Indonesia",
+        "AttractionTypeId": 61,
+        "region": "malang",
+        "category": "nature",
+        "name": "Bromo Tengger Semeru National Park"
+      },
+      {
+        "AttractionId": 897,
+        "AttractionCityId": 2,
+        "Attraction": "Coban Rondo Waterfall",
+        "AttractionAddress": "Malang District",
+        "AttractionTypeId": 93,
+        "region": "malang",
+        "category": "waterfall",
+        "name": "Air Terjun Coban Rondo"
+      },
+      {
+        "AttractionId": 913,
+        "AttractionCityId": 2,
+        "Attraction": "Goa Cina Beach",
+        "AttractionAddress": "Dusun Trowotratih, Desa Sitiarjo Kecamatan Sumbermanjing Wetan, Malang 65111 Indonesia",
+        "AttractionTypeId": 13,
+        "region": "malang",
+        "category": "nature",
+        "name": "Goa Cina Beach"
+      },
+      {
+        "AttractionId": 920,
+        "AttractionCityId": 2,
+        "Attraction": "Jodipan Colorful Village",
+        "AttractionAddress": "Gang 1 Jodipan, Kesatrian, Kec. Blimbing, Malang 65126 Indonesia",
+        "AttractionTypeId": 64,
+        "region": "malang",
+        "category": "culture",
+        "name": "Jodipan Colorful Village"
+      },
+      {
+        "AttractionId": 928,
+        "AttractionCityId": 2,
+        "Attraction": "Khayangan Reflexology & Massage",
+        "AttractionAddress": "Malang",
+        "AttractionTypeId": 82,
+        "region": "malang",
+        "category": "recreation",
+        "name": "Khayangan Reflexology & Massage"
+      },
+      {
+        "AttractionId": 937,
+        "AttractionCityId": 2,
+        "Attraction": "Malang City Square",
+        "AttractionAddress": "Jl. Merdeka Utara, Malang 65119 Indonesia",
+        "AttractionTypeId": 72,
+        "region": "malang",
+        "category": "culture",
+        "name": "Malang City Square"
+      },
+      {
+        "AttractionId": 947,
+        "AttractionCityId": 2,
+        "Attraction": "Mount Semeru Volcano",
+        "AttractionAddress": "Malang Lumajang",
+        "AttractionTypeId": 91,
+        "region": "malang",
+        "category": "volcano",
+        "name": "Mount Semeru Volcano"
+      },
+      {
+        "AttractionId": 949,
+        "AttractionCityId": 2,
+        "Attraction": "Museum Malang Tempo Doeloe",
+        "AttractionAddress": "Jl. Gajahmada no. 2, Malang 65119 Indonesia",
+        "AttractionTypeId": 84,
+        "region": "malang",
+        "category": "culture",
+        "name": "Museum Malang Tempo Doeloe"
+      },
+      {
+        "AttractionId": 975,
+        "AttractionCityId": 2,
+        "Attraction": "Sempu Island",
+        "AttractionAddress": "Sumber Manjing Wetan, Malang 65111 Indonesia",
+        "AttractionTypeId": 63,
+        "region": "malang",
+        "category": "nature",
+        "name": "Sempu Island"
+      },
+      {
+        "AttractionId": 1133,
+        "AttractionCityId": 3,
+        "Attraction": "Jomblang Cave",
+        "AttractionAddress": "Jetis Wetan, Pacarejo, Semanu 55581 Indonesia",
+        "AttractionTypeId": 19,
+        "region": "yogyakarta",
+        "category": "nature",
+        "name": "Jomblang Cave"
+      },
+      {
+        "AttractionId": 1137,
+        "AttractionCityId": 3,
+        "Attraction": "Kalibiru National Park",
+        "AttractionAddress": "Kulon Progo",
+        "AttractionTypeId": 61,
+        "region": "yogyakarta",
+        "category": "nature",
+        "name": "Kalibiru National Park"
+      },
+      {
+        "AttractionId": 1166,
+        "AttractionCityId": 3,
+        "Attraction": "Malioboro Road",
+        "AttractionAddress": "Yogyakarta",
+        "AttractionTypeId": 34,
+        "region": "yogyakarta",
+        "category": "recreation",
+        "name": "Malioboro Road"
+      },
+      {
+        "AttractionId": 1171,
+        "AttractionCityId": 3,
+        "Attraction": "Merapi Volcano",
+        "AttractionAddress": "Yogyakarta",
+        "AttractionTypeId": 91,
+        "region": "yogyakarta",
+        "category": "volcano",
+        "name": "Gunung Merapi"
+      },
+      {
+        "AttractionId": 1220,
+        "AttractionCityId": 3,
+        "Attraction": "Ramayana Ballet at Prambanan",
+        "AttractionAddress": "Sleman",
+        "AttractionTypeId": 10,
+        "region": "yogyakarta",
+        "category": "culture",
+        "name": "Ramayana Ballet at Prambanan"
+      },
+      {
+        "AttractionId": 1225,
+        "AttractionCityId": 3,
+        "Attraction": "Ratu Boko Temple",
+        "AttractionAddress": "Yogyakarta",
+        "AttractionTypeId": 2,
+        "region": "yogyakarta",
+        "category": "culture",
+        "name": "Ratu Boko Temple"
+      },
+      {
+        "AttractionId": 1238,
+        "AttractionCityId": 3,
+        "Attraction": "Sewu Temple",
+        "AttractionAddress": "Yogyakarta",
+        "AttractionTypeId": 2,
+        "region": "yogyakarta",
+        "category": "culture",
+        "name": "Sewu Temple"
+      },
+      {
+        "AttractionId": 1278,
+        "AttractionCityId": 3,
+        "Attraction": "Ullen Sentalu Museum",
+        "AttractionAddress": "Jl. Boyong Taman Wisata, 55581 Indonesia",
+        "AttractionTypeId": 45,
+        "region": "yogyakarta",
+        "category": "culture",
+        "name": "Ullen Sentalu Museum"
+      },
+      {
+        "AttractionId": 1280,
+        "AttractionCityId": 3,
+        "Attraction": "Water Castle (Tamansari)",
+        "AttractionAddress": "Jl. Taman, 55133 Indonesia",
+        "AttractionTypeId": 72,
+        "region": "yogyakarta",
+        "category": "culture",
+        "name": "Water Castle (Tamansari)"
+      },
+      {
+        "AttractionId": 1297,
+        "AttractionCityId": 3,
+        "Attraction": "Yogyakarta Palace",
+        "AttractionAddress": "Yogyakarta",
+        "AttractionTypeId": 44,
+        "region": "yogyakarta",
+        "category": "culture",
+        "name": "Yogyakarta Palace"
+      }
+    ],
+    "source_sha256": {
+      "Transaction.xlsx": "cf4d4f49402d952844ee0b22b26b34cd3a98f45020310beedb6bb9acd52c99cf",
+      "Item.xlsx": "3cfbd728c8660e8706788f29261865f490cdd144b2605ec2ef997c540bcd5c96",
+      "User.xlsx": "5aebe6b97555657c24a27e99da00f2609389f86d62fdff60381ceb7d0f1c9331",
+      "City.xlsx": "44db59401944ffb699f819115da602ad60b3bcaeb522735ba8799e5de9c038ac",
+      "Mode.xlsx": "c33a3ad697ba3462e043c0ab3d3e0e04a5d824eb04dd8a4f996fedd9a7862c7b",
+      "Type.xlsx": "3e1888d2df75192173bdec355fe3d42d69324bcc976808867b0990dee57d090b"
+    },
+    "active_visits": 46989,
+    "active_reviewers": 32915,
+    "active_places": 27,
+    "active_units": 45811,
+    "active_by_region": {
+      "bali": 43014,
+      "malang": 660,
+      "yogyakarta": 3315
+    },
+    "excluded_visits": {
+      "947": 83,
+      "949": 31,
+      "975": 53
+    }
+  },
+  "split": {
+    "seed": 42,
+    "train_users": 26332,
+    "test_users": 6583
+  },
+  "matrix": [
+    {
+      "answers": {
+        "region": "all",
+        "mode": "business",
+        "category": "all"
+      },
+      "winner": 888,
+      "trace": {
+        "matching_places": 27,
+        "eligible_places": 15,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 19,
+        "similar_mean": 4.631578947368421,
+        "historical_mean": 4.611548556430447,
+        "score": 4.624671916010499,
+        "examples": [
+          {
+            "mode": "Bisnis",
+            "year": 2017,
+            "month": 3,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2017,
+            "month": 4,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2019,
+            "month": 1,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.624671916010499,
+            "count": 19
+          },
+          {
+            "name": "Waterbom Bali",
+            "score": 4.5824576540124555,
+            "count": 20
+          },
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.569370958259847,
+            "count": 14
+          },
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.520935283289935,
+            "count": 46
+          },
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.453812474809151,
+            "count": 52
+          },
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.436010709504685,
+            "count": 65
+          },
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.432387169331573,
+            "count": 24
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 4.344979675523608,
+            "count": 16
+          },
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.297397192432036,
+            "count": 39
+          },
+          {
+            "name": "Gunung Merapi",
+            "score": 4.270095133366908,
+            "count": 39
+          },
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.236436306228182,
+            "count": 28
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 4.081798595981602,
+            "count": 15
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 4.041365807316783,
+            "count": 31
+          },
+          {
+            "name": "Malioboro Road",
+            "score": 4.009069865319865,
+            "count": 30
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.5122063697939185,
+            "count": 35
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "business",
+        "category": "nature"
+      },
+      "winner": 888,
+      "trace": {
+        "matching_places": 12,
+        "eligible_places": 7,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 19,
+        "similar_mean": 4.631578947368421,
+        "historical_mean": 4.611548556430447,
+        "score": 4.624671916010499,
+        "examples": [
+          {
+            "mode": "Bisnis",
+            "year": 2017,
+            "month": 3,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2017,
+            "month": 4,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2019,
+            "month": 1,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.624671916010499,
+            "count": 19
+          },
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.453812474809151,
+            "count": 52
+          },
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.436010709504685,
+            "count": 65
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 4.344979675523608,
+            "count": 16
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 4.081798595981602,
+            "count": 15
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 4.041365807316783,
+            "count": 31
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.5122063697939185,
+            "count": 35
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "business",
+        "category": "waterfall"
+      },
+      "winner": 749,
+      "trace": {
+        "matching_places": 2,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 16,
+        "similar_mean": 4.625,
+        "historical_mean": 3.8969471563613816,
+        "score": 4.344979675523608,
+        "examples": [
+          {
+            "mode": "Bisnis",
+            "year": 2016,
+            "month": 8,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2016,
+            "month": 11,
+            "rating": 4
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2017,
+            "month": 2,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 4.344979675523608,
+            "count": 16
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "business",
+        "category": "culture"
+      },
+      "winner": 1220,
+      "trace": {
+        "matching_places": 11,
+        "eligible_places": 5,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 14,
+        "similar_mean": 4.714285714285714,
+        "historical_mean": 4.366490299823633,
+        "score": 4.569370958259847,
+        "examples": [
+          {
+            "mode": "Bisnis",
+            "year": 2016,
+            "month": 11,
+            "rating": 4
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2017,
+            "month": 4,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2018,
+            "month": 3,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.569370958259847,
+            "count": 14
+          },
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.520935283289935,
+            "count": 46
+          },
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.432387169331573,
+            "count": 24
+          },
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.297397192432036,
+            "count": 39
+          },
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.236436306228182,
+            "count": 28
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "business",
+        "category": "recreation"
+      },
+      "winner": 841,
+      "trace": {
+        "matching_places": 3,
+        "eligible_places": 2,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 20,
+        "similar_mean": 4.55,
+        "historical_mean": 4.647372962037368,
+        "score": 4.5824576540124555,
+        "examples": [
+          {
+            "mode": "Bisnis",
+            "year": 2016,
+            "month": 1,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2018,
+            "month": 11,
+            "rating": 4
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2019,
+            "month": 2,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Waterbom Bali",
+            "score": 4.5824576540124555,
+            "count": 20
+          },
+          {
+            "name": "Malioboro Road",
+            "score": 4.009069865319865,
+            "count": 30
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "business",
+        "category": "volcano"
+      },
+      "winner": 1171,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 39,
+        "similar_mean": 4.269230769230769,
+        "historical_mean": 4.273466153497849,
+        "score": 4.270095133366908,
+        "examples": [
+          {
+            "mode": "Bisnis",
+            "year": 2013,
+            "month": 7,
+            "rating": 4
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2016,
+            "month": 4,
+            "rating": 4
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2018,
+            "month": 4,
+            "rating": 3
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Gunung Merapi",
+            "score": 4.270095133366908,
+            "count": 39
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "couples",
+        "category": "all"
+      },
+      "winner": 841,
+      "trace": {
+        "matching_places": 27,
+        "eligible_places": 24,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 1258,
+        "similar_mean": 4.659379968203497,
+        "historical_mean": 4.647372962037368,
+        "score": 4.659285275725847,
+        "examples": [
+          {
+            "mode": "Pasangan",
+            "year": 2015,
+            "month": 12,
+            "rating": 5
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2016,
+            "month": 1,
+            "rating": 5
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2017,
+            "month": 4,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Waterbom Bali",
+            "score": 4.659285275725847,
+            "count": 1258
+          },
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.609056779294993,
+            "count": 69
+          },
+          {
+            "name": "Jomblang Cave",
+            "score": 4.578735632183908,
+            "count": 35
+          },
+          {
+            "name": "Sewu Temple",
+            "score": 4.54229797979798,
+            "count": 45
+          },
+          {
+            "name": "Jodipan Colorful Village",
+            "score": 4.455602536997886,
+            "count": 12
+          },
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.307175985270469,
+            "count": 97
+          },
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.301961649669176,
+            "count": 5769
+          },
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.2738336625546705,
+            "count": 911
+          },
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.200781963834173,
+            "count": 73
+          },
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.196836041833848,
+            "count": 1421
+          },
+          {
+            "name": "Gunung Merapi",
+            "score": 4.187651311503708,
+            "count": 164
+          },
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.183392729145602,
+            "count": 1414
+          },
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.140365104337967,
+            "count": 2617
+          },
+          {
+            "name": "Goa Cina Beach",
+            "score": 4.0480769230769225,
+            "count": 10
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 3.898386916805022,
+            "count": 1315
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.8907277979118713,
+            "count": 1061
+          },
+          {
+            "name": "Malioboro Road",
+            "score": 3.855941253329313,
+            "count": 124
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 3.7873514238402466,
+            "count": 1370
+          },
+          {
+            "name": "Water Castle (Tamansari)",
+            "score": 3.68513782324524,
+            "count": 75
+          },
+          {
+            "name": "Ratu Boko Temple",
+            "score": 3.5682773109243695,
+            "count": 46
+          },
+          {
+            "name": "Malang City Square",
+            "score": 3.513392857142857,
+            "count": 11
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.347891188488292,
+            "count": 1081
+          },
+          {
+            "name": "Yogyakarta Palace",
+            "score": 3.2576326326326326,
+            "count": 138
+          },
+          {
+            "name": "Kalibiru National Park",
+            "score": 3.242498469075321,
+            "count": 13
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "couples",
+        "category": "nature"
+      },
+      "winner": 888,
+      "trace": {
+        "matching_places": 12,
+        "eligible_places": 10,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 69,
+        "similar_mean": 4.608695652173913,
+        "historical_mean": 4.611548556430447,
+        "score": 4.609056779294993,
+        "examples": [
+          {
+            "mode": "Pasangan",
+            "year": 2015,
+            "month": 6,
+            "rating": 2
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2016,
+            "month": 6,
+            "rating": 5
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2018,
+            "month": 9,
+            "rating": 4
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.609056779294993,
+            "count": 69
+          },
+          {
+            "name": "Jomblang Cave",
+            "score": 4.578735632183908,
+            "count": 35
+          },
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.301961649669176,
+            "count": 5769
+          },
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.2738336625546705,
+            "count": 911
+          },
+          {
+            "name": "Goa Cina Beach",
+            "score": 4.0480769230769225,
+            "count": 10
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 3.898386916805022,
+            "count": 1315
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.8907277979118713,
+            "count": 1061
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 3.7873514238402466,
+            "count": 1370
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.347891188488292,
+            "count": 1081
+          },
+          {
+            "name": "Kalibiru National Park",
+            "score": 3.242498469075321,
+            "count": 13
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "couples",
+        "category": "waterfall"
+      },
+      "winner": 749,
+      "trace": {
+        "matching_places": 2,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 1061,
+        "similar_mean": 3.89066918001885,
+        "historical_mean": 3.8969471563613816,
+        "score": 3.8907277979118713,
+        "examples": [
+          {
+            "mode": "Pasangan",
+            "year": 2017,
+            "month": 5,
+            "rating": 3
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2017,
+            "month": 9,
+            "rating": 4
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2018,
+            "month": 3,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.8907277979118713,
+            "count": 1061
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "couples",
+        "category": "culture"
+      },
+      "winner": 1238,
+      "trace": {
+        "matching_places": 11,
+        "eligible_places": 11,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 45,
+        "similar_mean": 4.559259259259259,
+        "historical_mean": 4.465972222222223,
+        "score": 4.54229797979798,
+        "examples": [
+          {
+            "mode": "Pasangan",
+            "year": 2016,
+            "month": 3,
+            "rating": 4
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2017,
+            "month": 2,
+            "rating": 4
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2022,
+            "month": 8,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Sewu Temple",
+            "score": 4.54229797979798,
+            "count": 45
+          },
+          {
+            "name": "Jodipan Colorful Village",
+            "score": 4.455602536997886,
+            "count": 12
+          },
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.307175985270469,
+            "count": 97
+          },
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.200781963834173,
+            "count": 73
+          },
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.196836041833848,
+            "count": 1421
+          },
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.183392729145602,
+            "count": 1414
+          },
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.140365104337967,
+            "count": 2617
+          },
+          {
+            "name": "Water Castle (Tamansari)",
+            "score": 3.68513782324524,
+            "count": 75
+          },
+          {
+            "name": "Ratu Boko Temple",
+            "score": 3.5682773109243695,
+            "count": 46
+          },
+          {
+            "name": "Malang City Square",
+            "score": 3.513392857142857,
+            "count": 11
+          },
+          {
+            "name": "Yogyakarta Palace",
+            "score": 3.2576326326326326,
+            "count": 138
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "couples",
+        "category": "recreation"
+      },
+      "winner": 841,
+      "trace": {
+        "matching_places": 3,
+        "eligible_places": 2,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 1258,
+        "similar_mean": 4.659379968203497,
+        "historical_mean": 4.647372962037368,
+        "score": 4.659285275725847,
+        "examples": [
+          {
+            "mode": "Pasangan",
+            "year": 2015,
+            "month": 12,
+            "rating": 5
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2016,
+            "month": 1,
+            "rating": 5
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2017,
+            "month": 4,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Waterbom Bali",
+            "score": 4.659285275725847,
+            "count": 1258
+          },
+          {
+            "name": "Malioboro Road",
+            "score": 3.855941253329313,
+            "count": 124
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "couples",
+        "category": "volcano"
+      },
+      "winner": 1171,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 164,
+        "similar_mean": 4.182418699186992,
+        "historical_mean": 4.273466153497849,
+        "score": 4.187651311503708,
+        "examples": [
+          {
+            "mode": "Pasangan",
+            "year": 2013,
+            "month": 11,
+            "rating": 4
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2015,
+            "month": 8,
+            "rating": 4
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2016,
+            "month": 4,
+            "rating": 3
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Gunung Merapi",
+            "score": 4.187651311503708,
+            "count": 164
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "family",
+        "category": "all"
+      },
+      "winner": 841,
+      "trace": {
+        "matching_places": 27,
+        "eligible_places": 25,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 3505,
+        "similar_mean": 4.649976224441275,
+        "historical_mean": 4.647372962037368,
+        "score": 4.649968818289343,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2016,
+            "month": 7,
+            "rating": 5
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2016,
+            "month": 12,
+            "rating": 4
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2017,
+            "month": 3,
+            "rating": 4
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Waterbom Bali",
+            "score": 4.649968818289343,
+            "count": 3505
+          },
+          {
+            "name": "Sewu Temple",
+            "score": 4.581018518518519,
+            "count": 29
+          },
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.509616254864693,
+            "count": 106
+          },
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.503584847787747,
+            "count": 36
+          },
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.375876589093546,
+            "count": 138
+          },
+          {
+            "name": "Jomblang Cave",
+            "score": 4.3719667943805876,
+            "count": 17
+          },
+          {
+            "name": "Gunung Merapi",
+            "score": 4.277728617428702,
+            "count": 189
+          },
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.250285231836437,
+            "count": 694
+          },
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.207505557811493,
+            "count": 814
+          },
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.207225824302621,
+            "count": 2839
+          },
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.193267205681165,
+            "count": 811
+          },
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.102373683586618,
+            "count": 1158
+          },
+          {
+            "name": "Goa Cina Beach",
+            "score": 4.095533498759305,
+            "count": 21
+          },
+          {
+            "name": "Air Terjun Coban Rondo",
+            "score": 4.060493827160494,
+            "count": 20
+          },
+          {
+            "name": "Kalibiru National Park",
+            "score": 4.035915492957746,
+            "count": 20
+          },
+          {
+            "name": "Ratu Boko Temple",
+            "score": 4.024972253052164,
+            "count": 43
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 3.9935861122830283,
+            "count": 739
+          },
+          {
+            "name": "Balekambang Beach",
+            "score": 3.971111111111111,
+            "count": 15
+          },
+          {
+            "name": "Water Castle (Tamansari)",
+            "score": 3.911791018071211,
+            "count": 44
+          },
+          {
+            "name": "Malioboro Road",
+            "score": 3.871396033160739,
+            "count": 109
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.840019173205696,
+            "count": 484
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 3.755920382058565,
+            "count": 631
+          },
+          {
+            "name": "Malang City Square",
+            "score": 3.6956018518518516,
+            "count": 17
+          },
+          {
+            "name": "Yogyakarta Palace",
+            "score": 3.583758069996602,
+            "count": 99
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.449773703664754,
+            "count": 656
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "family",
+        "category": "nature"
+      },
+      "winner": 888,
+      "trace": {
+        "matching_places": 12,
+        "eligible_places": 12,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 106,
+        "similar_mean": 4.5,
+        "historical_mean": 4.611548556430447,
+        "score": 4.509616254864693,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2015,
+            "month": 7,
+            "rating": 5
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2015,
+            "month": 11,
+            "rating": 4
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2016,
+            "month": 10,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.509616254864693,
+            "count": 106
+          },
+          {
+            "name": "Jomblang Cave",
+            "score": 4.3719667943805876,
+            "count": 17
+          },
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.250285231836437,
+            "count": 694
+          },
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.207225824302621,
+            "count": 2839
+          },
+          {
+            "name": "Goa Cina Beach",
+            "score": 4.095533498759305,
+            "count": 21
+          },
+          {
+            "name": "Air Terjun Coban Rondo",
+            "score": 4.060493827160494,
+            "count": 20
+          },
+          {
+            "name": "Kalibiru National Park",
+            "score": 4.035915492957746,
+            "count": 20
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 3.9935861122830283,
+            "count": 739
+          },
+          {
+            "name": "Balekambang Beach",
+            "score": 3.971111111111111,
+            "count": 15
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.840019173205696,
+            "count": 484
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 3.755920382058565,
+            "count": 631
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.449773703664754,
+            "count": 656
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "family",
+        "category": "waterfall"
+      },
+      "winner": 897,
+      "trace": {
+        "matching_places": 2,
+        "eligible_places": 2,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 20,
+        "similar_mean": 4.1,
+        "historical_mean": 3.9814814814814814,
+        "score": 4.060493827160494,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2016,
+            "month": 2,
+            "rating": 3
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2016,
+            "month": 4,
+            "rating": 3
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2017,
+            "month": 5,
+            "rating": 3
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Air Terjun Coban Rondo",
+            "score": 4.060493827160494,
+            "count": 20
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.840019173205696,
+            "count": 484
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "family",
+        "category": "culture"
+      },
+      "winner": 1238,
+      "trace": {
+        "matching_places": 11,
+        "eligible_places": 10,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 29,
+        "similar_mean": 4.620689655172414,
+        "historical_mean": 4.465972222222223,
+        "score": 4.581018518518519,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2013,
+            "month": 7,
+            "rating": 5
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2017,
+            "month": 5,
+            "rating": 5
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2018,
+            "month": 9,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Sewu Temple",
+            "score": 4.581018518518519,
+            "count": 29
+          },
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.503584847787747,
+            "count": 36
+          },
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.375876589093546,
+            "count": 138
+          },
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.207505557811493,
+            "count": 814
+          },
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.193267205681165,
+            "count": 811
+          },
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.102373683586618,
+            "count": 1158
+          },
+          {
+            "name": "Ratu Boko Temple",
+            "score": 4.024972253052164,
+            "count": 43
+          },
+          {
+            "name": "Water Castle (Tamansari)",
+            "score": 3.911791018071211,
+            "count": 44
+          },
+          {
+            "name": "Malang City Square",
+            "score": 3.6956018518518516,
+            "count": 17
+          },
+          {
+            "name": "Yogyakarta Palace",
+            "score": 3.583758069996602,
+            "count": 99
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "family",
+        "category": "recreation"
+      },
+      "winner": 841,
+      "trace": {
+        "matching_places": 3,
+        "eligible_places": 2,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 3505,
+        "similar_mean": 4.649976224441275,
+        "historical_mean": 4.647372962037368,
+        "score": 4.649968818289343,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2016,
+            "month": 7,
+            "rating": 5
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2016,
+            "month": 12,
+            "rating": 4
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2017,
+            "month": 3,
+            "rating": 4
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Waterbom Bali",
+            "score": 4.649968818289343,
+            "count": 3505
+          },
+          {
+            "name": "Malioboro Road",
+            "score": 3.871396033160739,
+            "count": 109
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "family",
+        "category": "volcano"
+      },
+      "winner": 1171,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 189,
+        "similar_mean": 4.277954144620811,
+        "historical_mean": 4.273466153497849,
+        "score": 4.277728617428702,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2014,
+            "month": 8,
+            "rating": 1
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2017,
+            "month": 8,
+            "rating": 4
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2019,
+            "month": 3,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Gunung Merapi",
+            "score": 4.277728617428702,
+            "count": 189
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "friends",
+        "category": "all"
+      },
+      "winner": 888,
+      "trace": {
+        "matching_places": 27,
+        "eligible_places": 26,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 149,
+        "similar_mean": 4.671140939597316,
+        "historical_mean": 4.611548556430447,
+        "score": 4.667392990970468,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2014,
+            "month": 12,
+            "rating": 5
+          },
+          {
+            "mode": "Teman",
+            "year": 2018,
+            "month": 4,
+            "rating": 3
+          },
+          {
+            "mode": "Teman",
+            "year": 2020,
+            "month": 3,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.667392990970468,
+            "count": 149
+          },
+          {
+            "name": "Waterbom Bali",
+            "score": 4.616006043903348,
+            "count": 938
+          },
+          {
+            "name": "Jomblang Cave",
+            "score": 4.509528130671507,
+            "count": 47
+          },
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.483240501540559,
+            "count": 157
+          },
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.383308138070043,
+            "count": 60
+          },
+          {
+            "name": "Gunung Merapi",
+            "score": 4.327846723633378,
+            "count": 251
+          },
+          {
+            "name": "Jodipan Colorful Village",
+            "score": 4.319238900634249,
+            "count": 12
+          },
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.267848416710192,
+            "count": 700
+          },
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.263751357189658,
+            "count": 2230
+          },
+          {
+            "name": "Sewu Temple",
+            "score": 4.242266414141414,
+            "count": 34
+          },
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.241770294027516,
+            "count": 239
+          },
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.207724760051649,
+            "count": 700
+          },
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.203480737118949,
+            "count": 1160
+          },
+          {
+            "name": "Goa Cina Beach",
+            "score": 4.132051282051282,
+            "count": 20
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 4.117233712835226,
+            "count": 512
+          },
+          {
+            "name": "Balekambang Beach",
+            "score": 4.113888888888889,
+            "count": 10
+          },
+          {
+            "name": "Water Castle (Tamansari)",
+            "score": 3.95529746542254,
+            "count": 63
+          },
+          {
+            "name": "Air Terjun Coban Rondo",
+            "score": 3.9295101553166067,
+            "count": 21
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.918174992795836,
+            "count": 467
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 3.8986800085656292,
+            "count": 562
+          },
+          {
+            "name": "Ratu Boko Temple",
+            "score": 3.8658963585434174,
+            "count": 46
+          },
+          {
+            "name": "Malioboro Road",
+            "score": 3.8258676508676506,
+            "count": 120
+          },
+          {
+            "name": "Malang City Square",
+            "score": 3.75125,
+            "count": 15
+          },
+          {
+            "name": "Kalibiru National Park",
+            "score": 3.7430775126952183,
+            "count": 39
+          },
+          {
+            "name": "Yogyakarta Palace",
+            "score": 3.525040257648953,
+            "count": 105
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.4597657466679683,
+            "count": 548
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "friends",
+        "category": "nature"
+      },
+      "winner": 888,
+      "trace": {
+        "matching_places": 12,
+        "eligible_places": 12,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 149,
+        "similar_mean": 4.671140939597316,
+        "historical_mean": 4.611548556430447,
+        "score": 4.667392990970468,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2014,
+            "month": 12,
+            "rating": 5
+          },
+          {
+            "mode": "Teman",
+            "year": 2018,
+            "month": 4,
+            "rating": 3
+          },
+          {
+            "mode": "Teman",
+            "year": 2020,
+            "month": 3,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.667392990970468,
+            "count": 149
+          },
+          {
+            "name": "Jomblang Cave",
+            "score": 4.509528130671507,
+            "count": 47
+          },
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.263751357189658,
+            "count": 2230
+          },
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.241770294027516,
+            "count": 239
+          },
+          {
+            "name": "Goa Cina Beach",
+            "score": 4.132051282051282,
+            "count": 20
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 4.117233712835226,
+            "count": 512
+          },
+          {
+            "name": "Balekambang Beach",
+            "score": 4.113888888888889,
+            "count": 10
+          },
+          {
+            "name": "Air Terjun Coban Rondo",
+            "score": 3.9295101553166067,
+            "count": 21
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.918174992795836,
+            "count": 467
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 3.8986800085656292,
+            "count": 562
+          },
+          {
+            "name": "Kalibiru National Park",
+            "score": 3.7430775126952183,
+            "count": 39
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.4597657466679683,
+            "count": 548
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "friends",
+        "category": "waterfall"
+      },
+      "winner": 897,
+      "trace": {
+        "matching_places": 2,
+        "eligible_places": 2,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 21,
+        "similar_mean": 3.9047619047619047,
+        "historical_mean": 3.9814814814814814,
+        "score": 3.9295101553166067,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2015,
+            "month": 10,
+            "rating": 4
+          },
+          {
+            "mode": "Teman",
+            "year": 2016,
+            "month": 8,
+            "rating": 3
+          },
+          {
+            "mode": "Teman",
+            "year": 2017,
+            "month": 1,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Air Terjun Coban Rondo",
+            "score": 3.9295101553166067,
+            "count": 21
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.918174992795836,
+            "count": 467
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "friends",
+        "category": "culture"
+      },
+      "winner": 1278,
+      "trace": {
+        "matching_places": 11,
+        "eligible_places": 11,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 157,
+        "similar_mean": 4.487261146496815,
+        "historical_mean": 4.420116375727348,
+        "score": 4.483240501540559,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2015,
+            "month": 8,
+            "rating": 4
+          },
+          {
+            "mode": "Teman",
+            "year": 2015,
+            "month": 12,
+            "rating": 5
+          },
+          {
+            "mode": "Teman",
+            "year": 2016,
+            "month": 10,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.483240501540559,
+            "count": 157
+          },
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.383308138070043,
+            "count": 60
+          },
+          {
+            "name": "Jodipan Colorful Village",
+            "score": 4.319238900634249,
+            "count": 12
+          },
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.267848416710192,
+            "count": 700
+          },
+          {
+            "name": "Sewu Temple",
+            "score": 4.242266414141414,
+            "count": 34
+          },
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.207724760051649,
+            "count": 700
+          },
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.203480737118949,
+            "count": 1160
+          },
+          {
+            "name": "Water Castle (Tamansari)",
+            "score": 3.95529746542254,
+            "count": 63
+          },
+          {
+            "name": "Ratu Boko Temple",
+            "score": 3.8658963585434174,
+            "count": 46
+          },
+          {
+            "name": "Malang City Square",
+            "score": 3.75125,
+            "count": 15
+          },
+          {
+            "name": "Yogyakarta Palace",
+            "score": 3.525040257648953,
+            "count": 105
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "friends",
+        "category": "recreation"
+      },
+      "winner": 841,
+      "trace": {
+        "matching_places": 3,
+        "eligible_places": 2,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 938,
+        "similar_mean": 4.615671641791045,
+        "historical_mean": 4.647372962037368,
+        "score": 4.616006043903348,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2013,
+            "month": 8,
+            "rating": 4
+          },
+          {
+            "mode": "Teman",
+            "year": 2016,
+            "month": 2,
+            "rating": 4
+          },
+          {
+            "mode": "Teman",
+            "year": 2017,
+            "month": 2,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Waterbom Bali",
+            "score": 4.616006043903348,
+            "count": 938
+          },
+          {
+            "name": "Malioboro Road",
+            "score": 3.8258676508676506,
+            "count": 120
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "friends",
+        "category": "volcano"
+      },
+      "winner": 1171,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 251,
+        "similar_mean": 4.330013280212483,
+        "historical_mean": 4.273466153497849,
+        "score": 4.327846723633378,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2015,
+            "month": 12,
+            "rating": 3
+          },
+          {
+            "mode": "Teman",
+            "year": 2016,
+            "month": 5,
+            "rating": 3
+          },
+          {
+            "mode": "Teman",
+            "year": 2018,
+            "month": 9,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Gunung Merapi",
+            "score": 4.327846723633378,
+            "count": 251
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "solo",
+        "category": "all"
+      },
+      "winner": 888,
+      "trace": {
+        "matching_places": 27,
+        "eligible_places": 23,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 38,
+        "similar_mean": 4.684210526315789,
+        "historical_mean": 4.611548556430447,
+        "score": 4.669072615923009,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2017,
+            "month": 6,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2017,
+            "month": 12,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2018,
+            "month": 7,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.669072615923009,
+            "count": 38
+          },
+          {
+            "name": "Waterbom Bali",
+            "score": 4.623661324074103,
+            "count": 103
+          },
+          {
+            "name": "Khayangan Reflexology & Massage",
+            "score": 4.623376623376623,
+            "count": 12
+          },
+          {
+            "name": "Sewu Temple",
+            "score": 4.488266283524904,
+            "count": 19
+          },
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.476140085663895,
+            "count": 25
+          },
+          {
+            "name": "Jomblang Cave",
+            "score": 4.446040868454662,
+            "count": 17
+          },
+          {
+            "name": "Jodipan Colorful Village",
+            "score": 4.41014799154334,
+            "count": 12
+          },
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.395019395954558,
+            "count": 50
+          },
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.324046184738956,
+            "count": 94
+          },
+          {
+            "name": "Ratu Boko Temple",
+            "score": 4.259515570934256,
+            "count": 24
+          },
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.236732832586266,
+            "count": 531
+          },
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.223563627158949,
+            "count": 227
+          },
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.212594812984053,
+            "count": 226
+          },
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.209275229670394,
+            "count": 1108
+          },
+          {
+            "name": "Gunung Merapi",
+            "score": 4.122398642499789,
+            "count": 92
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 3.9920276750864643,
+            "count": 279
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.9866412602869334,
+            "count": 142
+          },
+          {
+            "name": "Malioboro Road",
+            "score": 3.9652223994329256,
+            "count": 85
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 3.7736964311946157,
+            "count": 224
+          },
+          {
+            "name": "Water Castle (Tamansari)",
+            "score": 3.7562293414696164,
+            "count": 28
+          },
+          {
+            "name": "Yogyakarta Palace",
+            "score": 3.731633272616879,
+            "count": 51
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.405571914326778,
+            "count": 286
+          },
+          {
+            "name": "Malang City Square",
+            "score": 3.385044642857143,
+            "count": 18
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "solo",
+        "category": "nature"
+      },
+      "winner": 888,
+      "trace": {
+        "matching_places": 12,
+        "eligible_places": 8,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 38,
+        "similar_mean": 4.684210526315789,
+        "historical_mean": 4.611548556430447,
+        "score": 4.669072615923009,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2017,
+            "month": 6,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2017,
+            "month": 12,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2018,
+            "month": 7,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.669072615923009,
+            "count": 38
+          },
+          {
+            "name": "Jomblang Cave",
+            "score": 4.446040868454662,
+            "count": 17
+          },
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.324046184738956,
+            "count": 94
+          },
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.209275229670394,
+            "count": 1108
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 3.9920276750864643,
+            "count": 279
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.9866412602869334,
+            "count": 142
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 3.7736964311946157,
+            "count": 224
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.405571914326778,
+            "count": 286
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "solo",
+        "category": "waterfall"
+      },
+      "winner": 749,
+      "trace": {
+        "matching_places": 2,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 142,
+        "similar_mean": 3.992957746478873,
+        "historical_mean": 3.8969471563613816,
+        "score": 3.9866412602869334,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2017,
+            "month": 3,
+            "rating": 4
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2017,
+            "month": 5,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2017,
+            "month": 8,
+            "rating": 2
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.9866412602869334,
+            "count": 142
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "solo",
+        "category": "culture"
+      },
+      "winner": 1238,
+      "trace": {
+        "matching_places": 11,
+        "eligible_places": 11,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 19,
+        "similar_mean": 4.5,
+        "historical_mean": 4.465972222222223,
+        "score": 4.488266283524904,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2014,
+            "month": 9,
+            "rating": 4
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2018,
+            "month": 5,
+            "rating": 3
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2018,
+            "month": 10,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Sewu Temple",
+            "score": 4.488266283524904,
+            "count": 19
+          },
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.476140085663895,
+            "count": 25
+          },
+          {
+            "name": "Jodipan Colorful Village",
+            "score": 4.41014799154334,
+            "count": 12
+          },
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.395019395954558,
+            "count": 50
+          },
+          {
+            "name": "Ratu Boko Temple",
+            "score": 4.259515570934256,
+            "count": 24
+          },
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.236732832586266,
+            "count": 531
+          },
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.223563627158949,
+            "count": 227
+          },
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.212594812984053,
+            "count": 226
+          },
+          {
+            "name": "Water Castle (Tamansari)",
+            "score": 3.7562293414696164,
+            "count": 28
+          },
+          {
+            "name": "Yogyakarta Palace",
+            "score": 3.731633272616879,
+            "count": 51
+          },
+          {
+            "name": "Malang City Square",
+            "score": 3.385044642857143,
+            "count": 18
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "solo",
+        "category": "recreation"
+      },
+      "winner": 841,
+      "trace": {
+        "matching_places": 3,
+        "eligible_places": 3,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 103,
+        "similar_mean": 4.621359223300971,
+        "historical_mean": 4.647372962037368,
+        "score": 4.623661324074103,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2014,
+            "month": 10,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2015,
+            "month": 11,
+            "rating": 4
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2016,
+            "month": 8,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Waterbom Bali",
+            "score": 4.623661324074103,
+            "count": 103
+          },
+          {
+            "name": "Khayangan Reflexology & Massage",
+            "score": 4.623376623376623,
+            "count": 12
+          },
+          {
+            "name": "Malioboro Road",
+            "score": 3.9652223994329256,
+            "count": 85
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "all",
+        "mode": "solo",
+        "category": "volcano"
+      },
+      "winner": 1171,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 92,
+        "similar_mean": 4.105978260869565,
+        "historical_mean": 4.273466153497849,
+        "score": 4.122398642499789,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2015,
+            "month": 12,
+            "rating": 3
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2016,
+            "month": 5,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2017,
+            "month": 8,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Gunung Merapi",
+            "score": 4.122398642499789,
+            "count": 92
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "business",
+        "category": "all"
+      },
+      "winner": 841,
+      "trace": {
+        "matching_places": 10,
+        "eligible_places": 10,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 20,
+        "similar_mean": 4.55,
+        "historical_mean": 4.647372962037368,
+        "score": 4.5824576540124555,
+        "examples": [
+          {
+            "mode": "Bisnis",
+            "year": 2016,
+            "month": 1,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2018,
+            "month": 11,
+            "rating": 4
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2019,
+            "month": 2,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Waterbom Bali",
+            "score": 4.5824576540124555,
+            "count": 20
+          },
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.520935283289935,
+            "count": 46
+          },
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.453812474809151,
+            "count": 52
+          },
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.436010709504685,
+            "count": 65
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 4.344979675523608,
+            "count": 16
+          },
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.297397192432036,
+            "count": 39
+          },
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.236436306228182,
+            "count": 28
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 4.081798595981602,
+            "count": 15
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 4.041365807316783,
+            "count": 31
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.5122063697939185,
+            "count": 35
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "business",
+        "category": "nature"
+      },
+      "winner": 640,
+      "trace": {
+        "matching_places": 6,
+        "eligible_places": 6,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 52,
+        "similar_mean": 4.490384615384615,
+        "historical_mean": 4.26363734381674,
+        "score": 4.453812474809151,
+        "examples": [
+          {
+            "mode": "Bisnis",
+            "year": 2016,
+            "month": 1,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2016,
+            "month": 8,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2017,
+            "month": 3,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.453812474809151,
+            "count": 52
+          },
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.436010709504685,
+            "count": 65
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 4.344979675523608,
+            "count": 16
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 4.081798595981602,
+            "count": 15
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 4.041365807316783,
+            "count": 31
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.5122063697939185,
+            "count": 35
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "business",
+        "category": "waterfall"
+      },
+      "winner": 749,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 16,
+        "similar_mean": 4.625,
+        "historical_mean": 3.8969471563613816,
+        "score": 4.344979675523608,
+        "examples": [
+          {
+            "mode": "Bisnis",
+            "year": 2016,
+            "month": 8,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2016,
+            "month": 11,
+            "rating": 4
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2017,
+            "month": 2,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 4.344979675523608,
+            "count": 16
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "business",
+        "category": "culture"
+      },
+      "winner": 824,
+      "trace": {
+        "matching_places": 3,
+        "eligible_places": 3,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 46,
+        "similar_mean": 4.586956521739131,
+        "historical_mean": 4.217237586423633,
+        "score": 4.520935283289935,
+        "examples": [
+          {
+            "mode": "Bisnis",
+            "year": 2015,
+            "month": 7,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2017,
+            "month": 3,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2017,
+            "month": 7,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.520935283289935,
+            "count": 46
+          },
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.297397192432036,
+            "count": 39
+          },
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.236436306228182,
+            "count": 28
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "business",
+        "category": "recreation"
+      },
+      "winner": 841,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 20,
+        "similar_mean": 4.55,
+        "historical_mean": 4.647372962037368,
+        "score": 4.5824576540124555,
+        "examples": [
+          {
+            "mode": "Bisnis",
+            "year": 2016,
+            "month": 1,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2018,
+            "month": 11,
+            "rating": 4
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2019,
+            "month": 2,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Waterbom Bali",
+            "score": 4.5824576540124555,
+            "count": 20
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "business",
+        "category": "volcano"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 0,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "couples",
+        "category": "all"
+      },
+      "winner": 841,
+      "trace": {
+        "matching_places": 10,
+        "eligible_places": 10,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 1258,
+        "similar_mean": 4.659379968203497,
+        "historical_mean": 4.647372962037368,
+        "score": 4.659285275725847,
+        "examples": [
+          {
+            "mode": "Pasangan",
+            "year": 2015,
+            "month": 12,
+            "rating": 5
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2016,
+            "month": 1,
+            "rating": 5
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2017,
+            "month": 4,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Waterbom Bali",
+            "score": 4.659285275725847,
+            "count": 1258
+          },
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.301961649669176,
+            "count": 5769
+          },
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.2738336625546705,
+            "count": 911
+          },
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.196836041833848,
+            "count": 1421
+          },
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.183392729145602,
+            "count": 1414
+          },
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.140365104337967,
+            "count": 2617
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 3.898386916805022,
+            "count": 1315
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.8907277979118713,
+            "count": 1061
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 3.7873514238402466,
+            "count": 1370
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.347891188488292,
+            "count": 1081
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "couples",
+        "category": "nature"
+      },
+      "winner": 640,
+      "trace": {
+        "matching_places": 6,
+        "eligible_places": 6,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 5769,
+        "similar_mean": 4.302028081123245,
+        "historical_mean": 4.26363734381674,
+        "score": 4.301961649669176,
+        "examples": [
+          {
+            "mode": "Pasangan",
+            "year": 2013,
+            "month": 4,
+            "rating": 4
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2015,
+            "month": 12,
+            "rating": 3
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2017,
+            "month": 12,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.301961649669176,
+            "count": 5769
+          },
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.2738336625546705,
+            "count": 911
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 3.898386916805022,
+            "count": 1315
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.8907277979118713,
+            "count": 1061
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 3.7873514238402466,
+            "count": 1370
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.347891188488292,
+            "count": 1081
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "couples",
+        "category": "waterfall"
+      },
+      "winner": 749,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 1061,
+        "similar_mean": 3.89066918001885,
+        "historical_mean": 3.8969471563613816,
+        "score": 3.8907277979118713,
+        "examples": [
+          {
+            "mode": "Pasangan",
+            "year": 2017,
+            "month": 5,
+            "rating": 3
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2017,
+            "month": 9,
+            "rating": 4
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2018,
+            "month": 3,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.8907277979118713,
+            "count": 1061
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "couples",
+        "category": "culture"
+      },
+      "winner": 824,
+      "trace": {
+        "matching_places": 3,
+        "eligible_places": 3,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 1421,
+        "similar_mean": 4.1966924700914845,
+        "historical_mean": 4.217237586423633,
+        "score": 4.196836041833848,
+        "examples": [
+          {
+            "mode": "Pasangan",
+            "year": 2015,
+            "month": 2,
+            "rating": 5
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2015,
+            "month": 6,
+            "rating": 2
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2016,
+            "month": 2,
+            "rating": 4
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.196836041833848,
+            "count": 1421
+          },
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.183392729145602,
+            "count": 1414
+          },
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.140365104337967,
+            "count": 2617
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "couples",
+        "category": "recreation"
+      },
+      "winner": 841,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 1258,
+        "similar_mean": 4.659379968203497,
+        "historical_mean": 4.647372962037368,
+        "score": 4.659285275725847,
+        "examples": [
+          {
+            "mode": "Pasangan",
+            "year": 2015,
+            "month": 12,
+            "rating": 5
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2016,
+            "month": 1,
+            "rating": 5
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2017,
+            "month": 4,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Waterbom Bali",
+            "score": 4.659285275725847,
+            "count": 1258
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "couples",
+        "category": "volcano"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 0,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "family",
+        "category": "all"
+      },
+      "winner": 841,
+      "trace": {
+        "matching_places": 10,
+        "eligible_places": 10,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 3505,
+        "similar_mean": 4.649976224441275,
+        "historical_mean": 4.647372962037368,
+        "score": 4.649968818289343,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2016,
+            "month": 7,
+            "rating": 5
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2016,
+            "month": 12,
+            "rating": 4
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2017,
+            "month": 3,
+            "rating": 4
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Waterbom Bali",
+            "score": 4.649968818289343,
+            "count": 3505
+          },
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.250285231836437,
+            "count": 694
+          },
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.207505557811493,
+            "count": 814
+          },
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.207225824302621,
+            "count": 2839
+          },
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.193267205681165,
+            "count": 811
+          },
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.102373683586618,
+            "count": 1158
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 3.9935861122830283,
+            "count": 739
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.840019173205696,
+            "count": 484
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 3.755920382058565,
+            "count": 631
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.449773703664754,
+            "count": 656
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "family",
+        "category": "nature"
+      },
+      "winner": 481,
+      "trace": {
+        "matching_places": 6,
+        "eligible_places": 6,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 694,
+        "similar_mean": 4.25,
+        "historical_mean": 4.270080321285141,
+        "score": 4.250285231836437,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2017,
+            "month": 1,
+            "rating": 4
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2018,
+            "month": 4,
+            "rating": 5
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2019,
+            "month": 6,
+            "rating": 4
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.250285231836437,
+            "count": 694
+          },
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.207225824302621,
+            "count": 2839
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 3.9935861122830283,
+            "count": 739
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.840019173205696,
+            "count": 484
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 3.755920382058565,
+            "count": 631
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.449773703664754,
+            "count": 656
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "family",
+        "category": "waterfall"
+      },
+      "winner": 749,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 484,
+        "similar_mean": 3.8388429752066116,
+        "historical_mean": 3.8969471563613816,
+        "score": 3.840019173205696,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2017,
+            "month": 5,
+            "rating": 5
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2017,
+            "month": 7,
+            "rating": 4
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2018,
+            "month": 8,
+            "rating": 3
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.840019173205696,
+            "count": 484
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "family",
+        "category": "culture"
+      },
+      "winner": 737,
+      "trace": {
+        "matching_places": 3,
+        "eligible_places": 3,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 814,
+        "similar_mean": 4.207616707616707,
+        "historical_mean": 4.198457963667089,
+        "score": 4.207505557811493,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2015,
+            "month": 1,
+            "rating": 5
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2015,
+            "month": 12,
+            "rating": 3
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2016,
+            "month": 2,
+            "rating": 4
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.207505557811493,
+            "count": 814
+          },
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.193267205681165,
+            "count": 811
+          },
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.102373683586618,
+            "count": 1158
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "family",
+        "category": "recreation"
+      },
+      "winner": 841,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 3505,
+        "similar_mean": 4.649976224441275,
+        "historical_mean": 4.647372962037368,
+        "score": 4.649968818289343,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2016,
+            "month": 7,
+            "rating": 5
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2016,
+            "month": 12,
+            "rating": 4
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2017,
+            "month": 3,
+            "rating": 4
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Waterbom Bali",
+            "score": 4.649968818289343,
+            "count": 3505
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "family",
+        "category": "volcano"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 0,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "friends",
+        "category": "all"
+      },
+      "winner": 841,
+      "trace": {
+        "matching_places": 10,
+        "eligible_places": 10,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 938,
+        "similar_mean": 4.615671641791045,
+        "historical_mean": 4.647372962037368,
+        "score": 4.616006043903348,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2013,
+            "month": 8,
+            "rating": 4
+          },
+          {
+            "mode": "Teman",
+            "year": 2016,
+            "month": 2,
+            "rating": 4
+          },
+          {
+            "mode": "Teman",
+            "year": 2017,
+            "month": 2,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Waterbom Bali",
+            "score": 4.616006043903348,
+            "count": 938
+          },
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.267848416710192,
+            "count": 700
+          },
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.263751357189658,
+            "count": 2230
+          },
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.241770294027516,
+            "count": 239
+          },
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.207724760051649,
+            "count": 700
+          },
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.203480737118949,
+            "count": 1160
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 4.117233712835226,
+            "count": 512
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.918174992795836,
+            "count": 467
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 3.8986800085656292,
+            "count": 562
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.4597657466679683,
+            "count": 548
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "friends",
+        "category": "nature"
+      },
+      "winner": 640,
+      "trace": {
+        "matching_places": 6,
+        "eligible_places": 6,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 2230,
+        "similar_mean": 4.263751868460389,
+        "historical_mean": 4.26363734381674,
+        "score": 4.263751357189658,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2015,
+            "month": 8,
+            "rating": 4
+          },
+          {
+            "mode": "Teman",
+            "year": 2018,
+            "month": 8,
+            "rating": 5
+          },
+          {
+            "mode": "Teman",
+            "year": 2018,
+            "month": 12,
+            "rating": 4
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.263751357189658,
+            "count": 2230
+          },
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.241770294027516,
+            "count": 239
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 4.117233712835226,
+            "count": 512
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.918174992795836,
+            "count": 467
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 3.8986800085656292,
+            "count": 562
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.4597657466679683,
+            "count": 548
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "friends",
+        "category": "waterfall"
+      },
+      "winner": 749,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 467,
+        "similar_mean": 3.918629550321199,
+        "historical_mean": 3.8969471563613816,
+        "score": 3.918174992795836,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2017,
+            "month": 12,
+            "rating": 3
+          },
+          {
+            "mode": "Teman",
+            "year": 2018,
+            "month": 7,
+            "rating": 4
+          },
+          {
+            "mode": "Teman",
+            "year": 2018,
+            "month": 12,
+            "rating": 3
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.918174992795836,
+            "count": 467
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "friends",
+        "category": "culture"
+      },
+      "winner": 824,
+      "trace": {
+        "matching_places": 3,
+        "eligible_places": 3,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 700,
+        "similar_mean": 4.268571428571429,
+        "historical_mean": 4.217237586423633,
+        "score": 4.267848416710192,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2014,
+            "month": 4,
+            "rating": 4
+          },
+          {
+            "mode": "Teman",
+            "year": 2017,
+            "month": 3,
+            "rating": 1
+          },
+          {
+            "mode": "Teman",
+            "year": 2019,
+            "month": 9,
+            "rating": 4
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.267848416710192,
+            "count": 700
+          },
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.207724760051649,
+            "count": 700
+          },
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.203480737118949,
+            "count": 1160
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "friends",
+        "category": "recreation"
+      },
+      "winner": 841,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 938,
+        "similar_mean": 4.615671641791045,
+        "historical_mean": 4.647372962037368,
+        "score": 4.616006043903348,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2013,
+            "month": 8,
+            "rating": 4
+          },
+          {
+            "mode": "Teman",
+            "year": 2016,
+            "month": 2,
+            "rating": 4
+          },
+          {
+            "mode": "Teman",
+            "year": 2017,
+            "month": 2,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Waterbom Bali",
+            "score": 4.616006043903348,
+            "count": 938
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "friends",
+        "category": "volcano"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 0,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "solo",
+        "category": "all"
+      },
+      "winner": 841,
+      "trace": {
+        "matching_places": 10,
+        "eligible_places": 10,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 103,
+        "similar_mean": 4.621359223300971,
+        "historical_mean": 4.647372962037368,
+        "score": 4.623661324074103,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2014,
+            "month": 10,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2015,
+            "month": 11,
+            "rating": 4
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2016,
+            "month": 8,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Waterbom Bali",
+            "score": 4.623661324074103,
+            "count": 103
+          },
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.324046184738956,
+            "count": 94
+          },
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.236732832586266,
+            "count": 531
+          },
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.223563627158949,
+            "count": 227
+          },
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.212594812984053,
+            "count": 226
+          },
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.209275229670394,
+            "count": 1108
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 3.9920276750864643,
+            "count": 279
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.9866412602869334,
+            "count": 142
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 3.7736964311946157,
+            "count": 224
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.405571914326778,
+            "count": 286
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "solo",
+        "category": "nature"
+      },
+      "winner": 481,
+      "trace": {
+        "matching_places": 6,
+        "eligible_places": 6,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 94,
+        "similar_mean": 4.329787234042553,
+        "historical_mean": 4.270080321285141,
+        "score": 4.324046184738956,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2015,
+            "month": 3,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2016,
+            "month": 12,
+            "rating": 3
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2018,
+            "month": 2,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Nusa Dua Beach",
+            "score": 4.324046184738956,
+            "count": 94
+          },
+          {
+            "name": "Sacred Monkey Forest Sanctuary",
+            "score": 4.209275229670394,
+            "count": 1108
+          },
+          {
+            "name": "Sanur Beach",
+            "score": 3.9920276750864643,
+            "count": 279
+          },
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.9866412602869334,
+            "count": 142
+          },
+          {
+            "name": "Seminyak Beach",
+            "score": 3.7736964311946157,
+            "count": 224
+          },
+          {
+            "name": "Kuta Beach - Bali",
+            "score": 3.405571914326778,
+            "count": 286
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "solo",
+        "category": "waterfall"
+      },
+      "winner": 749,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 142,
+        "similar_mean": 3.992957746478873,
+        "historical_mean": 3.8969471563613816,
+        "score": 3.9866412602869334,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2017,
+            "month": 3,
+            "rating": 4
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2017,
+            "month": 5,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2017,
+            "month": 8,
+            "rating": 2
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Tegenungan Waterfall",
+            "score": 3.9866412602869334,
+            "count": 142
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "solo",
+        "category": "culture"
+      },
+      "winner": 748,
+      "trace": {
+        "matching_places": 3,
+        "eligible_places": 3,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 531,
+        "similar_mean": 4.238229755178907,
+        "historical_mean": 4.157246242916975,
+        "score": 4.236732832586266,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2013,
+            "month": 5,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2016,
+            "month": 10,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2018,
+            "month": 9,
+            "rating": 4
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Tegalalang Rice Terrace",
+            "score": 4.236732832586266,
+            "count": 531
+          },
+          {
+            "name": "Tanah Lot Temple",
+            "score": 4.223563627158949,
+            "count": 227
+          },
+          {
+            "name": "Uluwatu Temple",
+            "score": 4.212594812984053,
+            "count": 226
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "solo",
+        "category": "recreation"
+      },
+      "winner": 841,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 103,
+        "similar_mean": 4.621359223300971,
+        "historical_mean": 4.647372962037368,
+        "score": 4.623661324074103,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2014,
+            "month": 10,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2015,
+            "month": 11,
+            "rating": 4
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2016,
+            "month": 8,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Waterbom Bali",
+            "score": 4.623661324074103,
+            "count": 103
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "bali",
+        "mode": "solo",
+        "category": "volcano"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 0,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "business",
+        "category": "all"
+      },
+      "winner": 1220,
+      "trace": {
+        "matching_places": 10,
+        "eligible_places": 4,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 14,
+        "similar_mean": 4.714285714285714,
+        "historical_mean": 4.366490299823633,
+        "score": 4.569370958259847,
+        "examples": [
+          {
+            "mode": "Bisnis",
+            "year": 2016,
+            "month": 11,
+            "rating": 4
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2017,
+            "month": 4,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2018,
+            "month": 3,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.569370958259847,
+            "count": 14
+          },
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.432387169331573,
+            "count": 24
+          },
+          {
+            "name": "Gunung Merapi",
+            "score": 4.270095133366908,
+            "count": 39
+          },
+          {
+            "name": "Malioboro Road",
+            "score": 4.009069865319865,
+            "count": 30
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "business",
+        "category": "nature"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 2,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "business",
+        "category": "waterfall"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 0,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "business",
+        "category": "culture"
+      },
+      "winner": 1220,
+      "trace": {
+        "matching_places": 6,
+        "eligible_places": 2,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 14,
+        "similar_mean": 4.714285714285714,
+        "historical_mean": 4.366490299823633,
+        "score": 4.569370958259847,
+        "examples": [
+          {
+            "mode": "Bisnis",
+            "year": 2016,
+            "month": 11,
+            "rating": 4
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2017,
+            "month": 4,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2018,
+            "month": 3,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.569370958259847,
+            "count": 14
+          },
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.432387169331573,
+            "count": 24
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "business",
+        "category": "recreation"
+      },
+      "winner": 1166,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 30,
+        "similar_mean": 4.055555555555555,
+        "historical_mean": 3.8696127946127947,
+        "score": 4.009069865319865,
+        "examples": [
+          {
+            "mode": "Bisnis",
+            "year": 2015,
+            "month": 11,
+            "rating": 4
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2016,
+            "month": 11,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2018,
+            "month": 7,
+            "rating": 4
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Malioboro Road",
+            "score": 4.009069865319865,
+            "count": 30
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "business",
+        "category": "volcano"
+      },
+      "winner": 1171,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 39,
+        "similar_mean": 4.269230769230769,
+        "historical_mean": 4.273466153497849,
+        "score": 4.270095133366908,
+        "examples": [
+          {
+            "mode": "Bisnis",
+            "year": 2013,
+            "month": 7,
+            "rating": 4
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2016,
+            "month": 4,
+            "rating": 4
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2018,
+            "month": 4,
+            "rating": 3
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Gunung Merapi",
+            "score": 4.270095133366908,
+            "count": 39
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "couples",
+        "category": "all"
+      },
+      "winner": 1133,
+      "trace": {
+        "matching_places": 10,
+        "eligible_places": 10,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 35,
+        "similar_mean": 4.6,
+        "historical_mean": 4.504310344827586,
+        "score": 4.578735632183908,
+        "examples": [
+          {
+            "mode": "Pasangan",
+            "year": 2016,
+            "month": 11,
+            "rating": 5
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2018,
+            "month": 1,
+            "rating": 4
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2019,
+            "month": 8,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Jomblang Cave",
+            "score": 4.578735632183908,
+            "count": 35
+          },
+          {
+            "name": "Sewu Temple",
+            "score": 4.54229797979798,
+            "count": 45
+          },
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.307175985270469,
+            "count": 97
+          },
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.200781963834173,
+            "count": 73
+          },
+          {
+            "name": "Gunung Merapi",
+            "score": 4.187651311503708,
+            "count": 164
+          },
+          {
+            "name": "Malioboro Road",
+            "score": 3.855941253329313,
+            "count": 124
+          },
+          {
+            "name": "Water Castle (Tamansari)",
+            "score": 3.68513782324524,
+            "count": 75
+          },
+          {
+            "name": "Ratu Boko Temple",
+            "score": 3.5682773109243695,
+            "count": 46
+          },
+          {
+            "name": "Yogyakarta Palace",
+            "score": 3.2576326326326326,
+            "count": 138
+          },
+          {
+            "name": "Kalibiru National Park",
+            "score": 3.242498469075321,
+            "count": 13
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "couples",
+        "category": "nature"
+      },
+      "winner": 1133,
+      "trace": {
+        "matching_places": 2,
+        "eligible_places": 2,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 35,
+        "similar_mean": 4.6,
+        "historical_mean": 4.504310344827586,
+        "score": 4.578735632183908,
+        "examples": [
+          {
+            "mode": "Pasangan",
+            "year": 2016,
+            "month": 11,
+            "rating": 5
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2018,
+            "month": 1,
+            "rating": 4
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2019,
+            "month": 8,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Jomblang Cave",
+            "score": 4.578735632183908,
+            "count": 35
+          },
+          {
+            "name": "Kalibiru National Park",
+            "score": 3.242498469075321,
+            "count": 13
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "couples",
+        "category": "waterfall"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 0,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "couples",
+        "category": "culture"
+      },
+      "winner": 1238,
+      "trace": {
+        "matching_places": 6,
+        "eligible_places": 6,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 45,
+        "similar_mean": 4.559259259259259,
+        "historical_mean": 4.465972222222223,
+        "score": 4.54229797979798,
+        "examples": [
+          {
+            "mode": "Pasangan",
+            "year": 2016,
+            "month": 3,
+            "rating": 4
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2017,
+            "month": 2,
+            "rating": 4
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2022,
+            "month": 8,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Sewu Temple",
+            "score": 4.54229797979798,
+            "count": 45
+          },
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.307175985270469,
+            "count": 97
+          },
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.200781963834173,
+            "count": 73
+          },
+          {
+            "name": "Water Castle (Tamansari)",
+            "score": 3.68513782324524,
+            "count": 75
+          },
+          {
+            "name": "Ratu Boko Temple",
+            "score": 3.5682773109243695,
+            "count": 46
+          },
+          {
+            "name": "Yogyakarta Palace",
+            "score": 3.2576326326326326,
+            "count": 138
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "couples",
+        "category": "recreation"
+      },
+      "winner": 1166,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 124,
+        "similar_mean": 3.8548387096774195,
+        "historical_mean": 3.8696127946127947,
+        "score": 3.855941253329313,
+        "examples": [
+          {
+            "mode": "Pasangan",
+            "year": 2015,
+            "month": 12,
+            "rating": 3
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2018,
+            "month": 12,
+            "rating": 3
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2019,
+            "month": 3,
+            "rating": 3
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Malioboro Road",
+            "score": 3.855941253329313,
+            "count": 124
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "couples",
+        "category": "volcano"
+      },
+      "winner": 1171,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 164,
+        "similar_mean": 4.182418699186992,
+        "historical_mean": 4.273466153497849,
+        "score": 4.187651311503708,
+        "examples": [
+          {
+            "mode": "Pasangan",
+            "year": 2013,
+            "month": 11,
+            "rating": 4
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2015,
+            "month": 8,
+            "rating": 4
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2016,
+            "month": 4,
+            "rating": 3
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Gunung Merapi",
+            "score": 4.187651311503708,
+            "count": 164
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "family",
+        "category": "all"
+      },
+      "winner": 1238,
+      "trace": {
+        "matching_places": 10,
+        "eligible_places": 10,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 29,
+        "similar_mean": 4.620689655172414,
+        "historical_mean": 4.465972222222223,
+        "score": 4.581018518518519,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2013,
+            "month": 7,
+            "rating": 5
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2017,
+            "month": 5,
+            "rating": 5
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2018,
+            "month": 9,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Sewu Temple",
+            "score": 4.581018518518519,
+            "count": 29
+          },
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.503584847787747,
+            "count": 36
+          },
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.375876589093546,
+            "count": 138
+          },
+          {
+            "name": "Jomblang Cave",
+            "score": 4.3719667943805876,
+            "count": 17
+          },
+          {
+            "name": "Gunung Merapi",
+            "score": 4.277728617428702,
+            "count": 189
+          },
+          {
+            "name": "Kalibiru National Park",
+            "score": 4.035915492957746,
+            "count": 20
+          },
+          {
+            "name": "Ratu Boko Temple",
+            "score": 4.024972253052164,
+            "count": 43
+          },
+          {
+            "name": "Water Castle (Tamansari)",
+            "score": 3.911791018071211,
+            "count": 44
+          },
+          {
+            "name": "Malioboro Road",
+            "score": 3.871396033160739,
+            "count": 109
+          },
+          {
+            "name": "Yogyakarta Palace",
+            "score": 3.583758069996602,
+            "count": 99
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "family",
+        "category": "nature"
+      },
+      "winner": 1133,
+      "trace": {
+        "matching_places": 2,
+        "eligible_places": 2,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 17,
+        "similar_mean": 4.294117647058823,
+        "historical_mean": 4.504310344827586,
+        "score": 4.3719667943805876,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2016,
+            "month": 9,
+            "rating": 5
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2017,
+            "month": 12,
+            "rating": 3
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2018,
+            "month": 1,
+            "rating": 4
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Jomblang Cave",
+            "score": 4.3719667943805876,
+            "count": 17
+          },
+          {
+            "name": "Kalibiru National Park",
+            "score": 4.035915492957746,
+            "count": 20
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "family",
+        "category": "waterfall"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 0,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "family",
+        "category": "culture"
+      },
+      "winner": 1238,
+      "trace": {
+        "matching_places": 6,
+        "eligible_places": 6,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 29,
+        "similar_mean": 4.620689655172414,
+        "historical_mean": 4.465972222222223,
+        "score": 4.581018518518519,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2013,
+            "month": 7,
+            "rating": 5
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2017,
+            "month": 5,
+            "rating": 5
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2018,
+            "month": 9,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Sewu Temple",
+            "score": 4.581018518518519,
+            "count": 29
+          },
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.503584847787747,
+            "count": 36
+          },
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.375876589093546,
+            "count": 138
+          },
+          {
+            "name": "Ratu Boko Temple",
+            "score": 4.024972253052164,
+            "count": 43
+          },
+          {
+            "name": "Water Castle (Tamansari)",
+            "score": 3.911791018071211,
+            "count": 44
+          },
+          {
+            "name": "Yogyakarta Palace",
+            "score": 3.583758069996602,
+            "count": 99
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "family",
+        "category": "recreation"
+      },
+      "winner": 1166,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 109,
+        "similar_mean": 3.871559633027523,
+        "historical_mean": 3.8696127946127947,
+        "score": 3.871396033160739,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2013,
+            "month": 12,
+            "rating": 2
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2015,
+            "month": 12,
+            "rating": 4
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2019,
+            "month": 6,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Malioboro Road",
+            "score": 3.871396033160739,
+            "count": 109
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "family",
+        "category": "volcano"
+      },
+      "winner": 1171,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 189,
+        "similar_mean": 4.277954144620811,
+        "historical_mean": 4.273466153497849,
+        "score": 4.277728617428702,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2014,
+            "month": 8,
+            "rating": 1
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2017,
+            "month": 8,
+            "rating": 4
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2019,
+            "month": 3,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Gunung Merapi",
+            "score": 4.277728617428702,
+            "count": 189
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "friends",
+        "category": "all"
+      },
+      "winner": 1133,
+      "trace": {
+        "matching_places": 10,
+        "eligible_places": 10,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 47,
+        "similar_mean": 4.51063829787234,
+        "historical_mean": 4.504310344827586,
+        "score": 4.509528130671507,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2015,
+            "month": 11,
+            "rating": 5
+          },
+          {
+            "mode": "Teman",
+            "year": 2017,
+            "month": 4,
+            "rating": 5
+          },
+          {
+            "mode": "Teman",
+            "year": 2017,
+            "month": 5,
+            "rating": 4
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Jomblang Cave",
+            "score": 4.509528130671507,
+            "count": 47
+          },
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.483240501540559,
+            "count": 157
+          },
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.383308138070043,
+            "count": 60
+          },
+          {
+            "name": "Gunung Merapi",
+            "score": 4.327846723633378,
+            "count": 251
+          },
+          {
+            "name": "Sewu Temple",
+            "score": 4.242266414141414,
+            "count": 34
+          },
+          {
+            "name": "Water Castle (Tamansari)",
+            "score": 3.95529746542254,
+            "count": 63
+          },
+          {
+            "name": "Ratu Boko Temple",
+            "score": 3.8658963585434174,
+            "count": 46
+          },
+          {
+            "name": "Malioboro Road",
+            "score": 3.8258676508676506,
+            "count": 120
+          },
+          {
+            "name": "Kalibiru National Park",
+            "score": 3.7430775126952183,
+            "count": 39
+          },
+          {
+            "name": "Yogyakarta Palace",
+            "score": 3.525040257648953,
+            "count": 105
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "friends",
+        "category": "nature"
+      },
+      "winner": 1133,
+      "trace": {
+        "matching_places": 2,
+        "eligible_places": 2,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 47,
+        "similar_mean": 4.51063829787234,
+        "historical_mean": 4.504310344827586,
+        "score": 4.509528130671507,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2015,
+            "month": 11,
+            "rating": 5
+          },
+          {
+            "mode": "Teman",
+            "year": 2017,
+            "month": 4,
+            "rating": 5
+          },
+          {
+            "mode": "Teman",
+            "year": 2017,
+            "month": 5,
+            "rating": 4
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Jomblang Cave",
+            "score": 4.509528130671507,
+            "count": 47
+          },
+          {
+            "name": "Kalibiru National Park",
+            "score": 3.7430775126952183,
+            "count": 39
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "friends",
+        "category": "waterfall"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 0,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "friends",
+        "category": "culture"
+      },
+      "winner": 1278,
+      "trace": {
+        "matching_places": 6,
+        "eligible_places": 6,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 157,
+        "similar_mean": 4.487261146496815,
+        "historical_mean": 4.420116375727348,
+        "score": 4.483240501540559,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2015,
+            "month": 8,
+            "rating": 4
+          },
+          {
+            "mode": "Teman",
+            "year": 2015,
+            "month": 12,
+            "rating": 5
+          },
+          {
+            "mode": "Teman",
+            "year": 2016,
+            "month": 10,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.483240501540559,
+            "count": 157
+          },
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.383308138070043,
+            "count": 60
+          },
+          {
+            "name": "Sewu Temple",
+            "score": 4.242266414141414,
+            "count": 34
+          },
+          {
+            "name": "Water Castle (Tamansari)",
+            "score": 3.95529746542254,
+            "count": 63
+          },
+          {
+            "name": "Ratu Boko Temple",
+            "score": 3.8658963585434174,
+            "count": 46
+          },
+          {
+            "name": "Yogyakarta Palace",
+            "score": 3.525040257648953,
+            "count": 105
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "friends",
+        "category": "recreation"
+      },
+      "winner": 1166,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 120,
+        "similar_mean": 3.822222222222222,
+        "historical_mean": 3.8696127946127947,
+        "score": 3.8258676508676506,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2015,
+            "month": 12,
+            "rating": 4
+          },
+          {
+            "mode": "Teman",
+            "year": 2016,
+            "month": 5,
+            "rating": 4
+          },
+          {
+            "mode": "Teman",
+            "year": 2016,
+            "month": 6,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Malioboro Road",
+            "score": 3.8258676508676506,
+            "count": 120
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "friends",
+        "category": "volcano"
+      },
+      "winner": 1171,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 251,
+        "similar_mean": 4.330013280212483,
+        "historical_mean": 4.273466153497849,
+        "score": 4.327846723633378,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2015,
+            "month": 12,
+            "rating": 3
+          },
+          {
+            "mode": "Teman",
+            "year": 2016,
+            "month": 5,
+            "rating": 3
+          },
+          {
+            "mode": "Teman",
+            "year": 2018,
+            "month": 9,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Gunung Merapi",
+            "score": 4.327846723633378,
+            "count": 251
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "solo",
+        "category": "all"
+      },
+      "winner": 1238,
+      "trace": {
+        "matching_places": 10,
+        "eligible_places": 9,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 19,
+        "similar_mean": 4.5,
+        "historical_mean": 4.465972222222223,
+        "score": 4.488266283524904,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2014,
+            "month": 9,
+            "rating": 4
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2018,
+            "month": 5,
+            "rating": 3
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2018,
+            "month": 10,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Sewu Temple",
+            "score": 4.488266283524904,
+            "count": 19
+          },
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.476140085663895,
+            "count": 25
+          },
+          {
+            "name": "Jomblang Cave",
+            "score": 4.446040868454662,
+            "count": 17
+          },
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.395019395954558,
+            "count": 50
+          },
+          {
+            "name": "Ratu Boko Temple",
+            "score": 4.259515570934256,
+            "count": 24
+          },
+          {
+            "name": "Gunung Merapi",
+            "score": 4.122398642499789,
+            "count": 92
+          },
+          {
+            "name": "Malioboro Road",
+            "score": 3.9652223994329256,
+            "count": 85
+          },
+          {
+            "name": "Water Castle (Tamansari)",
+            "score": 3.7562293414696164,
+            "count": 28
+          },
+          {
+            "name": "Yogyakarta Palace",
+            "score": 3.731633272616879,
+            "count": 51
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "solo",
+        "category": "nature"
+      },
+      "winner": 1133,
+      "trace": {
+        "matching_places": 2,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 17,
+        "similar_mean": 4.411764705882353,
+        "historical_mean": 4.504310344827586,
+        "score": 4.446040868454662,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2015,
+            "month": 4,
+            "rating": 4
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2017,
+            "month": 11,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2019,
+            "month": 5,
+            "rating": 4
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Jomblang Cave",
+            "score": 4.446040868454662,
+            "count": 17
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "solo",
+        "category": "waterfall"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 0,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "solo",
+        "category": "culture"
+      },
+      "winner": 1238,
+      "trace": {
+        "matching_places": 6,
+        "eligible_places": 6,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 19,
+        "similar_mean": 4.5,
+        "historical_mean": 4.465972222222223,
+        "score": 4.488266283524904,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2014,
+            "month": 9,
+            "rating": 4
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2018,
+            "month": 5,
+            "rating": 3
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2018,
+            "month": 10,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Sewu Temple",
+            "score": 4.488266283524904,
+            "count": 19
+          },
+          {
+            "name": "Ramayana Ballet at Prambanan",
+            "score": 4.476140085663895,
+            "count": 25
+          },
+          {
+            "name": "Ullen Sentalu Museum",
+            "score": 4.395019395954558,
+            "count": 50
+          },
+          {
+            "name": "Ratu Boko Temple",
+            "score": 4.259515570934256,
+            "count": 24
+          },
+          {
+            "name": "Water Castle (Tamansari)",
+            "score": 3.7562293414696164,
+            "count": 28
+          },
+          {
+            "name": "Yogyakarta Palace",
+            "score": 3.731633272616879,
+            "count": 51
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "solo",
+        "category": "recreation"
+      },
+      "winner": 1166,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 85,
+        "similar_mean": 3.976470588235294,
+        "historical_mean": 3.8696127946127947,
+        "score": 3.9652223994329256,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2013,
+            "month": 12,
+            "rating": 4
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2019,
+            "month": 3,
+            "rating": 4
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2019,
+            "month": 3,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Malioboro Road",
+            "score": 3.9652223994329256,
+            "count": 85
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "yogyakarta",
+        "mode": "solo",
+        "category": "volcano"
+      },
+      "winner": 1171,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 92,
+        "similar_mean": 4.105978260869565,
+        "historical_mean": 4.273466153497849,
+        "score": 4.122398642499789,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2015,
+            "month": 12,
+            "rating": 3
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2016,
+            "month": 5,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2017,
+            "month": 8,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Gunung Merapi",
+            "score": 4.122398642499789,
+            "count": 92
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "business",
+        "category": "all"
+      },
+      "winner": 888,
+      "trace": {
+        "matching_places": 7,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 19,
+        "similar_mean": 4.631578947368421,
+        "historical_mean": 4.611548556430447,
+        "score": 4.624671916010499,
+        "examples": [
+          {
+            "mode": "Bisnis",
+            "year": 2017,
+            "month": 3,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2017,
+            "month": 4,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2019,
+            "month": 1,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.624671916010499,
+            "count": 19
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "business",
+        "category": "nature"
+      },
+      "winner": 888,
+      "trace": {
+        "matching_places": 4,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 19,
+        "similar_mean": 4.631578947368421,
+        "historical_mean": 4.611548556430447,
+        "score": 4.624671916010499,
+        "examples": [
+          {
+            "mode": "Bisnis",
+            "year": 2017,
+            "month": 3,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2017,
+            "month": 4,
+            "rating": 5
+          },
+          {
+            "mode": "Bisnis",
+            "year": 2019,
+            "month": 1,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.624671916010499,
+            "count": 19
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "business",
+        "category": "waterfall"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "business",
+        "category": "culture"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 2,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "business",
+        "category": "recreation"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "business",
+        "category": "volcano"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 0,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "couples",
+        "category": "all"
+      },
+      "winner": 888,
+      "trace": {
+        "matching_places": 7,
+        "eligible_places": 4,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 69,
+        "similar_mean": 4.608695652173913,
+        "historical_mean": 4.611548556430447,
+        "score": 4.609056779294993,
+        "examples": [
+          {
+            "mode": "Pasangan",
+            "year": 2015,
+            "month": 6,
+            "rating": 2
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2016,
+            "month": 6,
+            "rating": 5
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2018,
+            "month": 9,
+            "rating": 4
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.609056779294993,
+            "count": 69
+          },
+          {
+            "name": "Jodipan Colorful Village",
+            "score": 4.455602536997886,
+            "count": 12
+          },
+          {
+            "name": "Goa Cina Beach",
+            "score": 4.0480769230769225,
+            "count": 10
+          },
+          {
+            "name": "Malang City Square",
+            "score": 3.513392857142857,
+            "count": 11
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "couples",
+        "category": "nature"
+      },
+      "winner": 888,
+      "trace": {
+        "matching_places": 4,
+        "eligible_places": 2,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 69,
+        "similar_mean": 4.608695652173913,
+        "historical_mean": 4.611548556430447,
+        "score": 4.609056779294993,
+        "examples": [
+          {
+            "mode": "Pasangan",
+            "year": 2015,
+            "month": 6,
+            "rating": 2
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2016,
+            "month": 6,
+            "rating": 5
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2018,
+            "month": 9,
+            "rating": 4
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.609056779294993,
+            "count": 69
+          },
+          {
+            "name": "Goa Cina Beach",
+            "score": 4.0480769230769225,
+            "count": 10
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "couples",
+        "category": "waterfall"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "couples",
+        "category": "culture"
+      },
+      "winner": 920,
+      "trace": {
+        "matching_places": 2,
+        "eligible_places": 2,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 12,
+        "similar_mean": 4.583333333333333,
+        "historical_mean": 4.3023255813953485,
+        "score": 4.455602536997886,
+        "examples": [
+          {
+            "mode": "Pasangan",
+            "year": 2018,
+            "month": 1,
+            "rating": 5
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2018,
+            "month": 2,
+            "rating": 5
+          },
+          {
+            "mode": "Pasangan",
+            "year": 2018,
+            "month": 10,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Jodipan Colorful Village",
+            "score": 4.455602536997886,
+            "count": 12
+          },
+          {
+            "name": "Malang City Square",
+            "score": 3.513392857142857,
+            "count": 11
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "couples",
+        "category": "recreation"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "couples",
+        "category": "volcano"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 0,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "family",
+        "category": "all"
+      },
+      "winner": 888,
+      "trace": {
+        "matching_places": 7,
+        "eligible_places": 5,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 106,
+        "similar_mean": 4.5,
+        "historical_mean": 4.611548556430447,
+        "score": 4.509616254864693,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2015,
+            "month": 7,
+            "rating": 5
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2015,
+            "month": 11,
+            "rating": 4
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2016,
+            "month": 10,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.509616254864693,
+            "count": 106
+          },
+          {
+            "name": "Goa Cina Beach",
+            "score": 4.095533498759305,
+            "count": 21
+          },
+          {
+            "name": "Air Terjun Coban Rondo",
+            "score": 4.060493827160494,
+            "count": 20
+          },
+          {
+            "name": "Balekambang Beach",
+            "score": 3.971111111111111,
+            "count": 15
+          },
+          {
+            "name": "Malang City Square",
+            "score": 3.6956018518518516,
+            "count": 17
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "family",
+        "category": "nature"
+      },
+      "winner": 888,
+      "trace": {
+        "matching_places": 4,
+        "eligible_places": 4,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 106,
+        "similar_mean": 4.5,
+        "historical_mean": 4.611548556430447,
+        "score": 4.509616254864693,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2015,
+            "month": 7,
+            "rating": 5
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2015,
+            "month": 11,
+            "rating": 4
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2016,
+            "month": 10,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.509616254864693,
+            "count": 106
+          },
+          {
+            "name": "Goa Cina Beach",
+            "score": 4.095533498759305,
+            "count": 21
+          },
+          {
+            "name": "Air Terjun Coban Rondo",
+            "score": 4.060493827160494,
+            "count": 20
+          },
+          {
+            "name": "Balekambang Beach",
+            "score": 3.971111111111111,
+            "count": 15
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "family",
+        "category": "waterfall"
+      },
+      "winner": 897,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 20,
+        "similar_mean": 4.1,
+        "historical_mean": 3.9814814814814814,
+        "score": 4.060493827160494,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2016,
+            "month": 2,
+            "rating": 3
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2016,
+            "month": 4,
+            "rating": 3
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2017,
+            "month": 5,
+            "rating": 3
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Air Terjun Coban Rondo",
+            "score": 4.060493827160494,
+            "count": 20
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "family",
+        "category": "culture"
+      },
+      "winner": 937,
+      "trace": {
+        "matching_places": 2,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 17,
+        "similar_mean": 3.764705882352941,
+        "historical_mean": 3.578125,
+        "score": 3.6956018518518516,
+        "examples": [
+          {
+            "mode": "Keluarga",
+            "year": 2017,
+            "month": 10,
+            "rating": 4
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2017,
+            "month": 12,
+            "rating": 4
+          },
+          {
+            "mode": "Keluarga",
+            "year": 2017,
+            "month": 12,
+            "rating": 3
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Malang City Square",
+            "score": 3.6956018518518516,
+            "count": 17
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "family",
+        "category": "recreation"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "family",
+        "category": "volcano"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 0,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "friends",
+        "category": "all"
+      },
+      "winner": 888,
+      "trace": {
+        "matching_places": 7,
+        "eligible_places": 6,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 149,
+        "similar_mean": 4.671140939597316,
+        "historical_mean": 4.611548556430447,
+        "score": 4.667392990970468,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2014,
+            "month": 12,
+            "rating": 5
+          },
+          {
+            "mode": "Teman",
+            "year": 2018,
+            "month": 4,
+            "rating": 3
+          },
+          {
+            "mode": "Teman",
+            "year": 2020,
+            "month": 3,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.667392990970468,
+            "count": 149
+          },
+          {
+            "name": "Jodipan Colorful Village",
+            "score": 4.319238900634249,
+            "count": 12
+          },
+          {
+            "name": "Goa Cina Beach",
+            "score": 4.132051282051282,
+            "count": 20
+          },
+          {
+            "name": "Balekambang Beach",
+            "score": 4.113888888888889,
+            "count": 10
+          },
+          {
+            "name": "Air Terjun Coban Rondo",
+            "score": 3.9295101553166067,
+            "count": 21
+          },
+          {
+            "name": "Malang City Square",
+            "score": 3.75125,
+            "count": 15
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "friends",
+        "category": "nature"
+      },
+      "winner": 888,
+      "trace": {
+        "matching_places": 4,
+        "eligible_places": 4,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 149,
+        "similar_mean": 4.671140939597316,
+        "historical_mean": 4.611548556430447,
+        "score": 4.667392990970468,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2014,
+            "month": 12,
+            "rating": 5
+          },
+          {
+            "mode": "Teman",
+            "year": 2018,
+            "month": 4,
+            "rating": 3
+          },
+          {
+            "mode": "Teman",
+            "year": 2020,
+            "month": 3,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.667392990970468,
+            "count": 149
+          },
+          {
+            "name": "Goa Cina Beach",
+            "score": 4.132051282051282,
+            "count": 20
+          },
+          {
+            "name": "Balekambang Beach",
+            "score": 4.113888888888889,
+            "count": 10
+          },
+          {
+            "name": "Air Terjun Coban Rondo",
+            "score": 3.9295101553166067,
+            "count": 21
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "friends",
+        "category": "waterfall"
+      },
+      "winner": 897,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 21,
+        "similar_mean": 3.9047619047619047,
+        "historical_mean": 3.9814814814814814,
+        "score": 3.9295101553166067,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2015,
+            "month": 10,
+            "rating": 4
+          },
+          {
+            "mode": "Teman",
+            "year": 2016,
+            "month": 8,
+            "rating": 3
+          },
+          {
+            "mode": "Teman",
+            "year": 2017,
+            "month": 1,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Air Terjun Coban Rondo",
+            "score": 3.9295101553166067,
+            "count": 21
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "friends",
+        "category": "culture"
+      },
+      "winner": 920,
+      "trace": {
+        "matching_places": 2,
+        "eligible_places": 2,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 12,
+        "similar_mean": 4.333333333333333,
+        "historical_mean": 4.3023255813953485,
+        "score": 4.319238900634249,
+        "examples": [
+          {
+            "mode": "Teman",
+            "year": 2019,
+            "month": 9,
+            "rating": 4
+          },
+          {
+            "mode": "Teman",
+            "year": 2019,
+            "month": 10,
+            "rating": 5
+          },
+          {
+            "mode": "Teman",
+            "year": 2019,
+            "month": 12,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Jodipan Colorful Village",
+            "score": 4.319238900634249,
+            "count": 12
+          },
+          {
+            "name": "Malang City Square",
+            "score": 3.75125,
+            "count": 15
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "friends",
+        "category": "recreation"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "friends",
+        "category": "volcano"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 0,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "solo",
+        "category": "all"
+      },
+      "winner": 888,
+      "trace": {
+        "matching_places": 7,
+        "eligible_places": 4,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 38,
+        "similar_mean": 4.684210526315789,
+        "historical_mean": 4.611548556430447,
+        "score": 4.669072615923009,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2017,
+            "month": 6,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2017,
+            "month": 12,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2018,
+            "month": 7,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.669072615923009,
+            "count": 38
+          },
+          {
+            "name": "Khayangan Reflexology & Massage",
+            "score": 4.623376623376623,
+            "count": 12
+          },
+          {
+            "name": "Jodipan Colorful Village",
+            "score": 4.41014799154334,
+            "count": 12
+          },
+          {
+            "name": "Malang City Square",
+            "score": 3.385044642857143,
+            "count": 18
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "solo",
+        "category": "nature"
+      },
+      "winner": 888,
+      "trace": {
+        "matching_places": 4,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 38,
+        "similar_mean": 4.684210526315789,
+        "historical_mean": 4.611548556430447,
+        "score": 4.669072615923009,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2017,
+            "month": 6,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2017,
+            "month": 12,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2018,
+            "month": 7,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Bromo Tengger Semeru National Park",
+            "score": 4.669072615923009,
+            "count": 38
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "solo",
+        "category": "waterfall"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "solo",
+        "category": "culture"
+      },
+      "winner": 920,
+      "trace": {
+        "matching_places": 2,
+        "eligible_places": 2,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 12,
+        "similar_mean": 4.5,
+        "historical_mean": 4.3023255813953485,
+        "score": 4.41014799154334,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2018,
+            "month": 4,
+            "rating": 3
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2018,
+            "month": 8,
+            "rating": 3
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2019,
+            "month": 3,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Jodipan Colorful Village",
+            "score": 4.41014799154334,
+            "count": 12
+          },
+          {
+            "name": "Malang City Square",
+            "score": 3.385044642857143,
+            "count": 18
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "solo",
+        "category": "recreation"
+      },
+      "winner": 928,
+      "trace": {
+        "matching_places": 1,
+        "eligible_places": 1,
+        "min_reviewers": 10,
+        "prior_weight": 10,
+        "reviewer_count": 12,
+        "similar_mean": 4.666666666666667,
+        "historical_mean": 4.571428571428571,
+        "score": 4.623376623376623,
+        "examples": [
+          {
+            "mode": "Sendiri",
+            "year": 2015,
+            "month": 3,
+            "rating": 5
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2016,
+            "month": 5,
+            "rating": 3
+          },
+          {
+            "mode": "Sendiri",
+            "year": 2016,
+            "month": 9,
+            "rating": 5
+          }
+        ],
+        "ranking": [
+          {
+            "name": "Khayangan Reflexology & Massage",
+            "score": 4.623376623376623,
+            "count": 12
+          }
+        ]
+      }
+    },
+    {
+      "answers": {
+        "region": "malang",
+        "mode": "solo",
+        "category": "volcano"
+      },
+      "winner": null,
+      "trace": {
+        "matching_places": 0,
+        "eligible_places": 0,
+        "min_reviewers": 10,
+        "prior_weight": 10
+      }
+    }
+  ],
+  "rating": {
+    "all": {
+      "held_out_cases": 9225,
+      "common_cases": 9201,
+      "models": {
+        "A": {
+          "prediction_coverage": 1.0,
+          "own_support": {
+            "n": 9225,
+            "mae": 0.7240624627440733,
+            "rmse": 0.9232689867278285
+          },
+          "common_support": {
+            "n": 9201,
+            "mae": 0.72402738721698,
+            "rmse": 0.923513975633894
+          }
+        },
+        "B": {
+          "prediction_coverage": 0.9973983739837399,
+          "own_support": {
+            "n": 9201,
+            "mae": 0.7250191561936107,
+            "rmse": 0.9243886659765651
+          },
+          "common_support": {
+            "n": 9201,
+            "mae": 0.7250191561936106,
+            "rmse": 0.924388665976565
+          }
+        }
+      }
+    },
+    "bali": {
+      "held_out_cases": 8516,
+      "common_cases": 8516,
+      "models": {
+        "A": {
+          "prediction_coverage": 1.0,
+          "own_support": {
+            "n": 8516,
+            "mae": 0.7249850818943282,
+            "rmse": 0.925392990822599
+          },
+          "common_support": {
+            "n": 8516,
+            "mae": 0.7249850818943282,
+            "rmse": 0.925392990822599
+          }
+        },
+        "B": {
+          "prediction_coverage": 1.0,
+          "own_support": {
+            "n": 8516,
+            "mae": 0.7254815052290742,
+            "rmse": 0.9256162703517598
+          },
+          "common_support": {
+            "n": 8516,
+            "mae": 0.7254815052290742,
+            "rmse": 0.9256162703517598
+          }
+        }
+      }
+    },
+    "malang": {
+      "held_out_cases": 113,
+      "common_cases": 96,
+      "models": {
+        "A": {
+          "prediction_coverage": 1.0,
+          "own_support": {
+            "n": 113,
+            "mae": 0.5948790711104506,
+            "rmse": 0.7344169420740053
+          },
+          "common_support": {
+            "n": 96,
+            "mae": 0.5543504526582664,
+            "rmse": 0.6970692134668427
+          }
+        },
+        "B": {
+          "prediction_coverage": 0.8495575221238938,
+          "own_support": {
+            "n": 96,
+            "mae": 0.5584576761763287,
+            "rmse": 0.7018356847082204
+          },
+          "common_support": {
+            "n": 96,
+            "mae": 0.5584576761763286,
+            "rmse": 0.7018356847082206
+          }
+        }
+      }
+    },
+    "yogyakarta": {
+      "held_out_cases": 596,
+      "common_cases": 589,
+      "models": {
+        "A": {
+          "prediction_coverage": 1.0,
+          "own_support": {
+            "n": 596,
+            "mae": 0.7353723596753278,
+            "rmse": 0.9250272275105121
+          },
+          "common_support": {
+            "n": 589,
+            "mae": 0.7378359743907301,
+            "rmse": 0.9286872127077818
+          }
+        },
+        "B": {
+          "prediction_coverage": 0.988255033557047,
+          "own_support": {
+            "n": 589,
+            "mae": 0.7454818687498964,
+            "rmse": 0.9384280112722617
+          },
+          "common_support": {
+            "n": 589,
+            "mae": 0.7454818687498964,
+            "rmse": 0.9384280112722617
+          }
+        }
+      }
+    }
+  }
+}

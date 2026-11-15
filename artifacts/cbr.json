@@ -1,0 +1,3544 @@
+{
+  "version": "mendeley-h58s544674-v1-cbr-3",
+  "places": [
+    {
+      "id": 369,
+      "name": "Kuta Beach - Bali",
+      "region": "bali",
+      "category": "nature",
+      "groups": {
+        "business": {
+          "count": 35,
+          "mean": 3.5428571428571427,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 2,
+              "rating": 2
+            },
+            {
+              "year": 2017,
+              "month": 3,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 12,
+              "rating": 4
+            }
+          ]
+        },
+        "couples": {
+          "count": 1081,
+          "mean": 3.34736355226642,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 5,
+              "rating": 3
+            },
+            {
+              "year": 2017,
+              "month": 4,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 10,
+              "rating": 3
+            }
+          ]
+        },
+        "family": {
+          "count": 656,
+          "mean": 3.450457317073171,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 7,
+              "rating": 3
+            },
+            {
+              "year": 2016,
+              "month": 10,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 12,
+              "rating": 4
+            }
+          ]
+        },
+        "friends": {
+          "count": 548,
+          "mean": 3.460766423357664,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 3,
+              "rating": 2
+            },
+            {
+              "year": 2016,
+              "month": 3,
+              "rating": 3
+            },
+            {
+              "year": 2016,
+              "month": 10,
+              "rating": 5
+            }
+          ]
+        },
+        "solo": {
+          "count": 286,
+          "mean": 3.4055944055944054,
+          "examples": [
+            {
+              "year": 2014,
+              "month": 10,
+              "rating": 3
+            },
+            {
+              "year": 2016,
+              "month": 10,
+              "rating": 4
+            },
+            {
+              "year": 2020,
+              "month": 10,
+              "rating": 5
+            }
+          ]
+        }
+      },
+      "historical_mean": 3.4049286640726333
+    },
+    {
+      "id": 481,
+      "name": "Nusa Dua Beach",
+      "region": "bali",
+      "category": "nature",
+      "groups": {
+        "business": {
+          "count": 65,
+          "mean": 4.461538461538462,
+          "examples": [
+            {
+              "year": 2014,
+              "month": 12,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 10,
+              "rating": 3
+            },
+            {
+              "year": 2019,
+              "month": 7,
+              "rating": 5
+            }
+          ]
+        },
+        "couples": {
+          "count": 911,
+          "mean": 4.273874862788145,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 2,
+              "rating": 3
+            },
+            {
+              "year": 2017,
+              "month": 11,
+              "rating": 5
+            },
+            {
+              "year": 2019,
+              "month": 1,
+              "rating": 5
+            }
+          ]
+        },
+        "family": {
+          "count": 694,
+          "mean": 4.25,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 1,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 4,
+              "rating": 5
+            },
+            {
+              "year": 2019,
+              "month": 6,
+              "rating": 4
+            }
+          ]
+        },
+        "friends": {
+          "count": 239,
+          "mean": 4.2405857740585775,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 11,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 10,
+              "rating": 5
+            },
+            {
+              "year": 2019,
+              "month": 3,
+              "rating": 5
+            }
+          ]
+        },
+        "solo": {
+          "count": 94,
+          "mean": 4.329787234042553,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 3,
+              "rating": 5
+            },
+            {
+              "year": 2016,
+              "month": 12,
+              "rating": 3
+            },
+            {
+              "year": 2018,
+              "month": 2,
+              "rating": 5
+            }
+          ]
+        }
+      },
+      "historical_mean": 4.270080321285141
+    },
+    {
+      "id": 640,
+      "name": "Sacred Monkey Forest Sanctuary",
+      "region": "bali",
+      "category": "nature",
+      "groups": {
+        "business": {
+          "count": 52,
+          "mean": 4.490384615384615,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 1,
+              "rating": 5
+            },
+            {
+              "year": 2016,
+              "month": 8,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 3,
+              "rating": 5
+            }
+          ]
+        },
+        "couples": {
+          "count": 5769,
+          "mean": 4.302028081123245,
+          "examples": [
+            {
+              "year": 2013,
+              "month": 4,
+              "rating": 4
+            },
+            {
+              "year": 2015,
+              "month": 12,
+              "rating": 3
+            },
+            {
+              "year": 2017,
+              "month": 12,
+              "rating": 5
+            }
+          ]
+        },
+        "family": {
+          "count": 2839,
+          "mean": 4.207027122226136,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 7,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 4,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 11,
+              "rating": 4
+            }
+          ]
+        },
+        "friends": {
+          "count": 2230,
+          "mean": 4.263751868460389,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 8,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 8,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 12,
+              "rating": 4
+            }
+          ]
+        },
+        "solo": {
+          "count": 1108,
+          "mean": 4.208784596871239,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 10,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 5,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 11,
+              "rating": 5
+            }
+          ]
+        }
+      },
+      "historical_mean": 4.26363734381674
+    },
+    {
+      "id": 650,
+      "name": "Sanur Beach",
+      "region": "bali",
+      "category": "nature",
+      "groups": {
+        "business": {
+          "count": 31,
+          "mean": 4.064516129032258,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 6,
+              "rating": 3
+            },
+            {
+              "year": 2015,
+              "month": 11,
+              "rating": 4
+            },
+            {
+              "year": 2017,
+              "month": 7,
+              "rating": 5
+            }
+          ]
+        },
+        "couples": {
+          "count": 1315,
+          "mean": 3.8978453738910006,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 1,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 6,
+              "rating": 3
+            },
+            {
+              "year": 2017,
+              "month": 3,
+              "rating": 5
+            }
+          ]
+        },
+        "family": {
+          "count": 739,
+          "mean": 3.993910690121786,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 5,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 8,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 1,
+              "rating": 5
+            }
+          ]
+        },
+        "friends": {
+          "count": 512,
+          "mean": 4.1201171875,
+          "examples": [
+            {
+              "year": 2018,
+              "month": 5,
+              "rating": 4
+            },
+            {
+              "year": 2019,
+              "month": 1,
+              "rating": 4
+            },
+            {
+              "year": 2022,
+              "month": 6,
+              "rating": 5
+            }
+          ]
+        },
+        "solo": {
+          "count": 279,
+          "mean": 3.992831541218638,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 10,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 9,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 6,
+              "rating": 5
+            }
+          ]
+        }
+      },
+      "historical_mean": 3.969599809998812
+    },
+    {
+      "id": 673,
+      "name": "Seminyak Beach",
+      "region": "bali",
+      "category": "nature",
+      "groups": {
+        "business": {
+          "count": 15,
+          "mean": 4.266666666666667,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 4,
+              "rating": 5
+            },
+            {
+              "year": 2016,
+              "month": 5,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 5,
+              "rating": 3
+            }
+          ]
+        },
+        "couples": {
+          "count": 1370,
+          "mean": 3.787226277372263,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 4,
+              "rating": 2
+            },
+            {
+              "year": 2016,
+              "month": 5,
+              "rating": 3
+            },
+            {
+              "year": 2019,
+              "month": 9,
+              "rating": 5
+            }
+          ]
+        },
+        "family": {
+          "count": 631,
+          "mean": 3.7551505546751187,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 4,
+              "rating": 3
+            },
+            {
+              "year": 2017,
+              "month": 10,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 7,
+              "rating": 5
+            }
+          ]
+        },
+        "friends": {
+          "count": 562,
+          "mean": 3.900355871886121,
+          "examples": [
+            {
+              "year": 2018,
+              "month": 1,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 1,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 6,
+              "rating": 4
+            }
+          ]
+        },
+        "solo": {
+          "count": 224,
+          "mean": 3.7723214285714284,
+          "examples": [
+            {
+              "year": 2014,
+              "month": 3,
+              "rating": 5
+            },
+            {
+              "year": 2016,
+              "month": 12,
+              "rating": 1
+            },
+            {
+              "year": 2017,
+              "month": 4,
+              "rating": 2
+            }
+          ]
+        }
+      },
+      "historical_mean": 3.8044964899540057
+    },
+    {
+      "id": 737,
+      "name": "Tanah Lot Temple",
+      "region": "bali",
+      "category": "culture",
+      "groups": {
+        "business": {
+          "count": 28,
+          "mean": 4.25,
+          "examples": [
+            {
+              "year": 2014,
+              "month": 6,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 11,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 3,
+              "rating": 5
+            }
+          ]
+        },
+        "couples": {
+          "count": 1414,
+          "mean": 4.183286185761433,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 2,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 9,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 8,
+              "rating": 3
+            }
+          ]
+        },
+        "family": {
+          "count": 814,
+          "mean": 4.207616707616707,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 1,
+              "rating": 5
+            },
+            {
+              "year": 2015,
+              "month": 12,
+              "rating": 3
+            },
+            {
+              "year": 2016,
+              "month": 2,
+              "rating": 4
+            }
+          ]
+        },
+        "friends": {
+          "count": 700,
+          "mean": 4.207857142857143,
+          "examples": [
+            {
+              "year": 2014,
+              "month": 11,
+              "rating": 4
+            },
+            {
+              "year": 2015,
+              "month": 4,
+              "rating": 5
+            },
+            {
+              "year": 2016,
+              "month": 9,
+              "rating": 4
+            }
+          ]
+        },
+        "solo": {
+          "count": 227,
+          "mean": 4.224669603524229,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 8,
+              "rating": 5
+            },
+            {
+              "year": 2015,
+              "month": 12,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 6,
+              "rating": 4
+            }
+          ]
+        }
+      },
+      "historical_mean": 4.198457963667089
+    },
+    {
+      "id": 748,
+      "name": "Tegalalang Rice Terrace",
+      "region": "bali",
+      "category": "culture",
+      "groups": {
+        "business": {
+          "count": 39,
+          "mean": 4.333333333333333,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 1,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 12,
+              "rating": 4
+            },
+            {
+              "year": 2019,
+              "month": 1,
+              "rating": 4
+            }
+          ]
+        },
+        "couples": {
+          "count": 2617,
+          "mean": 4.140300598649854,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 4,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 7,
+              "rating": 5
+            },
+            {
+              "year": 2019,
+              "month": 5,
+              "rating": 5
+            }
+          ]
+        },
+        "family": {
+          "count": 1158,
+          "mean": 4.101899827288428,
+          "examples": [
+            {
+              "year": 2014,
+              "month": 10,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 4,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 4,
+              "rating": 5
+            }
+          ]
+        },
+        "friends": {
+          "count": 1160,
+          "mean": 4.203879310344828,
+          "examples": [
+            {
+              "year": 2018,
+              "month": 8,
+              "rating": 3
+            },
+            {
+              "year": 2018,
+              "month": 9,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 12,
+              "rating": 5
+            }
+          ]
+        },
+        "solo": {
+          "count": 531,
+          "mean": 4.238229755178907,
+          "examples": [
+            {
+              "year": 2013,
+              "month": 5,
+              "rating": 5
+            },
+            {
+              "year": 2016,
+              "month": 10,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 9,
+              "rating": 4
+            }
+          ]
+        }
+      },
+      "historical_mean": 4.157246242916975
+    },
+    {
+      "id": 749,
+      "name": "Tegenungan Waterfall",
+      "region": "bali",
+      "category": "waterfall",
+      "groups": {
+        "business": {
+          "count": 16,
+          "mean": 4.625,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 8,
+              "rating": 5
+            },
+            {
+              "year": 2016,
+              "month": 11,
+              "rating": 4
+            },
+            {
+              "year": 2017,
+              "month": 2,
+              "rating": 5
+            }
+          ]
+        },
+        "couples": {
+          "count": 1061,
+          "mean": 3.89066918001885,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 5,
+              "rating": 3
+            },
+            {
+              "year": 2017,
+              "month": 9,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 3,
+              "rating": 5
+            }
+          ]
+        },
+        "family": {
+          "count": 484,
+          "mean": 3.8388429752066116,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 5,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 7,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 8,
+              "rating": 3
+            }
+          ]
+        },
+        "friends": {
+          "count": 467,
+          "mean": 3.918629550321199,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 12,
+              "rating": 3
+            },
+            {
+              "year": 2018,
+              "month": 7,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 12,
+              "rating": 3
+            }
+          ]
+        },
+        "solo": {
+          "count": 142,
+          "mean": 3.992957746478873,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 3,
+              "rating": 4
+            },
+            {
+              "year": 2017,
+              "month": 5,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 8,
+              "rating": 2
+            }
+          ]
+        }
+      },
+      "historical_mean": 3.8969471563613816
+    },
+    {
+      "id": 824,
+      "name": "Uluwatu Temple",
+      "region": "bali",
+      "category": "culture",
+      "groups": {
+        "business": {
+          "count": 46,
+          "mean": 4.586956521739131,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 7,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 3,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 7,
+              "rating": 5
+            }
+          ]
+        },
+        "couples": {
+          "count": 1421,
+          "mean": 4.1966924700914845,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 2,
+              "rating": 5
+            },
+            {
+              "year": 2015,
+              "month": 6,
+              "rating": 2
+            },
+            {
+              "year": 2016,
+              "month": 2,
+              "rating": 4
+            }
+          ]
+        },
+        "family": {
+          "count": 811,
+          "mean": 4.192971639950678,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 1,
+              "rating": 5
+            },
+            {
+              "year": 2015,
+              "month": 6,
+              "rating": 5
+            },
+            {
+              "year": 2015,
+              "month": 12,
+              "rating": 3
+            }
+          ]
+        },
+        "friends": {
+          "count": 700,
+          "mean": 4.268571428571429,
+          "examples": [
+            {
+              "year": 2014,
+              "month": 4,
+              "rating": 4
+            },
+            {
+              "year": 2017,
+              "month": 3,
+              "rating": 1
+            },
+            {
+              "year": 2019,
+              "month": 9,
+              "rating": 4
+            }
+          ]
+        },
+        "solo": {
+          "count": 226,
+          "mean": 4.212389380530974,
+          "examples": [
+            {
+              "year": 2014,
+              "month": 10,
+              "rating": 5
+            },
+            {
+              "year": 2015,
+              "month": 8,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 11,
+              "rating": 5
+            }
+          ]
+        }
+      },
+      "historical_mean": 4.217237586423633
+    },
+    {
+      "id": 841,
+      "name": "Waterbom Bali",
+      "region": "bali",
+      "category": "recreation",
+      "groups": {
+        "business": {
+          "count": 20,
+          "mean": 4.55,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 1,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 11,
+              "rating": 4
+            },
+            {
+              "year": 2019,
+              "month": 2,
+              "rating": 5
+            }
+          ]
+        },
+        "couples": {
+          "count": 1258,
+          "mean": 4.659379968203497,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 12,
+              "rating": 5
+            },
+            {
+              "year": 2016,
+              "month": 1,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 4,
+              "rating": 5
+            }
+          ]
+        },
+        "family": {
+          "count": 3505,
+          "mean": 4.649976224441275,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 7,
+              "rating": 5
+            },
+            {
+              "year": 2016,
+              "month": 12,
+              "rating": 4
+            },
+            {
+              "year": 2017,
+              "month": 3,
+              "rating": 4
+            }
+          ]
+        },
+        "friends": {
+          "count": 938,
+          "mean": 4.615671641791045,
+          "examples": [
+            {
+              "year": 2013,
+              "month": 8,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 2,
+              "rating": 4
+            },
+            {
+              "year": 2017,
+              "month": 2,
+              "rating": 5
+            }
+          ]
+        },
+        "solo": {
+          "count": 103,
+          "mean": 4.621359223300971,
+          "examples": [
+            {
+              "year": 2014,
+              "month": 10,
+              "rating": 5
+            },
+            {
+              "year": 2015,
+              "month": 11,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 8,
+              "rating": 5
+            }
+          ]
+        }
+      },
+      "historical_mean": 4.647372962037368
+    },
+    {
+      "id": 877,
+      "name": "Balekambang Beach",
+      "region": "malang",
+      "category": "nature",
+      "groups": {
+        "business": {
+          "count": 1,
+          "mean": 5.0,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 5,
+              "rating": 5
+            }
+          ]
+        },
+        "couples": {
+          "count": 6,
+          "mean": 3.5,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 4,
+              "rating": 3
+            },
+            {
+              "year": 2015,
+              "month": 11,
+              "rating": 3
+            },
+            {
+              "year": 2016,
+              "month": 1,
+              "rating": 3
+            }
+          ]
+        },
+        "family": {
+          "count": 15,
+          "mean": 3.933333333333333,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 6,
+              "rating": 5
+            },
+            {
+              "year": 2016,
+              "month": 7,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 7,
+              "rating": 5
+            }
+          ]
+        },
+        "friends": {
+          "count": 10,
+          "mean": 4.2,
+          "examples": [
+            {
+              "year": 2014,
+              "month": 7,
+              "rating": 4
+            },
+            {
+              "year": 2015,
+              "month": 1,
+              "rating": 4
+            },
+            {
+              "year": 2015,
+              "month": 12,
+              "rating": 5
+            }
+          ]
+        },
+        "solo": {
+          "count": 4,
+          "mean": 4.5,
+          "examples": [
+            {
+              "year": 2014,
+              "month": 4,
+              "rating": 3
+            },
+            {
+              "year": 2016,
+              "month": 12,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 5,
+              "rating": 5
+            }
+          ]
+        }
+      },
+      "historical_mean": 4.027777777777778
+    },
+    {
+      "id": 888,
+      "name": "Bromo Tengger Semeru National Park",
+      "region": "malang",
+      "category": "nature",
+      "groups": {
+        "business": {
+          "count": 19,
+          "mean": 4.631578947368421,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 3,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 4,
+              "rating": 5
+            },
+            {
+              "year": 2019,
+              "month": 1,
+              "rating": 5
+            }
+          ]
+        },
+        "couples": {
+          "count": 69,
+          "mean": 4.608695652173913,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 6,
+              "rating": 2
+            },
+            {
+              "year": 2016,
+              "month": 6,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 9,
+              "rating": 4
+            }
+          ]
+        },
+        "family": {
+          "count": 106,
+          "mean": 4.5,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 7,
+              "rating": 5
+            },
+            {
+              "year": 2015,
+              "month": 11,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 10,
+              "rating": 5
+            }
+          ]
+        },
+        "friends": {
+          "count": 149,
+          "mean": 4.671140939597316,
+          "examples": [
+            {
+              "year": 2014,
+              "month": 12,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 4,
+              "rating": 3
+            },
+            {
+              "year": 2020,
+              "month": 3,
+              "rating": 5
+            }
+          ]
+        },
+        "solo": {
+          "count": 38,
+          "mean": 4.684210526315789,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 6,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 12,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 7,
+              "rating": 5
+            }
+          ]
+        }
+      },
+      "historical_mean": 4.611548556430447
+    },
+    {
+      "id": 897,
+      "name": "Air Terjun Coban Rondo",
+      "region": "malang",
+      "category": "waterfall",
+      "groups": {
+        "business": {
+          "count": 1,
+          "mean": 2.0,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 3,
+              "rating": 2
+            }
+          ]
+        },
+        "couples": {
+          "count": 7,
+          "mean": 3.857142857142857,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 10,
+              "rating": 4
+            },
+            {
+              "year": 2017,
+              "month": 5,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 11,
+              "rating": 3
+            }
+          ]
+        },
+        "family": {
+          "count": 20,
+          "mean": 4.1,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 2,
+              "rating": 3
+            },
+            {
+              "year": 2016,
+              "month": 4,
+              "rating": 3
+            },
+            {
+              "year": 2017,
+              "month": 5,
+              "rating": 3
+            }
+          ]
+        },
+        "friends": {
+          "count": 21,
+          "mean": 3.9047619047619047,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 10,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 8,
+              "rating": 3
+            },
+            {
+              "year": 2017,
+              "month": 1,
+              "rating": 5
+            }
+          ]
+        },
+        "solo": {
+          "count": 6,
+          "mean": 4.166666666666667,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 12,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 6,
+              "rating": 3
+            },
+            {
+              "year": 2018,
+              "month": 8,
+              "rating": 4
+            }
+          ]
+        }
+      },
+      "historical_mean": 3.9814814814814814
+    },
+    {
+      "id": 913,
+      "name": "Goa Cina Beach",
+      "region": "malang",
+      "category": "nature",
+      "groups": {
+        "business": {
+          "count": 1,
+          "mean": 5.0,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 11,
+              "rating": 5
+            }
+          ]
+        },
+        "couples": {
+          "count": 10,
+          "mean": 4.0,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 1,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 7,
+              "rating": 5
+            },
+            {
+              "year": 2020,
+              "month": 1,
+              "rating": 5
+            }
+          ]
+        },
+        "family": {
+          "count": 21,
+          "mean": 4.095238095238095,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 6,
+              "rating": 5
+            },
+            {
+              "year": 2015,
+              "month": 8,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 12,
+              "rating": 4
+            }
+          ]
+        },
+        "friends": {
+          "count": 20,
+          "mean": 4.15,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 11,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 6,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 6,
+              "rating": 4
+            }
+          ]
+        },
+        "solo": {
+          "count": 1,
+          "mean": 3.0,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 4,
+              "rating": 3
+            }
+          ]
+        }
+      },
+      "historical_mean": 4.096153846153846
+    },
+    {
+      "id": 920,
+      "name": "Jodipan Colorful Village",
+      "region": "malang",
+      "category": "culture",
+      "groups": {
+        "business": {
+          "count": 1,
+          "mean": 5.0,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 7,
+              "rating": 5
+            }
+          ]
+        },
+        "couples": {
+          "count": 12,
+          "mean": 4.583333333333333,
+          "examples": [
+            {
+              "year": 2018,
+              "month": 1,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 2,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 10,
+              "rating": 5
+            }
+          ]
+        },
+        "family": {
+          "count": 6,
+          "mean": 3.1666666666666665,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 8,
+              "rating": 2
+            },
+            {
+              "year": 2017,
+              "month": 12,
+              "rating": 2
+            },
+            {
+              "year": 2018,
+              "month": 5,
+              "rating": 5
+            }
+          ]
+        },
+        "friends": {
+          "count": 12,
+          "mean": 4.333333333333333,
+          "examples": [
+            {
+              "year": 2019,
+              "month": 9,
+              "rating": 4
+            },
+            {
+              "year": 2019,
+              "month": 10,
+              "rating": 5
+            },
+            {
+              "year": 2019,
+              "month": 12,
+              "rating": 5
+            }
+          ]
+        },
+        "solo": {
+          "count": 12,
+          "mean": 4.5,
+          "examples": [
+            {
+              "year": 2018,
+              "month": 4,
+              "rating": 3
+            },
+            {
+              "year": 2018,
+              "month": 8,
+              "rating": 3
+            },
+            {
+              "year": 2019,
+              "month": 3,
+              "rating": 5
+            }
+          ]
+        }
+      },
+      "historical_mean": 4.3023255813953485
+    },
+    {
+      "id": 928,
+      "name": "Khayangan Reflexology & Massage",
+      "region": "malang",
+      "category": "recreation",
+      "groups": {
+        "couples": {
+          "count": 8,
+          "mean": 4.375,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 8,
+              "rating": 5
+            },
+            {
+              "year": 2016,
+              "month": 11,
+              "rating": 2
+            },
+            {
+              "year": 2019,
+              "month": 5,
+              "rating": 5
+            }
+          ]
+        },
+        "family": {
+          "count": 2,
+          "mean": 4.0,
+          "examples": [
+            {
+              "year": 2013,
+              "month": 12,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 7,
+              "rating": 4
+            }
+          ]
+        },
+        "friends": {
+          "count": 6,
+          "mean": 4.833333333333333,
+          "examples": [
+            {
+              "year": 2013,
+              "month": 9,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 3,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 8,
+              "rating": 5
+            }
+          ]
+        },
+        "solo": {
+          "count": 12,
+          "mean": 4.666666666666667,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 3,
+              "rating": 5
+            },
+            {
+              "year": 2016,
+              "month": 5,
+              "rating": 3
+            },
+            {
+              "year": 2016,
+              "month": 9,
+              "rating": 5
+            }
+          ]
+        }
+      },
+      "historical_mean": 4.571428571428571
+    },
+    {
+      "id": 937,
+      "name": "Malang City Square",
+      "region": "malang",
+      "category": "culture",
+      "groups": {
+        "business": {
+          "count": 3,
+          "mean": 3.3333333333333335,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 2,
+              "rating": 3
+            },
+            {
+              "year": 2017,
+              "month": 8,
+              "rating": 3
+            },
+            {
+              "year": 2018,
+              "month": 7,
+              "rating": 4
+            }
+          ]
+        },
+        "couples": {
+          "count": 11,
+          "mean": 3.4545454545454546,
+          "examples": [
+            {
+              "year": 2018,
+              "month": 1,
+              "rating": 4
+            },
+            {
+              "year": 2019,
+              "month": 9,
+              "rating": 2
+            },
+            {
+              "year": 2021,
+              "month": 3,
+              "rating": 3
+            }
+          ]
+        },
+        "family": {
+          "count": 17,
+          "mean": 3.764705882352941,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 10,
+              "rating": 4
+            },
+            {
+              "year": 2017,
+              "month": 12,
+              "rating": 4
+            },
+            {
+              "year": 2017,
+              "month": 12,
+              "rating": 3
+            }
+          ]
+        },
+        "friends": {
+          "count": 15,
+          "mean": 3.8666666666666667,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 5,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 6,
+              "rating": 3
+            },
+            {
+              "year": 2016,
+              "month": 10,
+              "rating": 5
+            }
+          ]
+        },
+        "solo": {
+          "count": 18,
+          "mean": 3.2777777777777777,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 6,
+              "rating": 3
+            },
+            {
+              "year": 2016,
+              "month": 10,
+              "rating": 3
+            },
+            {
+              "year": 2017,
+              "month": 2,
+              "rating": 3
+            }
+          ]
+        }
+      },
+      "historical_mean": 3.578125
+    },
+    {
+      "id": 1133,
+      "name": "Jomblang Cave",
+      "region": "yogyakarta",
+      "category": "nature",
+      "groups": {
+        "business": {
+          "count": 4,
+          "mean": 4.75,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 5,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 8,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 4,
+              "rating": 5
+            }
+          ]
+        },
+        "couples": {
+          "count": 35,
+          "mean": 4.6,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 11,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 1,
+              "rating": 4
+            },
+            {
+              "year": 2019,
+              "month": 8,
+              "rating": 5
+            }
+          ]
+        },
+        "family": {
+          "count": 17,
+          "mean": 4.294117647058823,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 9,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 12,
+              "rating": 3
+            },
+            {
+              "year": 2018,
+              "month": 1,
+              "rating": 4
+            }
+          ]
+        },
+        "friends": {
+          "count": 47,
+          "mean": 4.51063829787234,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 11,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 4,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 5,
+              "rating": 4
+            }
+          ]
+        },
+        "solo": {
+          "count": 17,
+          "mean": 4.411764705882353,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 4,
+              "rating": 4
+            },
+            {
+              "year": 2017,
+              "month": 11,
+              "rating": 5
+            },
+            {
+              "year": 2019,
+              "month": 5,
+              "rating": 4
+            }
+          ]
+        }
+      },
+      "historical_mean": 4.504310344827586
+    },
+    {
+      "id": 1137,
+      "name": "Kalibiru National Park",
+      "region": "yogyakarta",
+      "category": "nature",
+      "groups": {
+        "business": {
+          "count": 1,
+          "mean": 4.0,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 4,
+              "rating": 4
+            }
+          ]
+        },
+        "couples": {
+          "count": 13,
+          "mean": 2.8846153846153846,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 9,
+              "rating": 1
+            },
+            {
+              "year": 2017,
+              "month": 9,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 5,
+              "rating": 2
+            }
+          ]
+        },
+        "family": {
+          "count": 20,
+          "mean": 4.2,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 7,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 7,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 1,
+              "rating": 3
+            }
+          ]
+        },
+        "friends": {
+          "count": 39,
+          "mean": 3.7521367521367517,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 5,
+              "rating": 3
+            },
+            {
+              "year": 2015,
+              "month": 7,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 12,
+              "rating": 5
+            }
+          ]
+        },
+        "solo": {
+          "count": 3,
+          "mean": 4.0,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 12,
+              "rating": 3
+            },
+            {
+              "year": 2016,
+              "month": 5,
+              "rating": 5
+            },
+            {
+              "year": 2016,
+              "month": 10,
+              "rating": 4
+            }
+          ]
+        }
+      },
+      "historical_mean": 3.7077464788732395
+    },
+    {
+      "id": 1166,
+      "name": "Malioboro Road",
+      "region": "yogyakarta",
+      "category": "recreation",
+      "groups": {
+        "business": {
+          "count": 30,
+          "mean": 4.055555555555555,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 11,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 11,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 7,
+              "rating": 4
+            }
+          ]
+        },
+        "couples": {
+          "count": 124,
+          "mean": 3.8548387096774195,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 12,
+              "rating": 3
+            },
+            {
+              "year": 2018,
+              "month": 12,
+              "rating": 3
+            },
+            {
+              "year": 2019,
+              "month": 3,
+              "rating": 3
+            }
+          ]
+        },
+        "family": {
+          "count": 109,
+          "mean": 3.871559633027523,
+          "examples": [
+            {
+              "year": 2013,
+              "month": 12,
+              "rating": 2
+            },
+            {
+              "year": 2015,
+              "month": 12,
+              "rating": 4
+            },
+            {
+              "year": 2019,
+              "month": 6,
+              "rating": 5
+            }
+          ]
+        },
+        "friends": {
+          "count": 120,
+          "mean": 3.822222222222222,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 12,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 5,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 6,
+              "rating": 5
+            }
+          ]
+        },
+        "solo": {
+          "count": 85,
+          "mean": 3.976470588235294,
+          "examples": [
+            {
+              "year": 2013,
+              "month": 12,
+              "rating": 4
+            },
+            {
+              "year": 2019,
+              "month": 3,
+              "rating": 4
+            },
+            {
+              "year": 2019,
+              "month": 3,
+              "rating": 5
+            }
+          ]
+        }
+      },
+      "historical_mean": 3.8696127946127947
+    },
+    {
+      "id": 1171,
+      "name": "Gunung Merapi",
+      "region": "yogyakarta",
+      "category": "volcano",
+      "groups": {
+        "business": {
+          "count": 39,
+          "mean": 4.269230769230769,
+          "examples": [
+            {
+              "year": 2013,
+              "month": 7,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 4,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 4,
+              "rating": 3
+            }
+          ]
+        },
+        "couples": {
+          "count": 164,
+          "mean": 4.182418699186992,
+          "examples": [
+            {
+              "year": 2013,
+              "month": 11,
+              "rating": 4
+            },
+            {
+              "year": 2015,
+              "month": 8,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 4,
+              "rating": 3
+            }
+          ]
+        },
+        "family": {
+          "count": 189,
+          "mean": 4.277954144620811,
+          "examples": [
+            {
+              "year": 2014,
+              "month": 8,
+              "rating": 1
+            },
+            {
+              "year": 2017,
+              "month": 8,
+              "rating": 4
+            },
+            {
+              "year": 2019,
+              "month": 3,
+              "rating": 5
+            }
+          ]
+        },
+        "friends": {
+          "count": 251,
+          "mean": 4.330013280212483,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 12,
+              "rating": 3
+            },
+            {
+              "year": 2016,
+              "month": 5,
+              "rating": 3
+            },
+            {
+              "year": 2018,
+              "month": 9,
+              "rating": 5
+            }
+          ]
+        },
+        "solo": {
+          "count": 92,
+          "mean": 4.105978260869565,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 12,
+              "rating": 3
+            },
+            {
+              "year": 2016,
+              "month": 5,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 8,
+              "rating": 5
+            }
+          ]
+        }
+      },
+      "historical_mean": 4.273466153497849
+    },
+    {
+      "id": 1220,
+      "name": "Ramayana Ballet at Prambanan",
+      "region": "yogyakarta",
+      "category": "culture",
+      "groups": {
+        "business": {
+          "count": 14,
+          "mean": 4.714285714285714,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 11,
+              "rating": 4
+            },
+            {
+              "year": 2017,
+              "month": 4,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 3,
+              "rating": 5
+            }
+          ]
+        },
+        "couples": {
+          "count": 73,
+          "mean": 4.178082191780822,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 6,
+              "rating": 4
+            },
+            {
+              "year": 2017,
+              "month": 2,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 9,
+              "rating": 4
+            }
+          ]
+        },
+        "family": {
+          "count": 36,
+          "mean": 4.541666666666667,
+          "examples": [
+            {
+              "year": 2014,
+              "month": 8,
+              "rating": 4
+            },
+            {
+              "year": 2017,
+              "month": 2,
+              "rating": 4
+            },
+            {
+              "year": 2017,
+              "month": 9,
+              "rating": 5
+            }
+          ]
+        },
+        "friends": {
+          "count": 60,
+          "mean": 4.386111111111111,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 2,
+              "rating": 4
+            },
+            {
+              "year": 2019,
+              "month": 10,
+              "rating": 4
+            },
+            {
+              "year": 2019,
+              "month": 10,
+              "rating": 4
+            }
+          ]
+        },
+        "solo": {
+          "count": 25,
+          "mean": 4.52,
+          "examples": [
+            {
+              "year": 2014,
+              "month": 5,
+              "rating": 5
+            },
+            {
+              "year": 2016,
+              "month": 11,
+              "rating": 4
+            },
+            {
+              "year": 2019,
+              "month": 10,
+              "rating": 4
+            }
+          ]
+        }
+      },
+      "historical_mean": 4.366490299823633
+    },
+    {
+      "id": 1225,
+      "name": "Ratu Boko Temple",
+      "region": "yogyakarta",
+      "category": "culture",
+      "groups": {
+        "business": {
+          "count": 5,
+          "mean": 4.6,
+          "examples": [
+            {
+              "year": 2014,
+              "month": 6,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 1,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 4,
+              "rating": 5
+            }
+          ]
+        },
+        "couples": {
+          "count": 46,
+          "mean": 3.5,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 2,
+              "rating": 3
+            },
+            {
+              "year": 2017,
+              "month": 1,
+              "rating": 3
+            },
+            {
+              "year": 2019,
+              "month": 5,
+              "rating": 1
+            }
+          ]
+        },
+        "family": {
+          "count": 43,
+          "mean": 4.058139534883721,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 2,
+              "rating": 1
+            },
+            {
+              "year": 2015,
+              "month": 8,
+              "rating": 3
+            },
+            {
+              "year": 2017,
+              "month": 6,
+              "rating": 2
+            }
+          ]
+        },
+        "friends": {
+          "count": 46,
+          "mean": 3.8623188405797104,
+          "examples": [
+            {
+              "year": 2013,
+              "month": 12,
+              "rating": 4
+            },
+            {
+              "year": 2014,
+              "month": 9,
+              "rating": 3
+            },
+            {
+              "year": 2017,
+              "month": 10,
+              "rating": 2
+            }
+          ]
+        },
+        "solo": {
+          "count": 24,
+          "mean": 4.416666666666667,
+          "examples": [
+            {
+              "year": 2014,
+              "month": 8,
+              "rating": 5
+            },
+            {
+              "year": 2015,
+              "month": 7,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 6,
+              "rating": 5
+            }
+          ]
+        }
+      },
+      "historical_mean": 3.8823529411764706
+    },
+    {
+      "id": 1238,
+      "name": "Sewu Temple",
+      "region": "yogyakarta",
+      "category": "culture",
+      "groups": {
+        "business": {
+          "count": 2,
+          "mean": 5.0,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 8,
+              "rating": 5
+            },
+            {
+              "year": 2016,
+              "month": 5,
+              "rating": 5
+            }
+          ]
+        },
+        "couples": {
+          "count": 45,
+          "mean": 4.559259259259259,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 3,
+              "rating": 4
+            },
+            {
+              "year": 2017,
+              "month": 2,
+              "rating": 4
+            },
+            {
+              "year": 2022,
+              "month": 8,
+              "rating": 5
+            }
+          ]
+        },
+        "family": {
+          "count": 29,
+          "mean": 4.620689655172414,
+          "examples": [
+            {
+              "year": 2013,
+              "month": 7,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 5,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 9,
+              "rating": 5
+            }
+          ]
+        },
+        "friends": {
+          "count": 34,
+          "mean": 4.176470588235294,
+          "examples": [
+            {
+              "year": 2013,
+              "month": 8,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 7,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 1,
+              "rating": 4
+            }
+          ]
+        },
+        "solo": {
+          "count": 19,
+          "mean": 4.5,
+          "examples": [
+            {
+              "year": 2014,
+              "month": 9,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 5,
+              "rating": 3
+            },
+            {
+              "year": 2018,
+              "month": 10,
+              "rating": 5
+            }
+          ]
+        }
+      },
+      "historical_mean": 4.465972222222223
+    },
+    {
+      "id": 1278,
+      "name": "Ullen Sentalu Museum",
+      "region": "yogyakarta",
+      "category": "culture",
+      "groups": {
+        "business": {
+          "count": 24,
+          "mean": 4.4375,
+          "examples": [
+            {
+              "year": 2013,
+              "month": 3,
+              "rating": 5
+            },
+            {
+              "year": 2014,
+              "month": 4,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 8,
+              "rating": 4
+            }
+          ]
+        },
+        "couples": {
+          "count": 97,
+          "mean": 4.29553264604811,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 9,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 7,
+              "rating": 5
+            },
+            {
+              "year": 2019,
+              "month": 2,
+              "rating": 2
+            }
+          ]
+        },
+        "family": {
+          "count": 138,
+          "mean": 4.372670807453416,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 12,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 3,
+              "rating": 5
+            },
+            {
+              "year": 2019,
+              "month": 1,
+              "rating": 4
+            }
+          ]
+        },
+        "friends": {
+          "count": 157,
+          "mean": 4.487261146496815,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 8,
+              "rating": 4
+            },
+            {
+              "year": 2015,
+              "month": 12,
+              "rating": 5
+            },
+            {
+              "year": 2016,
+              "month": 10,
+              "rating": 5
+            }
+          ]
+        },
+        "solo": {
+          "count": 50,
+          "mean": 4.39,
+          "examples": [
+            {
+              "year": 2013,
+              "month": 2,
+              "rating": 5
+            },
+            {
+              "year": 2015,
+              "month": 6,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 6,
+              "rating": 5
+            }
+          ]
+        }
+      },
+      "historical_mean": 4.420116375727348
+    },
+    {
+      "id": 1280,
+      "name": "Water Castle (Tamansari)",
+      "region": "yogyakarta",
+      "category": "culture",
+      "groups": {
+        "business": {
+          "count": 2,
+          "mean": 4.5,
+          "examples": [
+            {
+              "year": 2017,
+              "month": 5,
+              "rating": 5
+            },
+            {
+              "year": 2018,
+              "month": 1,
+              "rating": 4
+            }
+          ]
+        },
+        "couples": {
+          "count": 75,
+          "mean": 3.6666666666666665,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 4,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 9,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 5,
+              "rating": 3
+            }
+          ]
+        },
+        "family": {
+          "count": 44,
+          "mean": 3.9318181818181817,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 5,
+              "rating": 3
+            },
+            {
+              "year": 2017,
+              "month": 4,
+              "rating": 3
+            },
+            {
+              "year": 2018,
+              "month": 8,
+              "rating": 4
+            }
+          ]
+        },
+        "friends": {
+          "count": 63,
+          "mean": 3.9761904761904763,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 2,
+              "rating": 4
+            },
+            {
+              "year": 2016,
+              "month": 8,
+              "rating": 4
+            },
+            {
+              "year": 2017,
+              "month": 5,
+              "rating": 3
+            }
+          ]
+        },
+        "solo": {
+          "count": 28,
+          "mean": 3.732142857142857,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 2,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 4,
+              "rating": 4
+            },
+            {
+              "year": 2017,
+              "month": 7,
+              "rating": 5
+            }
+          ]
+        }
+      },
+      "historical_mean": 3.823671497584541
+    },
+    {
+      "id": 1297,
+      "name": "Yogyakarta Palace",
+      "region": "yogyakarta",
+      "category": "culture",
+      "groups": {
+        "business": {
+          "count": 9,
+          "mean": 3.5555555555555554,
+          "examples": [
+            {
+              "year": 2013,
+              "month": 1,
+              "rating": 5
+            },
+            {
+              "year": 2015,
+              "month": 9,
+              "rating": 1
+            },
+            {
+              "year": 2016,
+              "month": 1,
+              "rating": 4
+            }
+          ]
+        },
+        "couples": {
+          "count": 138,
+          "mean": 3.2427536231884058,
+          "examples": [
+            {
+              "year": 2015,
+              "month": 2,
+              "rating": 3
+            },
+            {
+              "year": 2015,
+              "month": 10,
+              "rating": 4
+            },
+            {
+              "year": 2018,
+              "month": 12,
+              "rating": 4
+            }
+          ]
+        },
+        "family": {
+          "count": 99,
+          "mean": 3.595959595959596,
+          "examples": [
+            {
+              "year": 2013,
+              "month": 8,
+              "rating": 4
+            },
+            {
+              "year": 2015,
+              "month": 10,
+              "rating": 5
+            },
+            {
+              "year": 2016,
+              "month": 7,
+              "rating": 3
+            }
+          ]
+        },
+        "friends": {
+          "count": 105,
+          "mean": 3.530952380952381,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 11,
+              "rating": 3
+            },
+            {
+              "year": 2016,
+              "month": 12,
+              "rating": 5
+            },
+            {
+              "year": 2017,
+              "month": 1,
+              "rating": 2
+            }
+          ]
+        },
+        "solo": {
+          "count": 51,
+          "mean": 3.784313725490196,
+          "examples": [
+            {
+              "year": 2016,
+              "month": 1,
+              "rating": 3
+            },
+            {
+              "year": 2016,
+              "month": 3,
+              "rating": 2
+            },
+            {
+              "year": 2017,
+              "month": 3,
+              "rating": 5
+            }
+          ]
+        }
+      },
+      "historical_mean": 3.462962962962963
+    }
+  ],
+  "audit": {
+    "raw_visits": 52930,
+    "duplicates_removed": 3722,
+    "conflicting_rows_removed": 2052,
+    "clean_visits": 47156,
+    "clean_reviewers": 33009,
+    "visits_by_region": {
+      "bali": 43014,
+      "malang": 827,
+      "yogyakarta": 3315
+    },
+    "catalog": [
+      {
+        "AttractionId": 369,
+        "AttractionCityId": 1,
+        "Attraction": "Kuta Beach - Bali",
+        "AttractionAddress": "Kuta",
+        "AttractionTypeId": 13,
+        "region": "bali",
+        "category": "nature",
+        "name": "Kuta Beach - Bali"
+      },
+      {
+        "AttractionId": 481,
+        "AttractionCityId": 1,
+        "Attraction": "Nusa Dua Beach",
+        "AttractionAddress": "Semenanjung Nusa Dua, Nusa Dua 80517 Indonesia",
+        "AttractionTypeId": 13,
+        "region": "bali",
+        "category": "nature",
+        "name": "Nusa Dua Beach"
+      },
+      {
+        "AttractionId": 640,
+        "AttractionCityId": 1,
+        "Attraction": "Sacred Monkey Forest Sanctuary",
+        "AttractionAddress": "Jl. Monkey Forest, Ubud 80571 Indonesia",
+        "AttractionTypeId": 63,
+        "region": "bali",
+        "category": "nature",
+        "name": "Sacred Monkey Forest Sanctuary"
+      },
+      {
+        "AttractionId": 650,
+        "AttractionCityId": 1,
+        "Attraction": "Sanur Beach",
+        "AttractionAddress": "Sanur",
+        "AttractionTypeId": 13,
+        "region": "bali",
+        "category": "nature",
+        "name": "Sanur Beach"
+      },
+      {
+        "AttractionId": 673,
+        "AttractionCityId": 1,
+        "Attraction": "Seminyak Beach",
+        "AttractionAddress": "Seminyak",
+        "AttractionTypeId": 13,
+        "region": "bali",
+        "category": "nature",
+        "name": "Seminyak Beach"
+      },
+      {
+        "AttractionId": 737,
+        "AttractionCityId": 1,
+        "Attraction": "Tanah Lot Temple",
+        "AttractionAddress": "Kecamatan Kediri, Kabupaten Tabanan, Beraban 82121 Indonesia",
+        "AttractionTypeId": 76,
+        "region": "bali",
+        "category": "culture",
+        "name": "Tanah Lot Temple"
+      },
+      {
+        "AttractionId": 748,
+        "AttractionCityId": 1,
+        "Attraction": "Tegalalang Rice Terrace",
+        "AttractionAddress": "Jalan Raya Ceking, Tegalalang 80517 Indonesia",
+        "AttractionTypeId": 72,
+        "region": "bali",
+        "category": "culture",
+        "name": "Tegalalang Rice Terrace"
+      },
+      {
+        "AttractionId": 749,
+        "AttractionCityId": 1,
+        "Attraction": "Tegenungan Waterfall",
+        "AttractionAddress": "Jl. Raya Tegenungan, Kemenuh, Ubud 80581 Indonesia",
+        "AttractionTypeId": 93,
+        "region": "bali",
+        "category": "waterfall",
+        "name": "Tegenungan Waterfall"
+      },
+      {
+        "AttractionId": 824,
+        "AttractionCityId": 1,
+        "Attraction": "Uluwatu Temple",
+        "AttractionAddress": "Jl. Raya Uluwatu Southern part of Bali, Pecatu 80361 Indonesia",
+        "AttractionTypeId": 76,
+        "region": "bali",
+        "category": "culture",
+        "name": "Uluwatu Temple"
+      },
+      {
+        "AttractionId": 841,
+        "AttractionCityId": 1,
+        "Attraction": "Waterbom Bali",
+        "AttractionAddress": "Jl. Kartika Plaza, Kuta 80361 Indonesia",
+        "AttractionTypeId": 92,
+        "region": "bali",
+        "category": "recreation",
+        "name": "Waterbom Bali"
+      },
+      {
+        "AttractionId": 877,
+        "AttractionCityId": 2,
+        "Attraction": "Balekambang Beach",
+        "AttractionAddress": "Malang District",
+        "AttractionTypeId": 13,
+        "region": "malang",
+        "category": "nature",
+        "name": "Balekambang Beach"
+      },
+      {
+        "AttractionId": 888,
+        "AttractionCityId": 2,
+        "Attraction": "Bromo Tengger Semeru National Park",
+        "AttractionAddress": "Asrikaton - Pakis, Malang 65100 Indonesia",
+        "AttractionTypeId": 61,
+        "region": "malang",
+        "category": "nature",
+        "name": "Bromo Tengger Semeru National Park"
+      },
+      {
+        "AttractionId": 897,
+        "AttractionCityId": 2,
+        "Attraction": "Coban Rondo Waterfall",
+        "AttractionAddress": "Malang District",
+        "AttractionTypeId": 93,
+        "region": "malang",
+        "category": "waterfall",
+        "name": "Air Terjun Coban Rondo"
+      },
+      {
+        "AttractionId": 913,
+        "AttractionCityId": 2,
+        "Attraction": "Goa Cina Beach",
+        "AttractionAddress": "Dusun Trowotratih, Desa Sitiarjo Kecamatan Sumbermanjing Wetan, Malang 65111 Indonesia",
+        "AttractionTypeId": 13,
+        "region": "malang",
+        "category": "nature",
+        "name": "Goa Cina Beach"
+      },
+      {
+        "AttractionId": 920,
+        "AttractionCityId": 2,
+        "Attraction": "Jodipan Colorful Village",
+        "AttractionAddress": "Gang 1 Jodipan, Kesatrian, Kec. Blimbing, Malang 65126 Indonesia",
+        "AttractionTypeId": 64,
+        "region": "malang",
+        "category": "culture",
+        "name": "Jodipan Colorful Village"
+      },
+      {
+        "AttractionId": 928,
+        "AttractionCityId": 2,
+        "Attraction": "Khayangan Reflexology & Massage",
+        "AttractionAddress": "Malang",
+        "AttractionTypeId": 82,
+        "region": "malang",
+        "category": "recreation",
+        "name": "Khayangan Reflexology & Massage"
+      },
+      {
+        "AttractionId": 937,
+        "AttractionCityId": 2,
+        "Attraction": "Malang City Square",
+        "AttractionAddress": "Jl. Merdeka Utara, Malang 65119 Indonesia",
+        "AttractionTypeId": 72,
+        "region": "malang",
+        "category": "culture",
+        "name": "Malang City Square"
+      },
+      {
+        "AttractionId": 947,
+        "AttractionCityId": 2,
+        "Attraction": "Mount Semeru Volcano",
+        "AttractionAddress": "Malang Lumajang",
+        "AttractionTypeId": 91,
+        "region": "malang",
+        "category": "volcano",
+        "name": "Mount Semeru Volcano"
+      },
+      {
+        "AttractionId": 949,
+        "AttractionCityId": 2,
+        "Attraction": "Museum Malang Tempo Doeloe",
+        "AttractionAddress": "Jl. Gajahmada no. 2, Malang 65119 Indonesia",
+        "AttractionTypeId": 84,
+        "region": "malang",
+        "category": "culture",
+        "name": "Museum Malang Tempo Doeloe"
+      },
+      {
+        "AttractionId": 975,
+        "AttractionCityId": 2,
+        "Attraction": "Sempu Island",
+        "AttractionAddress": "Sumber Manjing Wetan, Malang 65111 Indonesia",
+        "AttractionTypeId": 63,
+        "region": "malang",
+        "category": "nature",
+        "name": "Sempu Island"
+      },
+      {
+        "AttractionId": 1133,
+        "AttractionCityId": 3,
+        "Attraction": "Jomblang Cave",
+        "AttractionAddress": "Jetis Wetan, Pacarejo, Semanu 55581 Indonesia",
+        "AttractionTypeId": 19,
+        "region": "yogyakarta",
+        "category": "nature",
+        "name": "Jomblang Cave"
+      },
+      {
+        "AttractionId": 1137,
+        "AttractionCityId": 3,
+        "Attraction": "Kalibiru National Park",
+        "AttractionAddress": "Kulon Progo",
+        "AttractionTypeId": 61,
+        "region": "yogyakarta",
+        "category": "nature",
+        "name": "Kalibiru National Park"
+      },
+      {
+        "AttractionId": 1166,
+        "AttractionCityId": 3,
+        "Attraction": "Malioboro Road",
+        "AttractionAddress": "Yogyakarta",
+        "AttractionTypeId": 34,
+        "region": "yogyakarta",
+        "category": "recreation",
+        "name": "Malioboro Road"
+      },
+      {
+        "AttractionId": 1171,
+        "AttractionCityId": 3,
+        "Attraction": "Merapi Volcano",
+        "AttractionAddress": "Yogyakarta",
+        "AttractionTypeId": 91,
+        "region": "yogyakarta",
+        "category": "volcano",
+        "name": "Gunung Merapi"
+      },
+      {
+        "AttractionId": 1220,
+        "AttractionCityId": 3,
+        "Attraction": "Ramayana Ballet at Prambanan",
+        "AttractionAddress": "Sleman",
+        "AttractionTypeId": 10,
+        "region": "yogyakarta",
+        "category": "culture",
+        "name": "Ramayana Ballet at Prambanan"
+      },
+      {
+        "AttractionId": 1225,
+        "AttractionCityId": 3,
+        "Attraction": "Ratu Boko Temple",
+        "AttractionAddress": "Yogyakarta",
+        "AttractionTypeId": 2,
+        "region": "yogyakarta",
+        "category": "culture",
+        "name": "Ratu Boko Temple"
+      },
+      {
+        "AttractionId": 1238,
+        "AttractionCityId": 3,
+        "Attraction": "Sewu Temple",
+        "AttractionAddress": "Yogyakarta",
+        "AttractionTypeId": 2,
+        "region": "yogyakarta",
+        "category": "culture",
+        "name": "Sewu Temple"
+      },
+      {
+        "AttractionId": 1278,
+        "AttractionCityId": 3,
+        "Attraction": "Ullen Sentalu Museum",
+        "AttractionAddress": "Jl. Boyong Taman Wisata, 55581 Indonesia",
+        "AttractionTypeId": 45,
+        "region": "yogyakarta",
+        "category": "culture",
+        "name": "Ullen Sentalu Museum"
+      },
+      {
+        "AttractionId": 1280,
+        "AttractionCityId": 3,
+        "Attraction": "Water Castle (Tamansari)",
+        "AttractionAddress": "Jl. Taman, 55133 Indonesia",
+        "AttractionTypeId": 72,
+        "region": "yogyakarta",
+        "category": "culture",
+        "name": "Water Castle (Tamansari)"
+      },
+      {
+        "AttractionId": 1297,
+        "AttractionCityId": 3,
+        "Attraction": "Yogyakarta Palace",
+        "AttractionAddress": "Yogyakarta",
+        "AttractionTypeId": 44,
+        "region": "yogyakarta",
+        "category": "culture",
+        "name": "Yogyakarta Palace"
+      }
+    ],
+    "excluded_from_recommendations": {
+      "947": "Akses pendakian terkini perlu dikonfirmasi.",
+      "949": "Museum dilaporkan tutup permanen.",
+      "975": "Cagar alam, wisata umum dilarang."
+    },
+    "source_sha256": {
+      "Transaction.xlsx": "cf4d4f49402d952844ee0b22b26b34cd3a98f45020310beedb6bb9acd52c99cf",
+      "Item.xlsx": "3cfbd728c8660e8706788f29261865f490cdd144b2605ec2ef997c540bcd5c96",
+      "User.xlsx": "5aebe6b97555657c24a27e99da00f2609389f86d62fdff60381ceb7d0f1c9331",
+      "City.xlsx": "44db59401944ffb699f819115da602ad60b3bcaeb522735ba8799e5de9c038ac",
+      "Mode.xlsx": "c33a3ad697ba3462e043c0ab3d3e0e04a5d824eb04dd8a4f996fedd9a7862c7b",
+      "Type.xlsx": "3e1888d2df75192173bdec355fe3d42d69324bcc976808867b0990dee57d090b"
+    }
+  },
+  "evaluation": {
+    "seed": 42,
+    "train_reviewers": 26332,
+    "test_reviewers": 6583,
+    "held_out_cases": 9225,
+    "overall": {
+      "cases": 9201,
+      "cbr_mae": 0.7250191561936106,
+      "baseline_mae": 0.72402738721698
+    },
+    "by_region_mode": {
+      "bali": {
+        "business": {
+          "cases": 65,
+          "cbr_mae": 0.7023235211829578,
+          "baseline_mae": 0.713840133944259
+        },
+        "couples": {
+          "cases": 3735,
+          "cbr_mae": 0.7460495510699261,
+          "baseline_mae": 0.742634724717667
+        },
+        "family": {
+          "cases": 2449,
+          "cbr_mae": 0.6715748296501411,
+          "baseline_mae": 0.6752456216615244
+        },
+        "friends": {
+          "cases": 1635,
+          "cbr_mae": 0.7437642730380728,
+          "baseline_mae": 0.7423929254637393
+        },
+        "solo": {
+          "cases": 632,
+          "cbr_mae": 0.7679003990146899,
+          "baseline_mae": 0.7695311571249189
+        }
+      },
+      "yogyakarta": {
+        "business": {
+          "cases": 34,
+          "cbr_mae": 0.6471430603644042,
+          "baseline_mae": 0.6683810426454121
+        },
+        "couples": {
+          "cases": 155,
+          "cbr_mae": 0.7855433147807281,
+          "baseline_mae": 0.7677472466351692
+        },
+        "family": {
+          "cases": 151,
+          "cbr_mae": 0.7516880249437878,
+          "baseline_mae": 0.7234889600369688
+        },
+        "friends": {
+          "cases": 184,
+          "cbr_mae": 0.7086739712763042,
+          "baseline_mae": 0.7143036183960648
+        },
+        "solo": {
+          "cases": 65,
+          "cbr_mae": 0.7911667749066845,
+          "baseline_mae": 0.8027832536505627
+        }
+      },
+      "malang": {
+        "business": {
+          "cases": 4,
+          "cbr_mae": 0.4485942492012778,
+          "baseline_mae": 0.44648562300319483
+        },
+        "couples": {
+          "cases": 12,
+          "cbr_mae": 0.612848905388685,
+          "baseline_mae": 0.6227517453555792
+        },
+        "family": {
+          "cases": 36,
+          "cbr_mae": 0.6200693920087572,
+          "baseline_mae": 0.6007936777683905
+        },
+        "friends": {
+          "cases": 35,
+          "cbr_mae": 0.5239441480297611,
+          "baseline_mae": 0.5245206467207495
+        },
+        "solo": {
+          "cases": 9,
+          "cbr_mae": 0.4225366397890363,
+          "baseline_mae": 0.4413205537806177
+        }
+      }
+    },
+    "training_coverage": {
+      "bali": {
+        "business": {
+          "supported": 5,
+          "scenarios": 6
+        },
+        "couples": {
+          "supported": 5,
+          "scenarios": 6
+        },
+        "family": {
+          "supported": 5,
+          "scenarios": 6
+        },
+        "friends": {
+          "supported": 5,
+          "scenarios": 6
+        },
+        "solo": {
+          "supported": 5,
+          "scenarios": 6
+        }
+      },
+      "yogyakarta": {
+        "business": {
+          "supported": 4,
+          "scenarios": 6
+        },
+        "couples": {
+          "supported": 5,
+          "scenarios": 6
+        },
+        "family": {
+          "supported": 5,
+          "scenarios": 6
+        },
+        "friends": {
+          "supported": 5,
+          "scenarios": 6
+        },
+        "solo": {
+          "supported": 5,
+          "scenarios": 6
+        }
+      },
+      "malang": {
+        "business": {
+          "supported": 2,
+          "scenarios": 6
+        },
+        "couples": {
+          "supported": 3,
+          "scenarios": 6
+        },
+        "family": {
+          "supported": 4,
+          "scenarios": 6
+        },
+        "friends": {
+          "supported": 4,
+          "scenarios": 6
+        },
+        "solo": {
+          "supported": 4,
+          "scenarios": 6
+        }
+      }
+    },
+    "serving_coverage": {
+      "bali": {
+        "business": {
+          "supported": 5,
+          "scenarios": 6
+        },
+        "couples": {
+          "supported": 5,
+          "scenarios": 6
+        },
+        "family": {
+          "supported": 5,
+          "scenarios": 6
+        },
+        "friends": {
+          "supported": 5,
+          "scenarios": 6
+        },
+        "solo": {
+          "supported": 5,
+          "scenarios": 6
+        }
+      },
+      "yogyakarta": {
+        "business": {
+          "supported": 4,
+          "scenarios": 6
+        },
+        "couples": {
+          "supported": 5,
+          "scenarios": 6
+        },
+        "family": {
+          "supported": 5,
+          "scenarios": 6
+        },
+        "friends": {
+          "supported": 5,
+          "scenarios": 6
+        },
+        "solo": {
+          "supported": 5,
+          "scenarios": 6
+        }
+      },
+      "malang": {
+        "business": {
+          "supported": 2,
+          "scenarios": 6
+        },
+        "couples": {
+          "supported": 3,
+          "scenarios": 6
+        },
+        "family": {
+          "supported": 4,
+          "scenarios": 6
+        },
+        "friends": {
+          "supported": 4,
+          "scenarios": 6
+        },
+        "solo": {
+          "supported": 4,
+          "scenarios": 6
+        }
+      }
+    }
+  }
+}

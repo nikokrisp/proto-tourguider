@@ -10,8 +10,9 @@ if [[ ! -f .venv/.temu-ready ]]; then
   .venv/bin/python -m pip install -r requirements.txt
   touch .venv/.temu-ready
 fi
-if [[ ! -f artifacts/model.joblib || ! -f artifacts/evaluation.json ]]; then
-  .venv/bin/python -m backend.train
+if [[ ! -f artifacts/cbr-cases-v4.json && ! -f artifacts/cbr.json ]]; then
+  printf "Basis kasus belum tersedia. Lihat petunjuk di README.\n"
+  exit 1
 fi
 printf '\nTourguider: http://127.0.0.1:8765\nTekan Control+C untuk menghentikan aplikasi.\n\n'
 .venv/bin/python -m uvicorn backend.app:app --host 127.0.0.1 --port 8765

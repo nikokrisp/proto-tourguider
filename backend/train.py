@@ -1,153 +1,174 @@
-"""Rebuild the cleaned case base, decision tree, rules and reproducible evaluation."""
-import ast
+"""Build the local case base from Mendeley v1 and evaluate on unseen reviewers."""
+import argparse
 import hashlib
 import json
-from datetime import datetime, timezone
 from pathlib import Path
-import joblib
-import numpy as np
+
 import pandas as pd
-from scipy.sparse import csr_matrix
-from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier
-from threadpoolctl import threadpool_limits
-from .domain import ROOT, SEED, QUESTIONS, FEATURES, FIELD_COLUMNS, encode
-from .engine import export_rules, infer, Recommender, POLICY_VERSION
+
+from .domain import CATEGORIES, DATA_VERSION, MIN_REVIEWERS, MODES, REGIONS
+from .engine import recommend, score
+
+ROOT = Path(__file__).resolve().parents[1]
+REGION_IDS = {1: "bali", 2: "malang", 3: "yogyakarta"}
+MODE_IDS = dict(enumerate(MODES, 1))
+TYPE_IDS = {
+    2: "culture", 10: "culture", 13: "nature", 19: "nature", 34: "recreation",
+    44: "culture", 45: "culture", 61: "nature", 63: "nature", 64: "culture",
+    72: "culture", 76: "culture", 82: "recreation", 84: "culture",
+    91: "volcano", 92: "recreation", 93: "waterfall",
+}
+DISPLAY_NAMES = {"Merapi Volcano": "Gunung Merapi", "Coban Rondo Waterfall": "Air Terjun Coban Rondo"}
+VISIT_KEY = ["UserId", "AttractionId", "VisitYear", "VisitMonth", "VisitMode"]
 
 
-def clean_row(row, destination_count):
-    profile = {}
-    for field, q in QUESTIONS.items():
-        values = ast.literal_eval(row[field]) if row[field] else []
-        valid = {v for v, _ in q["options"]}
-        if not isinstance(values, list) or any(v not in valid for v in values):
-            raise ValueError(f"Invalid {field} in {row['id']}")
-        profile[field] = sorted(set(values))
-    labels, duplicates = [], 0
-    for col in ("yes_swipes", "no_swipes", "maybe_swipes"):
-        values = ast.literal_eval(row[col])
-        if any(type(v) is not int or not 0 <= v < destination_count for v in values):
-            raise ValueError(f"Invalid destination ID in {row['id']}")
-        duplicates += len(values) - len(set(values))
-        labels.append(set(values))
-    conflict = (labels[0] & labels[1]) | (labels[0] & labels[2]) | (labels[1] & labels[2])
-    labels = [sorted(values - conflict) for values in labels]
-    return {"id": row["id"], "profile": profile, "yes": labels[0], "no": labels[1], "maybe": labels[2]}, duplicates, len(conflict)
+def read_source(source):
+    names = ["Transaction", "Item", "User", "City", "Mode", "Type"]
+    paths = {name: source / f"{name}.xlsx" for name in names}
+    hashes = {path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in paths.values()}
+    tables = {name: pd.read_excel(path) for name, path in paths.items()}
+    return tables, hashes
 
 
-def make_matrix(rows, kind, n):
-    rr, cc = [], []
-    for i, row in enumerate(rows):
-        rr.extend([i] * len(row[kind]))
-        cc.extend(row[kind])
-    return csr_matrix((np.ones(len(rr), dtype=np.float32), (rr, cc)), shape=(len(rows), n))
+def clean(tables):
+    visits, places = tables["Transaction"], tables["Item"].copy()
+    references = [
+        (visits.UserId, tables["User"].UserId),
+        (visits.AttractionId, places.AttractionId),
+        (visits.VisitMode, tables["Mode"].VisitModeId),
+        (places.AttractionTypeId, tables["Type"].AttractionTypeId),
+    ]
+    if any(target.duplicated().any() or not values.isin(target).all() for values, target in references):
+        raise ValueError("Kunci atau referensi sumber tidak valid.")
+    if (visits.TransactionId.duplicated().any() or visits.isna().any().any()
+            or not visits.Rating.isin(range(1, 6)).all()
+            or not visits.VisitMonth.isin(range(1, 13)).all()
+            or not visits.VisitMode.isin(MODE_IDS).all()):
+        raise ValueError("Nilai transaksi di luar skema sumber.")
+    unique = visits.drop_duplicates(subset=VISIT_KEY + ["Rating"])
+    conflict = unique.groupby(VISIT_KEY).Rating.transform("nunique").gt(1)
+    cleaned = unique.loc[~conflict].copy()
+    places["region"] = places.AttractionCityId.map(REGION_IDS)
+    places["category"] = places.AttractionTypeId.map(TYPE_IDS)
+    places["name"] = places.Attraction.replace(DISPLAY_NAMES)
+    if places[["region", "category", "name", "AttractionAddress"]].isna().any().any():
+        raise ValueError("Katalog belum sepenuhnya dipetakan.")
+    cleaned = cleaned.merge(places, on="AttractionId", validate="many_to_one")
+    cleaned["mode"] = cleaned.VisitMode.map(MODE_IDS)
+    audit = {
+        "raw_visits": len(visits),
+        "duplicates_removed": len(visits) - len(unique),
+        "conflicting_rows_removed": int(conflict.sum()),
+        "clean_visits": len(cleaned),
+        "clean_reviewers": int(cleaned.UserId.nunique()),
+        "visits_by_region": cleaned.groupby("region").size().to_dict(),
+        "catalog": places[["AttractionId", "AttractionCityId", "Attraction", "AttractionAddress",
+                           "AttractionTypeId", "region", "category", "name"]].to_dict("records"),
+    }
+    if (len(visits), len(places), len(cleaned)) != (52930, 30, 47156):
+        raise ValueError("Jumlah baris berbeda dari audit Mendeley versi 1.")
+    return cleaned, audit
 
 
-def metrics(ranking, positive):
-    hits = [int(d in positive) for d in ranking]
-    precision = sum(hits) / 5
-    recall = sum(hits) / len(positive)
-    dcg = sum(h / np.log2(i + 2) for i, h in enumerate(hits))
-    ideal = sum(1 / np.log2(i + 2) for i in range(min(5, len(positive))))
-    return np.array([precision, recall, dcg / ideal])
+def build_case_base(visits):
+    catalog = []
+    for attraction_id, rows in visits.groupby("AttractionId"):
+        cases = rows.groupby(["mode", "UserId"]).Rating.mean()
+        first = rows.iloc[0]
+        groups = {}
+        for mode, ratings in cases.groupby(level="mode"):
+            # Choose distinct reviewers in a stable, rating-independent order.
+            groups[mode] = {"count": len(ratings), "mean": float(ratings.mean()),
+                            "examples": []}
+            if {"VisitYear", "VisitMonth"} <= set(rows.columns):
+                examples = rows[(rows["mode"] == mode) & rows.UserId.isin(ratings.head(3).index.get_level_values("UserId"))]
+                examples = examples.sort_values(["VisitYear", "VisitMonth", "TransactionId"]).drop_duplicates("UserId")
+                groups[mode]["examples"] = [
+                    {"year": int(row.VisitYear), "month": int(row.VisitMonth), "rating": int(row.Rating)}
+                    for row in examples.itertuples()
+                ]
+        catalog.append({
+            "id": int(attraction_id), "name": first["name"], "region": first["region"],
+            "category": first["category"], "groups": groups,
+            "historical_mean": float(rows.groupby("UserId").Rating.mean().mean()),
+        })
+    return catalog
 
 
-def evaluate(bundle, test_rows):
-    rec = Recommender(bundle)
-    sums = {name: np.zeros(3) for name in ["forward_chaining", "cbr", "popularity"]}
-    eligible, excluded = [], {"no_positive": 0, "fewer_than_five_candidates": 0}
-    route_groups = {}
-    for row in test_rows:
-        if not row["yes"]:
-            excluded["no_positive"] += 1
-            continue
-        if len(row["yes"]) + len(row["no"]) < 5:
-            excluded["fewer_than_five_candidates"] += 1
-            continue
-        state = infer(bundle["rules"], row["profile"])
-        answers = {f: row["profile"][f] for f in state["used_fields"]}
-        key = tuple(f for f in QUESTIONS if answers.get(f))
-        route_groups.setdefault(key, []).append((row, state, answers))
-        eligible.append(row)
-    for fields, queries in route_groups.items():
-        for start in range(0, len(queries), 64):
-            batch = queries[start:start + 64]
-            similarities = rec.cosine_batch(np.stack([encode(a) for _, _, a in batch]), fields)
-            for (row, state, answers), sims in zip(batch, similarities):
-                candidates = sorted(row["yes"] + row["no"])
-                positive = set(row["yes"])
-                context = rec.cbr_scores(answers, similarities=sims)
-                ranked, _, _, _ = rec.recommendation_scores(answers, state, context)
-                popularity = np.where(rec.popularity > 0, rec.popularity, -np.inf)
-                for name, scores in [("forward_chaining", ranked["rules"]), ("cbr", ranked["cbr"]), ("popularity", popularity)]:
-                    sums[name] += metrics(rec.rank(scores, candidates), positive)
-        print(f"Evaluated route {fields}: {len(queries)} users", flush=True)
-    n = len(eligible)
-    return {"policy_version": POLICY_VERSION, "seed": SEED, "train_users": len(bundle["ids"]), "test_users": len(test_rows), "evaluated_users": n, "excluded": excluded, "candidate_policy": "Per pengguna uji: hanya destinasi dengan Yes/No, minimal 5 kandidat dan 1 Yes. Maybe dan destinasi tanpa penilaian tidak dianggap negatif. Kedua metode memakai kelompok pertanyaan pada jalur aturan yang sama. Jawaban belum tahu tidak menjadi dasar kemiripan CBR; destinasi yang hanya ditolak tetangga dikeluarkan dari rekomendasi CBR.", "limitation": "Evaluasi kandidat yang sudah dinilai, bukan pengukuran keberhasilan top-5 pada seluruh katalog atau kepuasan perjalanan nyata. Pemilihan kandidat dipengaruhi paparan pada situs asal.", "metrics": {name: dict(zip(["precision_at_5", "recall_at_5", "ndcg_at_5"], [round(float(v), 6) for v in values / max(1, n)])) for name, values in sums.items()}}
+def coverage(catalog):
+    report = {}
+    for region in REGIONS:
+        report[region] = {}
+        for mode in MODES:
+            supported = sum(
+                recommend(catalog, {"region": region, "mode": mode, "category": category})[0] is not None
+                for category in CATEGORIES
+            )
+            report[region][mode] = {"supported": supported, "scenarios": len(CATEGORIES)}
+    return report
+
+
+def evaluate(visits):
+    reviewers = pd.Series(sorted(visits.UserId.unique()))
+    test_users = set(reviewers.sample(frac=0.2, random_state=42))
+    held_out = visits.UserId.isin(test_users)
+    catalog = build_case_base(visits.loc[~held_out])
+    by_place = {place["id"]: place for place in catalog}
+    eligible_test = []
+    test = visits.loc[held_out].groupby(["UserId", "AttractionId", "region", "mode"]).Rating.mean()
+    for (_, attraction_id, region, mode), observed in test.items():
+        place = by_place.get(attraction_id)
+        group = place["groups"].get(mode) if place else None
+        if group and group["count"] >= MIN_REVIEWERS:
+            baseline = place["historical_mean"]
+            estimate = score(group["count"], group["mean"], baseline)
+            eligible_test.append((region, mode, abs(estimate - observed), abs(baseline - observed)))
+    errors = pd.DataFrame(eligible_test, columns=["region", "mode", "cbr", "baseline"])
+
+    def metrics(rows):
+        return {
+            "cases": len(rows),
+            "cbr_mae": float(rows.cbr.mean()) if len(rows) else None,
+            "baseline_mae": float(rows.baseline.mean()) if len(rows) else None,
+        }
+
+    return {
+        "seed": 42, "train_reviewers": len(reviewers) - len(test_users),
+        "test_reviewers": len(test_users), "held_out_cases": len(test),
+        "overall": metrics(errors),
+        "by_region_mode": {
+            region: {mode: metrics(errors[(errors.region == region) & (errors["mode"] == mode)])
+                     for mode in MODES}
+            for region in REGIONS
+        },
+        "training_coverage": coverage(catalog),
+    }
 
 
 def main():
-    raw_path = ROOT / "data/raw/Stravl_Travel_Preference_Data.csv"
-    raw = raw_path.read_bytes()
-    df = pd.read_csv(raw_path, keep_default_na=False)
-    names = (ROOT / "data/raw/destination_ids.txt").read_text().splitlines()
-    audit = {"source": "https://github.com/Stravl/Stravl-Data", "csv_sha256": hashlib.sha256(raw).hexdigest(), "generated_at": datetime.now(timezone.utc).isoformat(), "raw_users": len(df), "raw_columns": len(df.columns), "destinations": len(names), "raw_swipes": {kind: int(df[col].map(lambda x: len(ast.literal_eval(x))).sum()) for kind, col in [("yes", "yes_swipes"), ("no", "no_swipes"), ("maybe", "maybe_swipes")]}, "missing_fields": {f: int((df[f] == "").sum()) for f in QUESTIONS}}
-    duplicate_mask = df.drop(columns="id").duplicated()
-    audit["duplicate_records_removed"] = int(duplicate_mask.sum())
-    kept = df.loc[~duplicate_mask]
-    rows, repeated, conflicts, empty = [], 0, 0, 0
-    for row in kept.to_dict("records"):
-        cleaned, dup, conflict = clean_row(row, len(names))
-        repeated += dup
-        conflicts += conflict
-        if cleaned["yes"] or cleaned["no"] or cleaned["maybe"]:
-            rows.append(cleaned)
-        else:
-            empty += 1
-    audit.update({"repeated_swipes_removed_after_record_dedup": repeated, "conflicting_pairs_removed_after_record_dedup": conflicts, "empty_records_excluded": empty, "usable_users": len(rows), "clean_interactions": {k: sum(len(r[k]) for r in rows) for k in ["yes", "no", "maybe"]}})
-    train_rows, test_rows = train_test_split(rows, test_size=.2, random_state=SEED)
-    assert not ({r["id"] for r in train_rows} & {r["id"] for r in test_rows})
-    X = np.stack([encode(r["profile"]) for r in train_rows])
-    ix, y, weights = [], [], []
-    for i, row in enumerate(train_rows):
-        for d in row["yes"]:
-            ix.append(i)
-            y.append(d)
-            weights.append(1 / len(row["yes"]))
-    tree = DecisionTreeClassifier(max_depth=5, min_samples_leaf=200, random_state=SEED)
-    print(f"Training: {len(train_rows)} users, {len(y)} positive pairs, {len(FEATURES)} features", flush=True)
-    tree.fit(X[ix], y, sample_weight=weights)
-    rules = export_rules(tree)
-    leaves = tree.apply(X)
-    mats = {k: make_matrix(train_rows, k, len(names)) for k in ["yes", "no", "maybe"]}
-    leaf_scores, leaf_support, leaf_users = {}, {}, {}
-    for leaf in np.unique(leaves):
-        leaf = int(leaf)
-        dist = np.zeros(len(names), dtype=np.float64)
-        dist[tree.classes_.astype(int)] = tree.tree_.value[leaf][0]
-        leaf_scores[leaf] = dist
-        mask = leaves == leaf
-        leaf_support[leaf] = np.asarray(mats["yes"][mask].sum(axis=0)).ravel().astype(int)
-        leaf_users[leaf] = int(mask.sum())
-    bundle = {"tree": tree, "rules": rules, "X": X, "ids": [r["id"] for r in train_rows], "profiles": [r["profile"] for r in train_rows], "destinations": names, "leaf_scores": leaf_scores, "leaf_support": leaf_support, "leaf_users": leaf_users, **mats}
-    # Verify the generated forward-chaining rule base against EVERY train/test record.
-    for split in (train_rows, test_rows):
-        expected = tree.apply(np.stack([encode(r["profile"]) for r in split]))
-        actual = [infer(rules, r["profile"])["leaf"] for r in split]
-        assert np.array_equal(expected, actual), "Exported rules differ from source tree"
-    audit.update({"train_users": len(train_rows), "test_users": len(test_rows), "positive_training_pairs": len(y), "tree_depth": int(tree.get_depth()), "leaf_count": int(tree.get_n_leaves()), "rule_count": len(rules), "rule_equivalence_records": len(rows), "feature_count": len(FEATURES)})
-    for folder in ["artifacts", "data/processed"]:
-        (ROOT / folder).mkdir(parents=True, exist_ok=True)
-    joblib.dump(bundle, ROOT / "artifacts/model.joblib", compress=3)
-    (ROOT / "artifacts/rules.json").write_text(json.dumps(rules, ensure_ascii=False, indent=2))
-    (ROOT / "data/processed/audit.json").write_text(json.dumps(audit, ensure_ascii=False, indent=2))
-    (ROOT / "data/processed/split.json").write_text(json.dumps({"seed": SEED, "train_ids": bundle["ids"], "test_ids": [r["id"] for r in test_rows]}))
-    print(json.dumps(audit, indent=2), flush=True)
-    evaluation = evaluate(bundle, test_rows)
-    (ROOT / "artifacts/evaluation.json").write_text(json.dumps(evaluation, ensure_ascii=False, indent=2))
-    print(json.dumps(evaluation, indent=2), flush=True)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--source", type=Path, required=True)
+    args = parser.parse_args()
+    tables, hashes = read_source(args.source)
+    visits, audit = clean(tables)
+    active = visits[visits.region.isin(REGIONS)]
+    excluded = {
+        947: "Akses pendakian terkini perlu dikonfirmasi.",
+        949: "Museum dilaporkan tutup permanen.",
+        975: "Cagar alam, wisata umum dilarang.",
+    }
+    active = active[~active.AttractionId.isin(excluded)]
+    places = build_case_base(active)
+    audit["excluded_from_recommendations"] = excluded
+    audit["source_sha256"] = hashes
+    evaluation = evaluate(active)
+    evaluation["serving_coverage"] = coverage(places)
+    artifacts = ROOT / "artifacts"
+    artifacts.mkdir(exist_ok=True)
+    artifact = {"version": DATA_VERSION, "places": places, "audit": audit, "evaluation": evaluation}
+    (artifacts / "cbr.json").write_text(json.dumps(artifact, indent=2, ensure_ascii=False) + "\n")
+    print(json.dumps(evaluation["overall"]))
 
 
 if __name__ == "__main__":
-    with threadpool_limits(limits=2):
-        main()
+    main()

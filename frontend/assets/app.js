@@ -1,793 +1,321 @@
-/* ---------- Elemen, state, dan pembantu umum ---------- */
-
 const main = document.querySelector("#main");
-const live = document.querySelector("#announcement");
+const resultKey = "tourguider-mendeley-result-v4";
+let state;
+let history;
+let pending = false;
+const number = new Intl.NumberFormat("id-ID");
+let draft = {};
+const baseFields = ["region", "mode", "category"];
+const escapeText = (value) => String(value).replace(/[&<>"']/g, (char) => ({
+  "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+})[char]);
 
-const state = {
-  screen: "home",
-  consultation: null,
-  selected: [],
-  unknown: false,
-  tab: "rules",
-  project: null,
-  busy: false,
-  returnTo: "home",
-  pendingEdit: null,
-  retryAnswers: null,
-};
-
-const LOCAL_SERVER_URL = "http://127.0.0.1:8765/";
-const arrow = '<span aria-hidden="true">↗</span>';
-
-const HTML_ESCAPES = {
-  "&": "&amp;",
-  "<": "&lt;",
-  ">": "&gt;",
-  '"': "&quot;",
-  "'": "&#39;",
-};
-
-const esc = (value) =>
-  String(value ?? "").replace(/[&<>"']/g, (character) => HTML_ESCAPES[character]);
-
-const idNumberFormat = new Intl.NumberFormat("id-ID");
-const number = (n) => idNumberFormat.format(n);
-
-/* ---------- Akses API ---------- */
-
-const REQUEST_TIMEOUT_MS = 45000;
-
-function friendlyError(error) {
-  if (error.name === "AbortError") {
-    return new Error("Proses membutuhkan waktu lebih lama. Coba lagi sebentar.");
-  }
-  if (error instanceof TypeError) {
-    return new Error(
-      "Aplikasi belum terhubung. Pastikan server lokal masih berjalan, lalu coba lagi.",
-    );
-  }
-  return error;
-}
-
-async function api(path, body) {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
-  try {
-    const response = await fetch(path, {
-      method: body === undefined ? "GET" : "POST",
-      headers: { "Content-Type": "application/json" },
-      body: body === undefined ? undefined : JSON.stringify(body),
-      signal: controller.signal,
-    });
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error(
-        typeof data.detail === "string"
-          ? data.detail
-          : "Jawaban belum dapat diproses. Periksa pilihanmu dan coba lagi.",
-      );
+function recentResults() {
+  if (!history) {
+    try {
+      const stored = JSON.parse(sessionStorage.getItem(resultKey));
+      history = Array.isArray(stored) ? stored : [];
+    } catch {
+      history = [];
     }
-    return data;
-  } catch (error) {
-    throw friendlyError(error);
-  } finally {
-    clearTimeout(timeout);
   }
+  return history;
 }
 
-/* ---------- Kerangka layar ---------- */
-
-function focusMain() {
-  main.focus({ preventScroll: true });
-  window.scrollTo({ top: 0, behavior: "instant" });
+function savedResult() {
+  return recentResults()[0];
 }
 
-function announce(text) {
-  live.textContent = text;
-}
-
-function loading(label = "Memuat konsultasi…") {
-  main.setAttribute("aria-busy", "true");
-  main.innerHTML = `<div class="loading" role="status">
-    <div class="spinner" aria-hidden="true"></div>
-    <p>${esc(label)}</p>
-  </div>`;
-  announce(label);
-}
-
-/* Menjalankan satu permintaan API sambil menahan klik ganda dan menampilkan status memuat. */
-async function withLoadingScreen(task, label) {
-  state.busy = true;
-  loading(label);
+function saveResult(value) {
+  const recent = savedResult();
+  history = value ? [value, JSON.stringify(recent?.answers) === JSON.stringify(value.answers)
+    ? recentResults()[1] : recent].filter(Boolean) : [];
   try {
-    return await task();
-  } finally {
-    state.busy = false;
-    main.removeAttribute("aria-busy");
+    sessionStorage.setItem(resultKey, JSON.stringify(history));
+  } catch {
+    // Consultation still works when browser storage is disabled.
   }
-}
-
-function showError(error, retryAction) {
-  state.screen = "error";
-  main.removeAttribute("aria-busy");
-  main.innerHTML = `<section class="error-box" role="alert">
-    <div class="eyebrow">Sebentar, ada kendala</div>
-    <h1>Konsultasi belum dapat diproses.</h1>
-    <p>${esc(error.message)}</p>
-    <button class="button" data-action="${retryAction}">Coba lagi ${arrow}</button>
-    <button class="button ghost" data-action="home">Ke beranda</button>
-  </section>`;
-  focusMain();
-}
-
-/* ---------- Layar beranda ---------- */
-
-const HOME_STEPS = [
-  [
-    "01",
-    "Isi preferensi perjalanan",
-    "Jawab pertanyaan tentang preferensi perjalananmu.",
-  ],
-  [
-    "02",
-    "Lihat rekomendasi destinasi",
-    "Bandingkan hasil berbasis aturan dan pengguna serupa.",
-  ],
-  [
-    "03",
-    "Periksa dasar rekomendasi",
-    "Lihat aturan yang digunakan dan respons pengguna pendukung.",
-  ],
-];
-
-function homeStep([stepNumber, title, copy]) {
-  return `<div class="home-step"><span class="step-number">${stepNumber}</span><div><h2>${title}</h2><p>${copy}</p></div></div>`;
 }
 
 function home() {
-  state.screen = "home";
-  state.pendingEdit = null;
-  announce("Beranda Tourguider.");
-  main.innerHTML = `<section class="home wrap fade-in" aria-labelledby="hero-title">
-    <div class="eyebrow">Proyek Sistem Berbasis Pengetahuan</div>
-    <h1 id="hero-title" class="hero-title">Rekomendasi destinasi wisata<br>berdasarkan preferensimu.</h1>
-    <p class="hero-copy">Tourguider menggunakan forward chaining dan CBR untuk merekomendasikan destinasi dari data Stravl. Isi preferensi perjalananmu untuk melihat hasil dan dasar rekomendasinya.</p>
-    <div class="hero-actions">
-      <button class="button" data-action="start">Mulai konsultasi ${arrow}</button>
-      <button class="nav-link" data-action="about">Tentang proyek <span aria-hidden="true">↗</span></button>
+  main.innerHTML = `<section class="home wrap">
+    <h1 class="hero-title">Rekomendasi tempat wisata <em>di Indonesia</em></h1>
+    <p class="hero-copy">Pilih wilayah, minat, dan tipe rombongan. Tourguider mencocokkan pilihanmu dengan riwayat kunjungan di Bali, Yogyakarta, dan Malang.</p>
+    <div class="hero-actions"><button class="button" data-action="start">Mulai konsultasi ↗</button><a class="nav-link" href="/alur-cbr">Lihat alur CBR</a></div>
+    <div class="home-steps">
+      <div class="home-step"><span class="step-number">01</span><div><h2>Isi preferensi</h2><p>Pilih wilayah, tipe rombongan, dan jenis wisata.</p></div></div>
+      <div class="home-step"><span class="step-number">02</span><div><h2>Cari kasus serupa</h2><p>Bandingkan rating dari kunjungan dengan tipe rombongan serupa.</p></div></div>
+      <div class="home-step"><span class="step-number">03</span><div><h2>Lihat satu tempat</h2><p>Telusuri alasan tempat itu terpilih.</p></div></div>
     </div>
-    <p class="quiet-note">Tanpa akun <span>·</span> Pertanyaan mengikuti jawabanmu <span>·</span> Gratis</p>
-    <div class="home-steps">${HOME_STEPS.map(homeStep).join("")}</div>
   </section>`;
 }
 
-/* ---------- Alur konsultasi ---------- */
-
-function resetSelection() {
-  state.selected = [];
-  state.unknown = false;
-}
-
-async function start() {
-  if (state.busy) return;
-  state.pendingEdit = null;
-  state.tab = "rules";
-  await withLoadingScreen(async () => {
-    try {
-      state.consultation = await api("/api/consultations/start", {});
-      resetSelection();
-      renderConsultation();
-      focusMain();
-    } catch (e) {
-      showError(e, "start");
-    }
-  });
-}
-
-function answerChips(summary) {
-  return summary
-    .map((answer) => {
-      const text = esc(answer.text);
-      return `<button class="chip" data-action="edit" data-field="${esc(answer.field)}" aria-label="Ubah ${esc(answer.label)}: ${text}">${text} <span class="edit-icon" aria-hidden="true">↗</span></button>`;
-    })
-    .join("");
-}
-
-function answerOption(option, question) {
-  const inputType = question.multiple ? "checkbox" : "radio";
-  const checked = state.selected.includes(option.value) ? "checked" : "";
-  return `<label class="option"><input type="${inputType}" name="answer" value="${esc(option.value)}" ${checked}><span>${esc(option.label)}</span></label>`;
-}
-
-function summaryStrip(summary) {
-  if (!summary.length) return "";
-  return `<div class="answer-strip">
-    <p class="answer-strip-title">Jawabanmu sejauh ini · pilih untuk mengubah</p>
-    <div class="chips">${answerChips(summary)}</div>
-  </div>`;
-}
-
-function renderConsultation() {
-  const consultation = state.consultation;
-  if (consultation.complete) {
-    renderResults();
-    return;
+async function request(path, answers) {
+  if (pending) return;
+  pending = true;
+  const form = main.querySelector("form");
+  const error = main.querySelector("#request-error");
+  if (error) error.textContent = "";
+  if (form) {
+    form.setAttribute("aria-busy", "true");
+    for (const button of form.querySelectorAll("button")) button.disabled = true;
+  } else {
+    main.innerHTML = '<p class="loading" role="status">Memuat konsultasi…</p>';
   }
+  try {
+    const response = await fetch(`/api/consultations/${path}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: answers ? JSON.stringify({ answers }) : undefined,
+    });
+    if (!response.ok) throw new Error("Permintaan gagal");
+    state = await response.json();
+    if (state.status === "question") {
+      renderQuestion();
+    } else {
+      saveResult(state);
+      renderResult();
+    }
+    main.focus();
+  } catch {
+    const message = "Konsultasi belum bisa dimuat. Coba lagi.";
+    if (error) error.textContent = message;
+    else main.innerHTML = `<section class="wrap error-box"><p role="alert">${message}</p><button class="button" data-action="retry">Coba lagi</button></section>`;
+    retryRequest = () => request(path, answers);
+  } finally {
+    pending = false;
+    if (form) {
+      form.removeAttribute("aria-busy");
+      for (const button of form.querySelectorAll("button")) {
+        button.disabled = button.type === "submit" && !form.querySelector('input[name="choice"]:checked');
+      }
+    }
+  }
+}
 
-  state.screen = "consultation";
-  const question = consultation.question;
-  const questionNumber = consultation.question_number;
+let retryRequest;
 
-  main.innerHTML = `<section class="consult wrap fade-in" aria-labelledby="question-title">
-    <div class="section-top">
-      <span class="eyebrow">Preferensi perjalanan</span>
-      <span class="step-caption">Sesuai alur jawabanmu</span>
-    </div>
-    <form id="question-form" class="question-card" novalidate>
-      <div class="card-meta">
-        <span>Pertanyaan ke-${questionNumber} · ${esc(question.label)}</span>
-        <span class="ordinal">${String(questionNumber).padStart(2, "0")}</span>
-      </div>
-      <h1 id="question-title">${esc(question.title)}</h1>
-      <p class="question-hint" id="question-hint">${esc(question.hint)}</p>
-      <fieldset class="option-grid" aria-describedby="question-hint field-error">
-        <legend class="sr-only">${esc(question.title)}</legend>
-        ${question.options.map((option) => answerOption(option, question)).join("")}
+
+function renderQuestion() {
+  const q = state.question;
+  const unavailable = new Set(q.unavailable);
+  const previous = draft[q.id]?.[0];
+  const selected = previous && !unavailable.has(previous)
+    ? previous
+    : null;
+  main.innerHTML = `<section class="wrap"><div class="consult">
+    <form class="question-card">
+      <div class="card-meta"><span>${escapeText(q.label)}</span><span>Langkah ${state.question_number}</span></div>
+      <h1 id="question-title">${escapeText(q.prompt)}</h1>
+      <p class="question-hint">Pilih satu jawaban untuk melanjutkan.</p>
+      <fieldset class="option-grid" aria-labelledby="question-title">
+      ${Object.entries(q.options).map(([id, label]) => {
+        const disabled = unavailable.has(id);
+        return `<label class="option">
+          <input type="radio" name="choice" value="${escapeText(id)}" ${selected === id ? "checked" : ""} ${disabled ? "disabled" : "required"}>
+          <span>${escapeText(label)}${disabled ? '<small class="option-note">Belum ada tempat yang cocok</small>' : ""}</span>
+        </label>`;
+      }).join("")}
       </fieldset>
-      <label class="unknown"><input id="unknown-answer" type="checkbox" ${state.unknown ? "checked" : ""}><span>Belum tahu / belum menentukan</span></label>
-      <p id="field-error" class="field-error" role="alert" hidden>Pilih jawaban atau tandai “Belum tahu” untuk melanjutkan.</p>
+      ${unavailable.size ? '<p class="availability-note">Pilihan yang tidak aktif belum punya tempat yang memenuhi jawabanmu. Ubah jawaban sebelumnya untuk membuka pilihan lain.</p>' : ""}
+      <p id="request-error" class="field-error" role="alert"></p>
       <div class="form-actions">
-        <button type="button" class="button ghost" data-action="back"><span aria-hidden="true">←</span> Kembali</button>
-        <button type="submit" class="button">Lanjutkan ${arrow}</button>
+        ${state.question_number > 1 ? '<button class="button ghost" type="button" data-action="back">Kembali</button>' : ""}
+        <button class="button" type="submit" ${selected ? "" : "disabled"}>${q.id === "category" ? "Lihat rekomendasi" : "Lanjutkan"} ↗</button>
       </div>
     </form>
-    ${summaryStrip(consultation.summary)}
-    <p class="consult-note">Pertanyaan menyesuaikan jawabanmu. Pilih jawaban sebelumnya untuk mengubahnya.</p>
-  </section>`;
-
-  main.querySelector("#question-form").addEventListener("submit", submitAnswer);
-  announce(`Pertanyaan ${questionNumber}: ${question.title}`);
+    <div class="answer-strip chips">${summary(state.summary)}</div>
+  </div></section>`;
 }
 
-async function submitAnswer(event) {
-  event.preventDefault();
-  if (state.busy) return;
-
-  const form = event.currentTarget;
-  const chosen = [...form.querySelectorAll('[name="answer"]:checked')].map(
-    (input) => input.value,
-  );
-  const unknown = form.querySelector("#unknown-answer").checked;
-
-  if (!chosen.length && !unknown) {
-    form.querySelector("#field-error").hidden = false;
-    form.querySelector('[name="answer"]').focus();
-    return;
-  }
-
-  state.selected = chosen;
-  state.unknown = unknown;
-
-  const answers = {
-    ...state.consultation.answers,
-    [state.consultation.question.field]: unknown ? [] : chosen,
-  };
-  await sendAnswers(answers);
+function summary(items) {
+  return items.map(({ label, value }) => `<span class="chip">${escapeText(label)} · ${escapeText(value)}</span>`).join("");
 }
 
-async function sendAnswers(answers, label = "Memproses jawaban…") {
-  if (state.busy) return false;
-  return withLoadingScreen(async () => {
-    try {
-      state.consultation = await api("/api/consultations/answer", { answers });
-      resetSelection();
-      if (
-        state.pendingEdit &&
-        state.consultation.question?.field === state.pendingEdit.field
-      ) {
-        state.selected = state.pendingEdit.values;
-        state.unknown = !state.selected.length;
-      }
-      state.pendingEdit = null;
-      renderConsultation();
-      focusMain();
-      return true;
-    } catch (e) {
-      state.retryAnswers = answers;
-      showError(e, "retry-answer");
-      return false;
-    }
-  }, label);
+function formatDuration(minutes) {
+  const hours = Math.floor(minutes / 60);
+  const remainder = minutes % 60;
+  return [hours && `${hours} jam`, remainder && `${remainder} menit`].filter(Boolean).join(" ");
 }
 
-/* Mengirim ulang jawaban sebelum `field` agar pertanyaan tersebut tampil kembali dengan pilihan lama. */
-async function edit(field) {
-  const consultation = state.consultation;
-  const answersBeforeField = {};
-  for (const answer of consultation.summary) {
-    if (answer.field === field) break;
-    answersBeforeField[answer.field] = consultation.answers[answer.field];
-  }
-
-  state.pendingEdit = {
-    field,
-    values: [...(consultation.answers[field] || [])],
-  };
-  await sendAnswers(answersBeforeField);
-}
-
-const TRACE_INTRO = {
-  personalized:
-    "Forward chaining: fakta jawaban memicu aturan. Kesimpulan suatu aturan menjadi premis aturan berikutnya sampai kelompok rekomendasi terbentuk.",
-  popularity:
-    "Alur berikut menelusuri penanda jawaban kosong. Karena belum ada preferensi yang ditentukan, kelompok akhir ini tidak dipakai untuk personalisasi; daftar hasil menggunakan popularitas data pelatihan.",
+const noResultReason = {
+  no_places: "Katalog belum punya tempat yang cocok dengan wilayah dan minat ini.",
+  no_matching_cases: "Tempat dalam pencarian ini belum memiliki catatan dengan tipe rombongan yang sama.",
+  below_support: "Ada kunjungan yang cocok, tetapi jumlah pengulas per tempat belum mencapai ambang.",
 };
 
-function traceStep(step, index) {
-  return `<li class="trace"><span class="trace-label">LANGKAH ${index + 1} · ${esc(step.rule_id)}</span><p>Jika <code>${esc(step.premise)}</code> dan ${esc(step.condition.toLowerCase())}, maka <code>${esc(step.conclusion)}</code>.</p></li>`;
+function renderResult() {
+  const item = state.recommendation;
+  const match = item ? [
+    item.region,
+    item.activity ?? (state.answers.category?.[0] !== "all" ? item.category : ""),
+    state.answers.duration?.[0] !== "any" && item.minutes ? `Hingga ${formatDuration(item.minutes)}` : "",
+  ].filter(Boolean) : [];
+  const facts = item ? [
+    ["Durasi kegiatan", item.minutes ? `Hingga ${formatDuration(item.minutes)}` : null],
+    ["Jalur", item.route],
+    ["Fasilitas", item.facilities?.join(", ")],
+    ["Lokasi dalam dataset", item.recorded_location],
+    ["Akses dan kunjungan", item.access],
+    ["Tarif tercantum", item.price],
+  ].filter(([, value]) => value) : [];
+  const checked = item?.checked ? new Intl.DateTimeFormat("id-ID", {
+    dateStyle: "long", timeZone: "UTC",
+  }).format(new Date(item.checked)) : "";
+  main.innerHTML = `<section class="wrap"><div class="consult result-shell"><article class="question-card result-card">
+    <header class="result-hero">
+      <div class="result-kicker"><span>${item ? "Rekomendasi wisata" : "Belum ada rekomendasi"}</span>
+        ${item ? `<span class="result-category">${escapeText(item.category)}</span>` : ""}</div>
+      <h1>${escapeText(item?.name ?? "Coba sesuaikan pilihanmu")}</h1>
+      ${item ? `<p class="result-location">${escapeText(item.region)}</p>` : ""}
+    </header>
+    <div class="result-body">
+      ${item ? `<section class="result-match" aria-labelledby="result-match-title">
+        <h2 id="result-match-title">Kenapa tempat ini cocok?</h2>
+        <ul class="result-match-tags" aria-label="Kecocokan dengan pilihanmu">
+          ${match.map((value) => `<li>${escapeText(value)}</li>`).join("")}
+        </ul>
+        <p>${escapeText(item.reason)}</p>
+
+      </section>
+      ${facts.length ? `<section class="result-facts" aria-labelledby="result-facts-title"><h2 id="result-facts-title">Info kunjungan</h2>
+        <dl>${facts.map(([label, value]) => `<div><dt>${escapeText(label)}</dt><dd>${escapeText(value)}</dd></div>`).join("")}</dl></section>` : ""}
+      <div class="visit-links"><a class="button" href="${escapeText(item.map_url)}" target="_blank" rel="noopener noreferrer">Buka peta ↗</a><a class="button outline" href="${escapeText(item.operator_url ?? item.source)}" target="_blank" rel="noopener noreferrer">${item.operator_url ? "Cek info pengelola" : "Lihat sumber kasus"} ↗</a></div>
+      ${checked ? `<p class="result-note">Sumber diperiksa ${escapeText(checked)}.</p>` : ""}`
+    : `<p>${noResultReason[state.trace.reason] ?? "Belum ada tempat yang memenuhi semua pilihanmu."}</p>
+      <div class="visit-links">${state.alternatives.map((option, index) => `<button class="button outline" data-action="alternative" data-index="${index}">${escapeText(option.label)}</button>`).join("")}</div>`}
+      <details class="result-preferences"><summary>Preferensi konsultasi</summary><div class="answer-strip chips">${summary(state.summary)}</div></details>
+      <div class="form-actions cbr-actions"><button class="button ghost" data-action="revise">Ubah preferensi</button><a class="nav-link" href="/alur-cbr">Lihat alur CBR ↗</a></div>
+    </div>
+  </article></div></section>`;
 }
 
-function traceBlock(trace, personalized = true) {
-  const intro = personalized ? TRACE_INTRO.personalized : TRACE_INTRO.popularity;
-  return `<details class="reasoning">
-    <summary>Lihat proses penalaran</summary>
-    <p class="reasoning-intro">${intro}</p>
-    <ol class="trace-list">${trace.map(traceStep).join("")}</ol>
-  </details>`;
+function revise(step) {
+  draft = { ...draft, ...state.answers };
+  const fields = [...baseFields];
+  const prefix = Object.fromEntries(fields.slice(0, step).map((key) => [key, draft[key]]).filter(([, value]) => value));
+  request("answer", prefix);
 }
 
-/* ---------- Layar hasil ---------- */
+const cbrDecimal = new Intl.NumberFormat("id-ID", { minimumFractionDigits: 2, maximumFractionDigits: 4 });
+const cbrDate = new Intl.DateTimeFormat("id-ID", { month: "long", year: "numeric", timeZone: "UTC" });
 
-const RESULT_TABS = [
-  { id: "rules", label: "Berdasarkan aturan" },
-  { id: "cbr", label: "Pengguna serupa" },
-];
-
-function tabButton(tab, activeTab) {
-  const isActive = tab.id === activeTab;
-  return `<button id="tab-${tab.id}" role="tab" class="tab" aria-selected="${isActive}" aria-controls="recommendation-panel" tabindex="${isActive ? 0 : -1}" data-action="tab" data-tab="${tab.id}">${tab.label}</button>`;
-}
-
-function destinationCard(destination, index) {
-  const parts = destination.name.split(", ");
-  const country = parts.pop();
-  const place = parts.join(", ") || country;
-  const fallbackTag = destination.fallback
-    ? '<span class="support-tag">Alternatif populer</span>'
-    : "";
-
-  return `<li class="destination-card">
-      <span class="destination-rank" aria-label="Urutan ${index + 1}">${String(index + 1).padStart(2, "0")}</span>
-      <div>
-        <h2 class="destination-title">${esc(place)}</h2>
-        <p class="destination-country">${esc(parts.length ? country : "")}</p>
-        <p class="destination-reason">${esc(destination.reason)}</p>${fallbackTag}
-      </div>
-      <span class="destination-icon" aria-hidden="true">↗</span>
-    </li>`;
-}
-
-function caseList(cases) {
-  return cases
-    .map(
-      (item) =>
-        `<div class="case"><strong>${esc(item.case_id)} · kemiripan ${Math.round(item.similarity * 100)}%</strong><p>${esc(item.shared_preferences.join(" · "))}.</p></div>`,
-    )
-    .join("");
-}
-
-function resultsHeadingCopy(personalized) {
-  return personalized
-    ? "Hasil berdasarkan jawabanmu. Bandingkan rekomendasi berbasis aturan dan pengguna serupa."
-    : "Destinasi populer dari data pelatihan untuk pengguna yang belum menentukan preferensi.";
-}
-
-function panelCopy(personalized, isRules) {
-  if (!personalized) {
-    return "Daftar menggunakan popularitas karena preferensi belum ditentukan.";
-  }
-  return isRules
-    ? "Dipilih dari kelompok preferensi yang sesuai, dengan bobot yang sama untuk setiap pengguna."
-    : "Dipilih dari respons pengguna serupa, dengan minimal satu respons Ya untuk setiap kecocokan.";
-}
-
-function insightCopy(results, personalized, isRules) {
-  if (!personalized) {
-    return {
-      title: "Preferensi belum diisi",
-      body: "Isi preferensi untuk mendapatkan rekomendasi berdasarkan jawabanmu.",
-      stat: 0,
-      label: "preferensi yang sudah ditentukan",
-    };
-  }
-  if (isRules) {
-    return {
-      title: "Dasar rekomendasi",
-      body: "Forward chaining menentukan kelompok preferensi dari jawabanmu. Destinasi diurutkan dengan bobot yang sama untuk setiap pengguna dalam kelompok tersebut.",
-      stat: results.segment_users,
-      label: "pengguna dalam kelompok preferensimu",
-    };
-  }
-  return {
-    title: "Kasus pembanding",
-    body: "CBR menggunakan hingga 20 pengguna dengan preferensi serupa. Respons Ya, Mungkin, dan Tidak dari pengguna tersebut menentukan urutan rekomendasi.",
-    stat: results.neighbor_count,
-    label: "pengguna serupa menjadi pembanding",
+function comparison(recent) {
+  const previous = recentResults()[1];
+  if (!previous || !recent || ["policy_version", "min_reviewers", "prior_weight"]
+    .some((key) => previous.trace[key] !== recent.trace[key])) return "";
+  const render = (result, label) => {
+    const trace = result.trace;
+    const place = result.recommendation?.name || "Belum ada rekomendasi";
+    return `<div class="cbr-compare-item"><strong>${label} · ${escapeText(place)}</strong>
+      <p>${escapeText(result.summary.map((answer) => answer.value).join(" · "))}</p>
+      <p>${trace.matched_visit_count == null ? "" : `${number.format(trace.matched_visit_count)} kunjungan cocok · `}
+        ${number.format(trace.eligible_places)} kandidat lolos · ${trace.score == null ? "Skor belum tersedia" : `skor ${cbrDecimal.format(trace.score)}/5`}</p></div>`;
   };
+  const before = previous.trace.ranking ?? [];
+  const after = recent.trace.ranking ?? [];
+  const removed = before.filter((item) => !after.some((other) => other.name === item.name));
+  const added = after.filter((item) => !before.some((other) => other.name === item.name));
+  const changes = [
+    added.length ? `Kandidat masuk: ${added.map((item) => item.name).join(", ")}` : "",
+    removed.length ? `Kandidat keluar: ${removed.map((item) => item.name).join(", ")}` : "",
+  ].filter(Boolean);
+  return `<section class="cbr-explanation"><h2>Setelah preferensi diubah</h2>
+    <div class="cbr-comparison">${render(previous, "Sebelum")}${render(recent, "Sesudah")}</div>
+    ${changes.length ? `<details><summary>Lihat perubahan kandidat</summary>${changes.map((line) => `<p>${escapeText(line)}</p>`).join("")}</details>` : ""}
+  </section>`;
 }
 
-function renderResults(preserveScroll = false) {
-  state.screen = "results";
-  const consultation = state.consultation;
-  const results = consultation.results;
-  const isRules = state.tab === "rules";
-  const personalized = results.personalized !== false;
-  const items = results[state.tab];
-  const insight = insightCopy(results, personalized, isRules);
-  const notice = results.notice
-    ? `<p class="result-notice" role="status">${esc(results.notice)}</p>`
-    : "";
-  const insightDetail = isRules
-    ? "<p>Angka pendukung menunjukkan respons dalam dataset, bukan jaminan kecocokan atau kepuasan perjalanan.</p>"
-    : caseList(results.similar_cases);
-
-  main.innerHTML = `<section class="results wrap fade-in">
-    <div class="eyebrow">Hasil konsultasi</div>
-    <div class="results-heading">
-      <h1>Rekomendasi destinasi wisata</h1>
-      <p>${resultsHeadingCopy(personalized)}</p>
-    </div>
-    <div class="results-summary"><span>Jawaban konsultasi</span>${answerChips(consultation.summary)}</div>${notice}
-    <div class="results-layout">
-      <div>
-        <div class="tabs" role="tablist" aria-label="Metode rekomendasi">${RESULT_TABS.map((tab) => tabButton(tab, state.tab)).join("")}</div>
-        <div id="recommendation-panel" role="tabpanel" aria-labelledby="tab-${state.tab}" tabindex="0">
-          <p class="tab-description">${panelCopy(personalized, isRules)}</p>
-          <ol class="destination-list">${items.map(destinationCard).join("")}</ol>
-        </div>
-        ${traceBlock(consultation.trace, personalized)}
+function flow() {
+  const recent = savedResult();
+  const trace = recent?.trace;
+  const item = recent?.recommendation;
+  const individual = trace?.evidence_type === "individual";
+  main.innerHTML = `<section class="wrap cbr-page cbr-guide">
+    <article class="question-card result-card">
+      <header class="result-hero">
+        <div class="result-kicker">Case-Based Reasoning</div>
+        <h1>Alur CBR</h1>
+        <p class="result-location">${item ? escapeText(item.name) : "Rekomendasi dari kunjungan terdahulu"}</p>
+      </header>
+      <div class="result-body">
+        ${trace ? `<section class="cbr-explanation">
+          <h2>${item ? `Mengapa ${escapeText(item.name)}?` : "Kenapa belum ada hasil?"}</h2>
+          <div class="answer-strip chips">${summary(recent.summary)}</div>
+          <p>${trace.eligible_places} dari ${trace.matching_places} tempat memenuhi ambang ${trace.min_reviewers} pengulas berbeda dengan tipe rombongan yang sama.</p>
+          ${individual ? `<p>Dari ${number.format(trace.visit_count)} kunjungan dalam wilayah dan minat ini, ${number.format(trace.matched_visit_count)} cocok dengan tipe rombongan (${number.format(trace.matched_unique_reviewers)} pengulas unik). Kecocokan bernilai 1 untuk rombongan sama dan 0 untuk yang berbeda.</p>`
+            : "<p>Basis data aktif memakai ringkasan historis. Rincian kontribusi per kunjungan tersedia pada basis kasus individual.</p>"}
+          ${item ? `<div class="cbr-evidence">
+            <h2>Contoh kunjungan serupa</h2>
+            <p>${individual ? `${number.format(trace.winner_visit_count)} kunjungan dari ${number.format(trace.reviewer_count)} pengulas dipakai untuk menghitung skor. Berikut ${trace.examples.length} contoh.`
+              : "Contoh kunjungan dari ringkasan historis."}</p>
+            <ol>${trace.examples.map((visit) => `<li>${visit.label ? `<strong>${escapeText(visit.label)}</strong> · ` : ""}${escapeText(cbrDate.format(new Date(Date.UTC(visit.year, visit.month - 1))))} · ${escapeText(visit.mode)} · <strong>${visit.rating}/5</strong>
+              ${visit.reviewer_visit_count > 1 ? `<p>Pengulas ini punya ${visit.reviewer_visit_count} kunjungan serupa. Rerata ${cbrDecimal.format(visit.reviewer_mean)}/5 masuk perhitungan sebagai satu nilai.</p>` : ""}</li>`).join("")}</ol>
+            <h2>Cara skor dihitung</h2>
+            <p>Rata-rata kasus serupa ${cbrDecimal.format(trace.similar_mean)}/5 diberi bobot ${trace.reviewer_count}. Rata-rata historis tempat ${cbrDecimal.format(trace.historical_mean)}/5 diberi bobot ${trace.prior_weight}. Jumlah keduanya setelah dibobot dibagi total bobot.</p>
+            <p><strong>Skor akhir ${cbrDecimal.format(trace.score)}/5.</strong> ${trace.eligible_places === 1
+              ? "Hanya tempat ini yang memenuhi ambang dukungan."
+              : "Skor tertinggi dipilih. Jika seri, tempat dengan lebih banyak pengulas serupa didahulukan, lalu ID tempat terkecil."}</p>
+            ${individual ? `<details><summary>Lihat angka perhitungan</summary><p class="cbr-formula">(${trace.reviewer_count} × ${escapeText(String(trace.similar_mean))} + ${trace.prior_weight} × ${escapeText(String(trace.historical_mean))}) / (${trace.reviewer_count} + ${trace.prior_weight}) = ${escapeText(String(trace.score))}</p></details>` : ""}
+          </div>` : `<p>${noResultReason[trace.reason] ?? "Ubah preferensi untuk mencari kasus lain."}</p>
+            ${recent.alternatives.length ? `<ul>${recent.alternatives.map((option) => `<li>${escapeText(option.label)}</li>`).join("")}</ul>` : ""}`}
+          ${(individual ? trace.candidates.length : trace.eligible_places > 1) ? `<details><summary>Lihat kandidat</summary><ol>
+            ${(individual ? [...trace.ranking, ...trace.candidates.filter((candidate) => candidate.status !== "eligible")] : trace.ranking)
+              .map((place) => `<li>${escapeText(place.name)} · ${number.format(place.count)} pengulas · ${place.score == null
+                ? place.status === "no_matching_cases" ? "Belum ada kasus cocok" : "Di bawah ambang"
+                : `${cbrDecimal.format(place.score)}/5`}</li>`).join("")}
+          </ol></details>` : ""}
+        </section>` : ""}
+        ${comparison(recent)}
+        <section class="cbr-diagram">
+          <h2>Cara rekomendasi dibuat</h2>
+          <ol class="cbr-flow" aria-label="Diagram alur CBR">
+            <li><strong>01 · Isi preferensi</strong><p>Pilih wilayah, tipe rombongan, dan minat.</p></li>
+            <li><strong>02 · Retrieve dan kecocokan</strong><p>Saring tempat, lalu ambil kunjungan dengan rombongan yang sama.</p><p class="cbr-branch">Bukti kurang → ubah preferensi.</p></li>
+            <li><strong>03 · Reuse</strong><p>Gabungkan rating kasus serupa dengan rata-rata historis tempat.</p></li>
+            <li><strong>04 · Tinjau hasil</strong><p>Lihat satu rekomendasi dan alasan pemilihannya, lalu ubah preferensi bila perlu.</p></li>
+          </ol>
+          <p class="result-note"><strong>Tahap lanjutan.</strong> Revise menilai hasil setelah kunjungan. Retain menyimpan pengalaman yang telah divalidasi.</p>
+        </section>
+        <div class="form-actions cbr-actions"><a class="button" href="${trace ? "/?ubah=1" : "/?mulai=1"}">${trace ? "Ubah preferensi" : "Mulai konsultasi"} ↗</a></div>
       </div>
-      <aside class="insight-card" aria-label="Dasar rekomendasi">
-        <span class="spark" aria-hidden="true">✳</span>
-        <h2>${insight.title}</h2>
-        <p>${insight.body}</p>
-        <hr class="insight-divider">
-        <div class="insight-stat">${number(insight.stat)}</div>
-        <div class="insight-label">${insight.label}</div>
-        ${insightDetail}
-      </aside>
-    </div>
-    <div class="results-actions">
-      <button class="button outline" data-action="edit-first">Ubah jawaban <span aria-hidden="true">↗</span></button>
-      <button class="button ghost" data-action="start">Mulai ulang <span aria-hidden="true">↻</span></button>
-    </div>
-    <p class="disclaimer">Rekomendasi ini berdasarkan ketertarikan pengguna Stravl. Preferensi anggaran dan keamanan tidak memverifikasi biaya atau kondisi destinasi saat ini. Ketersediaan penilaian berbeda untuk setiap tempat.</p>
-  </section>`;
-  if (!preserveScroll) {
-    announce(
-      "Rekomendasi siap. Jelajahi hasil berdasarkan aturan atau pengguna serupa.",
-    );
-  }
-}
-
-/* ---------- Layar tentang proyek ---------- */
-
-async function about() {
-  if (state.busy) return;
-  state.returnTo = state.screen === "about" ? state.returnTo : state.screen;
-  await withLoadingScreen(async () => {
-    try {
-      state.project = await api("/api/project");
-      renderAbout();
-      focusMain();
-    } catch (e) {
-      showError(e, "about");
-    }
-  }, "Memuat informasi proyek…");
-}
-
-const METHOD_NAMES = {
-  forward_chaining: "Forward chaining",
-  cbr: "Kasus serupa (CBR)",
-  popularity: "Popularitas (pembanding)",
-};
-
-const VALIDATION_METRICS = [
-  ["precision_at_5", "Ketepatan", "Precision"],
-  ["recall_at_5", "Cakupan", "Recall"],
-  ["ndcg_at_5", "Kualitas urutan", "NDCG"],
-];
-
-const METRIC_DEFINITIONS = [
-  [
-    "Ketepatan · Precision",
-    "Proporsi dari lima rekomendasi yang memang diberi respons “Ya” oleh pengguna uji.",
-  ],
-  [
-    "Cakupan · Recall",
-    "Proporsi seluruh destinasi yang disukai pengguna uji yang berhasil muncul dalam lima rekomendasi.",
-  ],
-  [
-    "Kualitas urutan · NDCG",
-    "Menilai penempatan destinasi yang disukai pada lima posisi teratas. Rekomendasi yang relevan di posisi awal mendapat bobot lebih besar.",
-  ],
-];
-
-const ABOUT_INTRO =
-  "<strong>Tourguider</strong> merupakan proyek mata kuliah <strong>Sistem Berbasis Pengetahuan</strong> yang menerapkan forward chaining dan case-based reasoning (CBR) untuk merekomendasikan destinasi wisata berdasarkan preferensi pengguna. Dataset Stravl digunakan untuk membentuk basis pengetahuan, menelusuri aturan, dan membandingkan hasil rekomendasi.";
-
-const METHOD_TILES = [
-  {
-    index: "01",
-    kind: "Berbasis aturan",
-    title: "Forward Chaining",
-    copy: "Jawaban pengguna memicu aturan secara berantai hingga terbentuk kelompok rekomendasi.",
-    flowLabel: "Alur forward chaining",
-    steps: ["Jawaban", "Aturan berantai", "Rekomendasi"],
-  },
-  {
-    index: "02",
-    kind: "Berbasis kasus",
-    title: "Case-Based Reasoning (CBR)",
-    copy: "Mencari hingga 20 pengguna dengan preferensi serupa, lalu mengurutkan destinasi dari respons mereka.",
-    flowLabel: "Alur case-based reasoning",
-    steps: ["Preferensi", "Kasus serupa", "Rekomendasi"],
-  },
-];
-
-function statCards(audit) {
-  const stats = [
-    [number(audit.raw_users), "profil pengguna pada dataset awal"],
-    [number(audit.destinations), "destinasi wisata dalam katalog"],
-    [number(audit.rule_count), "aturan dalam basis pengetahuan"],
-  ];
-  const cards = stats
-    .map(
-      ([value, label]) =>
-        `<div class="stat-card"><strong>${value}</strong><span>${label}</span></div>`,
-    )
-    .join("");
-
-  return `<div class="stats">${cards}</div>`;
-}
-
-function methodTile({ index, kind, title, copy, flowLabel, steps }) {
-  const flow = steps
-    .map((step) => `<span>${step}</span>`)
-    .join('<span aria-hidden="true">→</span>');
-
-  return `<article class="method-tile">
-      <div class="method-tile-top"><span class="method-index" aria-hidden="true">${index}</span><span class="method-kind">${kind}</span></div>
-      <h3>${title}</h3>
-      <p>${copy}</p>
-      <div class="method-flow" aria-label="${flowLabel}">${flow}</div>
-    </article>`;
-}
-
-function methodsSection() {
-  return `<section class="about-card recommendation-methods">
-    <h2>Metode rekomendasi</h2>
-    <p class="methods-intro">Tourguider membandingkan dua pendekatan untuk mengolah preferensi wisata.</p>
-    <div class="method-overview">${METHOD_TILES.map(methodTile).join("")}</div>
+    </article>
   </section>`;
 }
-
-function percent(value) {
-  return `${(value * 100).toLocaleString("id-ID", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%`;
-}
-
-function validationTable(evaluation) {
-  const bestScores = {};
-  for (const [metric] of VALIDATION_METRICS) {
-    bestScores[metric] = Math.max(
-      ...Object.values(evaluation.metrics).map((scores) => scores[metric]),
-    );
-  }
-
-  const headerCells = VALIDATION_METRICS.map(
-    ([, label, term]) =>
-      `<th scope="col">${label}<span class="metric-term">${term}</span></th>`,
-  ).join("");
-
-  const rows = Object.entries(evaluation.metrics)
-    .map(([method, scores]) => {
-      const cells = VALIDATION_METRICS.map(([metric]) => {
-        const isBest = scores[metric] === bestScores[metric] ? "best" : "";
-        return `<td class="${isBest}">${percent(scores[metric])}</td>`;
-      }).join("");
-      return `<tr><th scope="row">${METHOD_NAMES[method]}</th>${cells}</tr>`;
-    })
-    .join("");
-
-  return `<table class="validation-table"><caption class="sr-only">Perbandingan ketepatan, cakupan, dan kualitas urutan lima rekomendasi teratas</caption><thead><tr><th scope="col">Metode</th>${headerCells}</tr></thead><tbody>${rows}</tbody></table>`;
-}
-
-function validationFacts(evaluation) {
-  if (!evaluation) {
-    return "<p>Validasi untuk versi proses ini belum tersedia. Jalankan ulang audit sebelum menggunakan angka evaluasi.</p>";
-  }
-
-  const definitions = METRIC_DEFINITIONS.map(
-    ([term, description]) =>
-      `<div><dt>${term}</dt><dd>${description}</dd></div>`,
-  ).join("");
-
-  return `<p>Validasi dilakukan pada ${number(evaluation.evaluated_users)} dari ${number(evaluation.test_users)} pengguna dalam data uji yang memenuhi kriteria evaluasi. Data dibagi berdasarkan pengguna: 80% untuk membangun model dan basis kasus, serta 20% untuk pengujian.</p>
-    <p class="validation-lead">Tabel berikut membandingkan lima rekomendasi teratas dari setiap metode. Nilai yang lebih tinggi menunjukkan hasil yang lebih baik pada masing-masing ukuran.</p>
-    <p class="table-hint">Geser tabel ke samping untuk melihat seluruh hasil.</p>
-    <div class="table-wrap" tabindex="0" role="region" aria-label="Tabel validasi rekomendasi, dapat digeser ke samping">${validationTable(evaluation)}</div>
-    <dl class="metric-definitions">${definitions}</dl>
-    <p class="validation-note">Setiap pengguna diuji pada destinasi yang sudah dinilai “Ya” atau “Tidak”, dengan minimal lima kandidat dan satu respons “Ya”. Respons “Mungkin” dan destinasi tanpa penilaian dikeluarkan dari kandidat evaluasi. CBR memakai preferensi yang telah diisi dan mengeluarkan destinasi yang hanya ditolak kasus serupa, sesuai proses konsultasi.</p>
-    <p class="validation-note">Hasil ini menggambarkan kemampuan mengurutkan destinasi yang telah dinilai dalam dataset. Pengujian belum mengukur kepuasan perjalanan nyata atau kualitas rekomendasi untuk seluruh katalog.</p>`;
-}
-
-function validationSection(evaluation) {
-  return `<section class="about-card"><h2>Validasi hasil rekomendasi</h2>${validationFacts(evaluation)}</section>`;
-}
-
-function dataCleaningSection(audit) {
-  const notes = [
-    `${number(audit.duplicate_records_removed)} rekaman identik digabungkan sebelum pembagian pengguna.`,
-    `${number(audit.repeated_swipes_removed_after_record_dedup)} pengulangan swipe dihapus dan ${number(audit.conflicting_pairs_removed_after_record_dedup)} pasangan berlabel bertentangan dikeluarkan setelah penggabungan rekaman.`,
-    `${number(audit.empty_records_excluded)} rekaman tanpa interaksi bersih tidak dipakai sebagai kasus.`,
-    "Kolom tanpa penjelasan, rating lama, dan rekomendasi algoritma asal tidak digunakan sebagai fitur.",
-    `Aturan terbukti setara dengan pohon sumber pada ${number(audit.rule_equivalence_records)} profil bersih. Aturan merupakan pola data, bukan pengetahuan pakar pariwisata.`,
-    "Data merekam ketertarikan, bukan kunjungan atau kepuasan nyata. Biaya dan keamanan aktual tidak tersedia.",
-  ];
-  const sources = [
-    ["https://github.com/Stravl/Stravl-Data", "Dataset Stravl"],
-    [
-      "https://link.springer.com/article/10.1186/s44147-023-00315-4",
-      "Artikel acuan metode",
-    ],
-    [
-      "https://styles.refero.design/style/15d10d6c-1844-46c6-ae69-c99a56e6ad41",
-      "Referensi visual",
-    ],
-  ];
-
-  const bullets = notes.map((note) => `<li>${note}</li>`).join("");
-  const links = sources
-    .map(
-      ([href, label]) =>
-        `<a href="${href}" target="_blank" rel="noopener">${label} ↗</a>`,
-    )
-    .join("");
-
-  return `<section class="about-card">
-    <h2>Pembersihan data dan batasan</h2>
-    <ul>${bullets}</ul>
-    <div class="source-links">${links}</div>
-  </section>`;
-}
-
-function renderAbout() {
-  state.screen = "about";
-  const { audit, evaluation } = state.project;
-
-  main.innerHTML = `<section class="about wrap fade-in">
-    <button class="button ghost small" data-action="return"><span aria-hidden="true">←</span> Kembali</button>
-    <h1>Tentang Tourguider</h1>
-    <p class="about-intro">${ABOUT_INTRO}</p>
-    ${statCards(audit)}
-    ${methodsSection()}
-    ${validationSection(evaluation)}
-    ${dataCleaningSection(audit)}
-    <button class="button" data-action="start">Mulai konsultasi ${arrow}</button>
-  </section>`;
-}
-
-/* ---------- Penanganan peristiwa ---------- */
 
 document.addEventListener("change", (event) => {
-  const target = event.target;
-  const isUnknownAnswer = target.id === "unknown-answer";
-  const isChoice = target.name === "answer";
-
-  if (isUnknownAnswer && target.checked) {
-    main
-      .querySelectorAll('[name="answer"]')
-      .forEach((input) => (input.checked = false));
-  }
-  if (isChoice && target.checked) {
-    main.querySelector("#unknown-answer").checked = false;
-  }
-  if (isChoice || isUnknownAnswer) {
-    state.selected = [...main.querySelectorAll('[name="answer"]:checked')].map(
-      (input) => input.value,
-    );
-    state.unknown = main.querySelector("#unknown-answer").checked;
-  }
-
-  const fieldError = main.querySelector("#field-error");
-  if (fieldError) fieldError.hidden = true;
-});
-
-/* Kembali ke layar tempat tombol "Tentang proyek" dibuka. */
-function returnToPreviousScreen() {
-  if (state.returnTo === "results") renderResults();
-  else if (state.returnTo === "consultation") renderConsultation();
-  else home();
-  focusMain();
-}
-
-document.addEventListener("click", async (event) => {
-  const trigger = event.target.closest("[data-action]");
-  if (!trigger || state.busy) return;
-
-  if (window.location?.protocol === "file:") {
-    window.location.href = LOCAL_SERVER_URL;
-    return;
-  }
-
-  switch (trigger.dataset.action) {
-    case "home":
-      home();
-      focusMain();
-      break;
-    case "start":
-      await start();
-      break;
-    case "about":
-      await about();
-      break;
-    case "back": {
-      const lastAnswer = state.consultation.summary.at(-1);
-      if (lastAnswer) await edit(lastAnswer.field);
-      else {
-        home();
-        focusMain();
-      }
-      break;
-    }
-    case "edit":
-      await edit(trigger.dataset.field);
-      break;
-    case "edit-first":
-      await edit(state.consultation.summary[0].field);
-      break;
-    case "retry-answer":
-      await sendAnswers(state.retryAnswers);
-      break;
-    case "tab":
-      state.tab = trigger.dataset.tab;
-      renderResults(true);
-      main.querySelector(`#tab-${state.tab}`).focus({ preventScroll: true });
-      break;
-    case "return":
-      returnToPreviousScreen();
-      break;
+  const form = main.querySelector("form");
+  if (form && event.target.form === form && event.target.name === "choice" && !pending) {
+    form.querySelector('button[type="submit"]').disabled = !event.target.checked;
   }
 });
 
-const TAB_NAVIGATION_KEYS = ["ArrowLeft", "ArrowRight", "Home", "End"];
-
-document.addEventListener("keydown", (event) => {
-  if (
-    event.target.getAttribute("role") !== "tab" ||
-    !TAB_NAVIGATION_KEYS.includes(event.key)
-  ) {
-    return;
-  }
-
+document.addEventListener("submit", (event) => {
+  if (event.target !== main.querySelector("form")) return;
   event.preventDefault();
-  if (event.key === "Home") state.tab = "rules";
-  else if (event.key === "End") state.tab = "cbr";
-  else state.tab = state.tab === "rules" ? "cbr" : "rules";
-
-  renderResults(true);
-  main.querySelector(`#tab-${state.tab}`).focus({ preventScroll: true });
+  const choice = new FormData(event.target).get("choice");
+  if (choice) {
+    draft[state.question.id] = [choice];
+    request("answer", { ...state.answers, [state.question.id]: [choice] });
+  }
 });
 
-/* ---------- Titik masuk ---------- */
+document.addEventListener("click", (event) => {
+  const action = event.target.closest("[data-action]")?.dataset.action;
+  if (pending) return;
+  if (action === "home") location.assign("/");
+  if (action === "start") { draft = {}; saveResult(null); request("start"); }
+  if (action === "retry") retryRequest?.();
+  if (action === "back") revise(state.question_number - 2);
+  if (action === "revise") revise(0);
+  if (action === "alternative") {
+    draft = { ...state.alternatives[Number(event.target.closest("[data-index]").dataset.index)].answers };
+    request("answer", draft);
+  }
+});
 
-if (window.location?.protocol === "file:") {
-  state.screen = "local-file";
-  main.innerHTML = `<section class="error-box">
-    <h1>Buka Tourguider melalui server lokal.</h1>
-    <p>Jalankan run.command di folder proyek, lalu buka alamat di bawah agar konsultasi terhubung dengan mesin rekomendasi.</p>
-    <a class="button" href="${LOCAL_SERVER_URL}">Buka Tourguider ↗</a>
-  </section>`;
-} else {
-  home();
-}
+const params = new URLSearchParams(location.search);
+if (location.pathname === "/alur-cbr") flow();
+else if (params.has("ubah") && (state = savedResult())) revise(0);
+else if (params.has("mulai") || params.has("ubah")) { saveResult(null); request("start"); }
+else home();
