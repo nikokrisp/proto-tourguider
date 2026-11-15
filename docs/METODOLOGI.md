@@ -61,13 +61,9 @@ Stabilitas memakai 100 bootstrap pengulas dengan seed 45. Semua catatan pengulas
 
 MAE dan RMSE hanya mengukur prediksi rating tempat yang telah dikunjungi. Dataset tidak memberi rating tempat yang belum dikunjungi, label relevansi konsultasi baru, atau penilaian independen terhadap kualitas penjelasan. Audit penjelasan memeriksa konsistensi dengan data dan rumus, sementara relevansi serta kegunaan untuk pengguna memerlukan penilaian terpisah. [Matriks 120 kombinasi, sensitivitas, dan hasil uji](cbr-evaluation.json)
 
-## Panduan presentasi
+## Persiapan demo
 
-1. Pilih **Malang → Teman → Air terjun**. Ada 55 kunjungan di tempat yang memenuhi wilayah dan minat, dengan 21 kunjungan dari 21 pengulas yang cocok dengan rombongan Teman.
-2. Sistem memberi **Air Terjun Coban Rondo** karena hanya tempat itu yang memenuhi batas dukungan. Buka Alur CBR. Tiga contoh memberi rating **4, 3, dan 5** dan berasal dari kumpulan yang dipakai.
-3. Tunjukkan perhitungan `(21 × 3,9047619047619047 + 10 × 3,9814814814814814) / 31 = 3,9295101553166067`. Buka peta dan catatan akses dari kartu hasil. Peta mencari nama tempat, dan informasi operasional perlu dikonfirmasi ke pengelola.
-4. Gunakan **Ubah preferensi** ke **Yogyakarta → Keluarga → Gunung dan vulkanologi**. Gunung Merapi didukung 223 kunjungan dari 189 pengulas. Tampilkan perbandingan sebelum–sesudah di Alur CBR.
-5. Tunjukkan **Bali → Gunung dan vulkanologi** yang tidak tersedia, lalu jelaskan perbedaan antara pilihan tidak tersedia dan hasil berdukungan rendah. Akhiri dengan angka coverage dan MAE. Peningkatan yang terukur adalah keterlacakan dan jumlah kombinasi berdukungan, sementara keunggulan akurasi belum terbukti.
+Langkah presentasi dan contoh penelusuran hasil Coban Rondo tersedia pada [Panduan demo](PANDUAN-DEMO.md).
 
 ## Implementasi dan reproduksi
 
