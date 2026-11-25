@@ -2143,3 +2143,28 @@ td:first-child {
     gap: 16px;
   }
 }
+
+.cbr-intro {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0 0 18px;
+  line-height: 1.7;
+}
+.cbr-future {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  border: 1px dashed var(--line);
+  background: #f9fcf5;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.cbr-future strong {
+  color: var(--ink);
+}
+.cbr-future > strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--forest);
+}

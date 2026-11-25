@@ -314,13 +314,32 @@ function flow() {
         ${comparison(recent)}
         <section class="cbr-diagram">
           <h2>Cara rekomendasi dibuat</h2>
+          <p class="cbr-intro">Tourguider memakai metode <strong>Case-Based Reasoning (CBR)</strong>: sistem tidak menebak dari nol, melainkan belajar dari ribuan pengalaman wisatawan terdahulu yang konteks perjalanannya mirip dengan kamu.</p>
           <ol class="cbr-flow" aria-label="Diagram alur CBR">
-            <li><strong>01 · Isi preferensi</strong><p>Pilih wilayah, tipe rombongan, dan minat.</p></li>
-            <li><strong>02 · Retrieve dan kecocokan</strong><p>Saring tempat, lalu ambil kunjungan dengan rombongan yang sama.</p><p class="cbr-branch">Bukti kurang → ubah preferensi.</p></li>
-            <li><strong>03 · Reuse</strong><p>Gabungkan rating kasus serupa dengan rata-rata historis tempat.</p></li>
-            <li><strong>04 · Tinjau hasil</strong><p>Lihat satu rekomendasi dan alasan pemilihannya, lalu ubah preferensi bila perlu.</p></li>
+            <li>
+              <strong>01 · Isi preferensi (Masukan)</strong>
+              <p>Kamu menjawab 3 hal: <strong>wilayah tujuan</strong> (Bali, Yogyakarta, atau Malang), <strong>tipe rombongan</strong> (Sendiri, Pasangan, Keluarga, Teman, atau Bisnis), dan <strong>minat wisata</strong>.</p>
+            </li>
+            <li>
+              <strong>02 · Retrieve (Menyaring kasus serupa)</strong>
+              <p>Sistem menyaring destinasi sesuai wilayah dan minatmu (pilihan <em>Alam</em> otomatis ikut mencakup <em>Air terjun</em>), lalu mengambil catatan kunjungan dengan <strong>tipe rombongan yang sama</strong> (sama = 1, beda = 0). Jika satu orang berkunjung berkali-kali, ratingnya dirata-rata agar tetap dihitung 1 suara.</p>
+              <p class="cbr-branch">Jika jumlah pengulas serupa belum memenuhi batas minimal, tempat dianggap kurang bukti dan sistem menyarankan pilihan lain.</p>
+            </li>
+            <li>
+              <strong>03 · Reuse (Menghitung skor akhir)</strong>
+              <p>Rating dari rombongan yang sama digabung dengan rating rata-rata umum tempat itu agar adil antara tempat ramai dan tempat yang ulasannya masih sedikit:</p>
+              <p class="cbr-formula">(n × rata-rata rombongan sama + k × rata-rata umum) / (n + k)</p>
+              <p>Angka penyeimbang <strong>k = 10</strong> menahan tempat yang baru diulas segelintir orang agar tidak langsung menang hanya karena kebetulan mendapat nilai tinggi.</p>
+            </li>
+            <li>
+              <strong>04 · Tinjau hasil (1 rekomendasi utama)</strong>
+              <p>Destinasi dengan skor tertinggi dipilih sebagai rekomendasi utama. Jika ada skor yang seri, tempat dengan jumlah pengulas serupa terbanyak didahulukan. Kamu bisa mengecek alasan, contoh rating terdahulu, peta lokasi, atau mengubah preferensi untuk membandingkan hasilnya.</p>
+            </li>
           </ol>
-          <p class="result-note"><strong>Tahap lanjutan.</strong> Revise menilai hasil setelah kunjungan. Retain menyimpan pengalaman yang telah divalidasi.</p>
+          <div class="cbr-future">
+            <strong>Tahap lanjutan: Revise & Retain (belum diaktifkan di versi demo)</strong>
+            <p><strong>Revise</strong> adalah meminta penilaian balik setelah kamu selesai berkunjung di lapangan. <strong>Retain</strong> adalah menyimpan pengalaman baru yang terverifikasi ke dalam basis kasus. Keduanya masuk tahap lanjutan karena kepuasan wisata baru valid dinilai setelah liburan selesai, dan data baru perlu validasi agar tidak mengotori data historis yang sudah bersih.</p>
+          </div>
         </section>
         <div class="form-actions cbr-actions"><a class="button" href="${trace ? "/?ubah=1" : "/?mulai=1"}">${trace ? "Ubah preferensi" : "Mulai konsultasi"} ↗</a></div>
       </div>
