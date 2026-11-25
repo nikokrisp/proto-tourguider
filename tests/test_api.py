@@ -73,3 +73,10 @@ def test_catalog_and_overview_endpoints():
     assert len(overview["regions"]) == 3
     assert client.get("/basis-kasus").status_code == 200
     assert client.get("/evaluasi").status_code == 200
+
+
+def test_consultation_only_allows_three_regions():
+    start = client.post("/api/consultations/start").json()
+    assert set(start["question"]["options"]) == {"bali", "yogyakarta", "malang"}
+    invalid = client.post("/api/consultations/answer", json={"answers": {"region": ["all"]}})
+    assert invalid.status_code == 422

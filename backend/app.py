@@ -38,7 +38,7 @@ def load_case_base():
 case_base, case_index = load_case_base()
 catalog = case_base.get("places", [])
 addresses = {place["AttractionId"]: place["AttractionAddress"] for place in case_base.get("audit", {}).get("catalog", [])}
-REGION_CHOICES = {"all": "Semua wilayah", **REGIONS}
+REGION_CHOICES = dict(REGIONS)
 
 
 app = FastAPI(title="Tourguider", description="Rekomendasi objek wisata dengan Case-Based Reasoning.")
@@ -66,7 +66,7 @@ def consultation(answers):
     def has_match(prefix):
         return any(
             available({"region": region, "mode": mode, "category": category})
-            for region in (prefix.get("region", "all"),)
+            for region in ([prefix["region"]] if "region" in prefix else REGIONS)
             for mode in ([prefix["mode"]] if "mode" in prefix else MODES)
             for category in ([prefix["category"]] if "category" in prefix else ["all"])
         )
@@ -120,10 +120,20 @@ def consultation(answers):
             reason=f"Ada {trace['reviewer_count']} pengguna berbeda dengan tipe perjalanan yang sama. Skor akhir {trace['score']:.2f} dari 5.",
         )
     else:
-        for key, label in (("category", "Cari semua jenis wisata"), ("region", "Cari di semua wilayah")):
-            revised = {**preferences, key: "all"}
-            if revised != preferences and has_match(revised):
-                alternatives.append({"label": label, "answers": {k: [v] for k, v in revised.items()}})
+        revised_cat = {**preferences, "category": "all"}
+        if revised_cat != preferences and has_match(revised_cat):
+            alternatives.append({
+                "label": "Cari semua jenis wisata",
+                "answers": {k: [v] for k, v in revised_cat.items()},
+            })
+        for code, label in REGIONS.items():
+            if code != preferences["region"]:
+                revised_reg = {**preferences, "region": code}
+                if has_match(revised_reg):
+                    alternatives.append({
+                        "label": f"Cari di {label}",
+                        "answers": {k: [v] for k, v in revised_reg.items()},
+                    })
         if not alternatives:
             for mode, label in MODES.items():
                 revised = {**preferences, "mode": mode}
@@ -238,8 +248,8 @@ def overview():
     cbr_metrics = models.get("C", {}).get("common_support", {})
     base_metrics = models.get("A", {}).get("common_support", {})
     fallback_eval = case_base.get("evaluation", {}).get("overall", {})
-    cov_before = eval_doc.get("coverage_before", {})
-    cov_after = eval_doc.get("coverage_after", {})
+    cov_before = {k: v for k, v in eval_doc.get("coverage_before", {}).items() if k in REGIONS}
+    cov_after = {k: v for k, v in eval_doc.get("coverage_after", {}).items() if k in REGIONS}
     total_cov_before = sum(v.get("supported", 0) for v in cov_before.values()) if cov_before else None
     total_cov_after = sum(v.get("supported", 0) for v in cov_after.values()) if cov_after else None
     return {

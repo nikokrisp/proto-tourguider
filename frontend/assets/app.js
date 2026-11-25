@@ -385,7 +385,7 @@ async function catalogView() {
       </header>
       <div class="catalog-toolbar">
         <div class="filter-pills" role="group" aria-label="Filter wilayah">
-          <button type="button" class="filter-pill is-active" data-action="filter-region" data-region="all">Semua wilayah</button>
+          <button type="button" class="filter-pill is-active" data-action="filter-region" data-region="all">Semua (${catalogData.places.length})</button>
           ${Object.entries(catalogData.regions).map(([code, label]) => `<button type="button" class="filter-pill" data-action="filter-region" data-region="${escapeText(code)}">${escapeText(label)}</button>`).join("")}
         </div>
         <div class="filter-inputs">
@@ -413,8 +413,8 @@ async function evaluationView() {
     const data = await response.json();
     const ev = data.evaluation;
     const c = data.counts;
-    const regionLabels = { bali: "Bali", yogyakarta: "Yogyakarta", malang: "Malang", all: "Semua wilayah" };
-    const covRows = ["bali", "yogyakarta", "malang", "all"].filter((k) => ev.coverage_before?.[k] && ev.coverage_after?.[k]);
+    const regionLabels = { bali: "Bali", yogyakarta: "Yogyakarta", malang: "Malang" };
+    const covRows = ["bali", "yogyakarta", "malang"].filter((k) => ev.coverage_before?.[k] && ev.coverage_after?.[k]);
     main.innerHTML = `<section class="wrap page-shell">
       <header class="page-hero">
         <div class="result-kicker">Transparansi Data & Uji Model</div>
@@ -466,7 +466,7 @@ async function evaluationView() {
 
       ${covRows.length ? `<article class="question-card eval-card">
         <h2>Cakupan rekomendasi sebelum & sesudah optimasi</h2>
-        <p class="eval-lead">Menurunkan batas dukungan dari 10 menjadi 5 pengulas pada v4 menaikkan cakupan total dari ${ev.coverage_before_total}/120 menjadi ${ev.coverage_after_total}/120 kombinasi tanpa menurunkan akurasi MAE.</p>
+        <p class="eval-lead">Menurunkan batas dukungan dari 10 menjadi 5 pengulas pada v4 menaikkan cakupan pada 3 wilayah dari ${ev.coverage_before_total}/90 menjadi ${ev.coverage_after_total}/90 kombinasi tanpa menurunkan akurasi MAE.</p>
         <div class="table-wrap">
           <table class="eval-table">
             <thead><tr><th>Wilayah input</th><th>Sebelum (ambang 10)</th><th>Sesudah (ambang 5)</th><th>Pemenang unik</th></tr></thead>
