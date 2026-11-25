@@ -27,9 +27,10 @@ function savedResult() {
 }
 
 function saveResult(value) {
-  const recent = savedResult();
-  history = value ? [value, JSON.stringify(recent?.answers) === JSON.stringify(value.answers)
-    ? recentResults()[1] : recent].filter(Boolean) : [];
+  if (!value) return;
+  const key = JSON.stringify(value.answers);
+  const rest = recentResults().filter((item) => JSON.stringify(item.answers) !== key);
+  history = [value, ...rest].slice(0, 5);
   try {
     sessionStorage.setItem(resultKey, JSON.stringify(history));
   } catch {
@@ -37,7 +38,26 @@ function saveResult(value) {
   }
 }
 
+const presets = [
+  {
+    title: "Air Terjun di Malang",
+    meta: "Malang · Teman · Air terjun",
+    answers: { region: ["malang"], mode: ["friends"], category: ["waterfall"] },
+  },
+  {
+    title: "Wisata Gunung di Yogyakarta",
+    meta: "Yogyakarta · Keluarga · Gunung & vulkanologi",
+    answers: { region: ["yogyakarta"], mode: ["family"], category: ["volcano"] },
+  },
+  {
+    title: "Rekreasi di Bali",
+    meta: "Bali · Pasangan · Rekreasi",
+    answers: { region: ["bali"], mode: ["couples"], category: ["recreation"] },
+  },
+];
+
 function home() {
+  const recent = recentResults();
   main.innerHTML = `<section class="home wrap">
     <h1 class="hero-title">Rekomendasi tempat wisata <em>di Indonesia</em></h1>
     <p class="hero-copy">Pilih wilayah, minat, dan tipe rombongan. Tourguider mencocokkan pilihanmu dengan riwayat kunjungan di Bali, Yogyakarta, dan Malang.</p>
@@ -47,6 +67,31 @@ function home() {
       <div class="home-step"><span class="step-number">02</span><div><h2>Cari kasus serupa</h2><p>Bandingkan rating dari kunjungan dengan tipe rombongan serupa.</p></div></div>
       <div class="home-step"><span class="step-number">03</span><div><h2>Lihat satu tempat</h2><p>Telusuri alasan tempat itu terpilih.</p></div></div>
     </div>
+    <section class="home-panel" aria-labelledby="preset-title">
+      <div class="panel-head">
+        <div><h2 id="preset-title">Skenario contoh cepat</h2><p>Langsung uji rekomendasi dengan kombinasi populer dari panduan demo.</p></div>
+        <a class="nav-link" href="/basis-kasus">Jelajahi 27 destinasi ↗</a>
+      </div>
+      <div class="preset-grid">
+        ${presets.map((preset, index) => `<button class="preset-card" type="button" data-action="preset" data-index="${index}">
+          <strong>${escapeText(preset.title)}</strong>
+          <span>${escapeText(preset.meta)}</span>
+          <small>Jalankan konsultasi ↗</small>
+        </button>`).join("")}
+      </div>
+    </section>
+    ${recent.length ? `<section class="home-panel" aria-labelledby="history-title">
+      <div class="panel-head">
+        <div><h2 id="history-title">Riwayat konsultasi sesi ini</h2><p>Buka kembali hasil sebelumnya untuk membandingkan rekomendasi.</p></div>
+      </div>
+      <div class="history-list">
+        ${recent.map((entry, index) => `<button class="history-item" type="button" data-action="open-history" data-index="${index}">
+          <div><strong>${escapeText(entry.recommendation?.name ?? "Belum ada rekomendasi")}</strong>
+            <span>${escapeText(entry.summary.map((item) => item.value).join(" · "))}</span></div>
+          <span class="history-score">${entry.trace?.score == null ? "Bukti kurang" : `${cbrDecimal.format(entry.trace.score)}/5`} ↗</span>
+        </button>`).join("")}
+      </div>
+    </section>` : ""}
   </section>`;
 }
 
@@ -283,10 +328,185 @@ function flow() {
   </section>`;
 }
 
+let catalogData = null;
+const catalogFilter = { region: "all", category: "all", query: "" };
+
+function renderCatalogList() {
+  const list = main.querySelector("#catalog-list");
+  const countEl = main.querySelector("#catalog-count");
+  if (!list || !catalogData) return;
+  const q = catalogFilter.query.trim().toLowerCase();
+  const filtered = catalogData.places.filter((place) => {
+    if (catalogFilter.region !== "all" && place.region !== catalogFilter.region) return false;
+    if (catalogFilter.category !== "all" && place.category !== catalogFilter.category) return false;
+    if (q && !place.name.toLowerCase().includes(q) && !(place.address || "").toLowerCase().includes(q)) return false;
+    return true;
+  });
+  if (countEl) countEl.textContent = `Menampilkan ${filtered.length} dari ${catalogData.places.length} destinasi aktif`;
+  if (!filtered.length) {
+    list.innerHTML = '<p class="catalog-empty">Tidak ada destinasi yang cocok dengan filter tersebut.</p>';
+    return;
+  }
+  const minRev = catalogData.min_reviewers;
+  list.innerHTML = filtered.map((place) => `<article class="catalog-card">
+    <div class="catalog-card-top">
+      <div class="catalog-badges">
+        <span class="chip">${escapeText(place.region_label)}</span>
+        <span class="chip chip-soft">${escapeText(place.category_label)}</span>
+      </div>
+      <strong class="catalog-rating">${cbrDecimal.format(place.historical_mean)}/5</strong>
+    </div>
+    <h3>${escapeText(place.name)}</h3>
+    ${place.address ? `<p class="catalog-address">${escapeText(place.address)}</p>` : ""}
+    <div class="catalog-modes" aria-label="Jumlah pengulas unik per tipe rombongan">
+      ${Object.entries(catalogData.modes).map(([code, label]) => {
+        const count = place.mode_counts[code] ?? 0;
+        const ok = count >= minRev;
+        return `<span class="mode-pill ${ok ? "is-eligible" : "is-low"}" title="${ok ? "Memenuhi ambang minimal" : "Di bawah ambang minimal"}">${escapeText(label)}: <strong>${number.format(count)}</strong></span>`;
+      }).join("")}
+    </div>
+    <div class="catalog-card-footer">
+      <a class="nav-link" href="${escapeText(place.map_url)}" target="_blank" rel="noopener noreferrer">Buka peta ↗</a>
+    </div>
+  </article>`).join("");
+}
+
+async function catalogView() {
+  main.innerHTML = '<p class="loading" role="status">Memuat basis kasus destinasi…</p>';
+  try {
+    const response = await fetch("/api/catalog");
+    if (!response.ok) throw new Error("Gagal memuat katalog");
+    catalogData = await response.json();
+    main.innerHTML = `<section class="wrap page-shell">
+      <header class="page-hero">
+        <div class="result-kicker">Basis Pengetahuan</div>
+        <h1>Basis kasus destinasi</h1>
+        <p class="page-subtitle">Daftar lengkap ${catalogData.places.length} objek wisata aktif beserta rata-rata historis dan jumlah pengulas unik per tipe rombongan. Badge hijau menandakan jumlah pengulas memenuhi ambang minimal (${catalogData.min_reviewers} pengulas).</p>
+      </header>
+      <div class="catalog-toolbar">
+        <div class="filter-pills" role="group" aria-label="Filter wilayah">
+          <button type="button" class="filter-pill is-active" data-action="filter-region" data-region="all">Semua wilayah</button>
+          ${Object.entries(catalogData.regions).map(([code, label]) => `<button type="button" class="filter-pill" data-action="filter-region" data-region="${escapeText(code)}">${escapeText(label)}</button>`).join("")}
+        </div>
+        <div class="filter-inputs">
+          <select id="catalog-category" aria-label="Filter kategori">
+            <option value="all">Semua kategori</option>
+            ${Object.entries(catalogData.categories).map(([code, label]) => `<option value="${escapeText(code)}">${escapeText(label)}</option>`).join("")}
+          </select>
+          <input id="catalog-search" type="search" placeholder="Cari nama tempat atau alamat…" aria-label="Cari destinasi">
+        </div>
+      </div>
+      <p id="catalog-count" class="catalog-count"></p>
+      <div id="catalog-list" class="catalog-grid"></div>
+    </section>`;
+    renderCatalogList();
+  } catch {
+    main.innerHTML = '<section class="wrap error-box"><p role="alert">Basis kasus belum bisa dimuat. Coba muat ulang halaman.</p></section>';
+  }
+}
+
+async function evaluationView() {
+  main.innerHTML = '<p class="loading" role="status">Memuat ringkasan data dan evaluasi…</p>';
+  try {
+    const response = await fetch("/api/overview");
+    if (!response.ok) throw new Error("Gagal memuat evaluasi");
+    const data = await response.json();
+    const ev = data.evaluation;
+    const c = data.counts;
+    const regionLabels = { bali: "Bali", yogyakarta: "Yogyakarta", malang: "Malang", all: "Semua wilayah" };
+    const covRows = ["bali", "yogyakarta", "malang", "all"].filter((k) => ev.coverage_before?.[k] && ev.coverage_after?.[k]);
+    main.innerHTML = `<section class="wrap page-shell">
+      <header class="page-hero">
+        <div class="result-kicker">Transparansi Data & Uji Model</div>
+        <h1>Data & evaluasi CBR</h1>
+        <p class="page-subtitle">Ringkasan pembersihan Tourism Dataset Mendeley v1, ketimpangan sebaran wilayah, serta hasil pengujian akurasi rating dan cakupan rekomendasi.</p>
+      </header>
+
+      <div class="kpi-grid">
+        <div class="kpi-card"><span>Destinasi aktif</span><strong>${number.format(c.active_places)}</strong><small>${c.excluded_places} tempat ditahan oleh kebijakan</small></div>
+        <div class="kpi-card"><span>Kunjungan aktif</span><strong>${number.format(c.active_visits)}</strong><small>Dari ${number.format(c.raw_visits)} transaksi mentah</small></div>
+        <div class="kpi-card"><span>Pengulas unik</span><strong>${number.format(c.active_reviewers)}</strong><small>1 pengulas dihitung 1 suara</small></div>
+        <div class="kpi-card"><span>MAE prediksi CBR</span><strong>${ev.cbr_mae == null ? "-" : cbrDecimal.format(ev.cbr_mae)}</strong><small>Pada ${number.format(ev.cases)} kasus uji holdout</small></div>
+      </div>
+
+      <article class="question-card eval-card">
+        <h2>Distribusi & ketimpangan data wilayah</h2>
+        <p class="eval-lead">Secara jumlah tempat terlihat cukup berimbang, tetapi kepadatan ulasan sangat terkonsentrasi di Bali. Kondisi ini memengaruhi ketersediaan kandidat di Malang.</p>
+        <div class="bar-list">
+          ${data.regions.map((reg) => `<div class="bar-row">
+            <div class="bar-meta"><strong>${escapeText(reg.label)} (${reg.places} tempat)</strong><span>${number.format(reg.visits)} kunjungan (${reg.share.toFixed(1)}%)</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:${Math.max(reg.share, 1.5).toFixed(1)}%"></div></div>
+          </div>`).join("")}
+        </div>
+      </article>
+
+      <div class="eval-two-col">
+        <article class="question-card eval-card">
+          <h2>Pembersihan dataset</h2>
+          <dl class="eval-dl">
+            <div><dt>Transaksi mentah Mendeley v1</dt><dd>${number.format(c.raw_visits)}</dd></div>
+            <div><dt>Duplikat dibuang</dt><dd>- ${number.format(c.duplicates_removed)}</dd></div>
+            <div><dt>Baris rating konflik dibuang</dt><dd>- ${number.format(c.conflicting_rows_removed)}</dd></div>
+            ${c.excluded_visits ? `<div><dt>Kunjungan 3 tempat nonaktif</dt><dd>- ${number.format(c.excluded_visits)}</dd></div>` : ""}
+            <div class="eval-dl-total"><dt>Total kunjungan aktif</dt><dd>${number.format(c.active_visits)}</dd></div>
+          </dl>
+        </article>
+
+        <article class="question-card eval-card">
+          <h2>Rumus & parameter aktif</h2>
+          <p class="cbr-formula">(n × rata-rata serupa + k × rata-rata historis) / (n + k)</p>
+          <dl class="eval-dl">
+            <div><dt>Mode basis data aktif</dt><dd>${data.evidence_type === "individual" ? "Kasus individual (v4)" : "Ringkasan agregat (bawaan)"}</dd></div>
+            <div><dt>Ambang minimal pengulas (n)</dt><dd>${data.min_reviewers} pengulas unik</dd></div>
+            <div><dt>Bobot penyeimbang (k)</dt><dd>${data.prior_weight}</dd></div>
+            <div><dt>Baseline MAE (historis)</dt><dd>${ev.baseline_mae == null ? "-" : cbrDecimal.format(ev.baseline_mae)}</dd></div>
+          </dl>
+        </article>
+      </div>
+
+      ${covRows.length ? `<article class="question-card eval-card">
+        <h2>Cakupan rekomendasi sebelum & sesudah optimasi</h2>
+        <p class="eval-lead">Menurunkan batas dukungan dari 10 menjadi 5 pengulas pada v4 menaikkan cakupan total dari ${ev.coverage_before_total}/120 menjadi ${ev.coverage_after_total}/120 kombinasi tanpa menurunkan akurasi MAE.</p>
+        <div class="table-wrap">
+          <table class="eval-table">
+            <thead><tr><th>Wilayah input</th><th>Sebelum (ambang 10)</th><th>Sesudah (ambang 5)</th><th>Pemenang unik</th></tr></thead>
+            <tbody>
+              ${covRows.map((key) => `<tr>
+                <td>${escapeText(regionLabels[key] ?? key)}</td>
+                <td>${ev.coverage_before[key].supported}/30</td>
+                <td><strong>${ev.coverage_after[key].supported}/30</strong></td>
+                <td>${ev.coverage_before[key].unique_winners} → ${ev.coverage_after[key].unique_winners}</td>
+              </tr>`).join("")}
+            </tbody>
+          </table>
+        </div>
+      </article>` : ""}
+
+      <div class="form-actions cbr-actions">
+        <a class="button" href="/?mulai=1">Mulai konsultasi ↗</a>
+        <a class="button outline" href="${escapeText(data.source)}" target="_blank" rel="noopener noreferrer">Sumber Mendeley ↗</a>
+      </div>
+    </section>`;
+  } catch {
+    main.innerHTML = '<section class="wrap error-box"><p role="alert">Data evaluasi belum bisa dimuat. Coba muat ulang halaman.</p></section>';
+  }
+}
+
 document.addEventListener("change", (event) => {
   const form = main.querySelector("form");
   if (form && event.target.form === form && event.target.name === "choice" && !pending) {
     form.querySelector('button[type="submit"]').disabled = !event.target.checked;
+  }
+  if (event.target.id === "catalog-category") {
+    catalogFilter.category = event.target.value;
+    renderCatalogList();
+  }
+});
+
+document.addEventListener("input", (event) => {
+  if (event.target.id === "catalog-search") {
+    catalogFilter.query = event.target.value;
+    renderCatalogList();
   }
 });
 
@@ -301,21 +521,51 @@ document.addEventListener("submit", (event) => {
 });
 
 document.addEventListener("click", (event) => {
-  const action = event.target.closest("[data-action]")?.dataset.action;
+  const trigger = event.target.closest("[data-action]");
+  const action = trigger?.dataset.action;
   if (pending) return;
   if (action === "home") location.assign("/");
-  if (action === "start") { draft = {}; saveResult(null); request("start"); }
+  if (action === "start") { draft = {}; request("start"); }
   if (action === "retry") retryRequest?.();
   if (action === "back") revise(state.question_number - 2);
   if (action === "revise") revise(0);
   if (action === "alternative") {
-    draft = { ...state.alternatives[Number(event.target.closest("[data-index]").dataset.index)].answers };
+    draft = { ...state.alternatives[Number(trigger.dataset.index)].answers };
     request("answer", draft);
+  }
+  if (action === "preset") {
+    const preset = presets[Number(trigger.dataset.index)];
+    if (preset) {
+      draft = { ...preset.answers };
+      request("answer", draft);
+    }
+  }
+  if (action === "open-history") {
+    const entry = recentResults()[Number(trigger.dataset.index)];
+    if (entry) {
+      state = entry;
+      draft = { ...entry.answers };
+      renderResult();
+      main.focus();
+    }
+  }
+  if (action === "filter-region") {
+    catalogFilter.region = trigger.dataset.region;
+    for (const pill of main.querySelectorAll('[data-action="filter-region"]')) {
+      pill.classList.toggle("is-active", pill === trigger);
+    }
+    renderCatalogList();
   }
 });
 
+for (const link of document.querySelectorAll(".site-header nav a.nav-link")) {
+  if (link.getAttribute("href") === location.pathname) link.classList.add("is-active");
+}
+
 const params = new URLSearchParams(location.search);
 if (location.pathname === "/alur-cbr") flow();
+else if (location.pathname === "/basis-kasus") catalogView();
+else if (location.pathname === "/evaluasi") evaluationView();
 else if (params.has("ubah") && (state = savedResult())) revise(0);
-else if (params.has("mulai") || params.has("ubah")) { saveResult(null); request("start"); }
+else if (params.has("mulai") || params.has("ubah")) { draft = {}; request("start"); }
 else home();
