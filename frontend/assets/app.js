@@ -417,21 +417,21 @@ async function evaluationView() {
     const covRows = ["bali", "yogyakarta", "malang"].filter((k) => ev.coverage_before?.[k] && ev.coverage_after?.[k]);
     main.innerHTML = `<section class="wrap page-shell">
       <header class="page-hero">
-        <div class="result-kicker">Transparansi Data & Uji Model</div>
+        <div class="result-kicker">Ringkasan Data & Pengujian</div>
         <h1>Data & evaluasi CBR</h1>
-        <p class="page-subtitle">Ringkasan pembersihan Tourism Dataset Mendeley v1, ketimpangan sebaran wilayah, serta hasil pengujian akurasi rating dan cakupan rekomendasi.</p>
+        <p class="page-subtitle">Penjelasan sederhana tentang asal data kunjungan, cara data dibersihkan, sebaran tiap wilayah, dan hasil uji ketepatan rekomendasi.</p>
       </header>
 
       <div class="kpi-grid">
-        <div class="kpi-card"><span>Destinasi aktif</span><strong>${number.format(c.active_places)}</strong><small>${c.excluded_places} tempat ditahan oleh kebijakan</small></div>
-        <div class="kpi-card"><span>Kunjungan aktif</span><strong>${number.format(c.active_visits)}</strong><small>Dari ${number.format(c.raw_visits)} transaksi mentah</small></div>
-        <div class="kpi-card"><span>Pengulas unik</span><strong>${number.format(c.active_reviewers)}</strong><small>1 pengulas dihitung 1 suara</small></div>
-        <div class="kpi-card"><span>MAE prediksi CBR</span><strong>${ev.cbr_mae == null ? "-" : cbrDecimal.format(ev.cbr_mae)}</strong><small>Pada ${number.format(ev.cases)} kasus uji holdout</small></div>
+        <div class="kpi-card"><span>Destinasi aktif</span><strong>${number.format(c.active_places)}</strong><small>${c.excluded_places} tempat tidak dipakai karena tutup/dibatasi</small></div>
+        <div class="kpi-card"><span>Kunjungan dipakai</span><strong>${number.format(c.active_visits)}</strong><small>Hasil saringan dari ${number.format(c.raw_visits)} data awal</small></div>
+        <div class="kpi-card"><span>Pengulas unik</span><strong>${number.format(c.active_reviewers)}</strong><small>1 orang tetap dihitung 1 suara</small></div>
+        <div class="kpi-card"><span>Rata-rata selisih rating</span><strong>${ev.cbr_mae == null ? "-" : cbrDecimal.format(ev.cbr_mae)}</strong><small>Nilai MAE pada ${number.format(ev.cases)} data uji (skala 1 sampai 5)</small></div>
       </div>
 
       <article class="question-card eval-card">
-        <h2>Distribusi & ketimpangan data wilayah</h2>
-        <p class="eval-lead">Secara jumlah tempat terlihat cukup berimbang, tetapi kepadatan ulasan sangat terkonsentrasi di Bali. Kondisi ini memengaruhi ketersediaan kandidat di Malang.</p>
+        <h2>Sebaran data kunjungan per wilayah</h2>
+        <p class="eval-lead">Jumlah tempat wisata di ketiga wilayah cukup dekat, tetapi jumlah ulasannya sangat banyak di Bali. Karena itu, pilihan wisata di Malang lebih sering terkendala jumlah ulasan yang sedikit.</p>
         <div class="bar-list">
           ${data.regions.map((reg) => `<div class="bar-row">
             <div class="bar-meta"><strong>${escapeText(reg.label)} (${reg.places} tempat)</strong><span>${number.format(reg.visits)} kunjungan (${reg.share.toFixed(1)}%)</span></div>
@@ -442,40 +442,42 @@ async function evaluationView() {
 
       <div class="eval-two-col">
         <article class="question-card eval-card">
-          <h2>Pembersihan dataset</h2>
+          <h2>Proses pembersihan data</h2>
+          <p class="eval-lead">Data mentah dari Mendeley disaring dulu agar data ganda atau membingungkan tidak merusak hasil rekomendasi.</p>
           <dl class="eval-dl">
-            <div><dt>Transaksi mentah Mendeley v1</dt><dd>${number.format(c.raw_visits)}</dd></div>
-            <div><dt>Duplikat dibuang</dt><dd>- ${number.format(c.duplicates_removed)}</dd></div>
-            <div><dt>Baris rating konflik dibuang</dt><dd>- ${number.format(c.conflicting_rows_removed)}</dd></div>
-            ${c.excluded_visits ? `<div><dt>Kunjungan 3 tempat nonaktif</dt><dd>- ${number.format(c.excluded_visits)}</dd></div>` : ""}
-            <div class="eval-dl-total"><dt>Total kunjungan aktif</dt><dd>${number.format(c.active_visits)}</dd></div>
+            <div><dt>Data kunjungan awal (Mendeley v1)</dt><dd>${number.format(c.raw_visits)}</dd></div>
+            <div><dt>Data ganda yang dihapus</dt><dd>- ${number.format(c.duplicates_removed)}</dd></div>
+            <div><dt>Data rating bertentangan yang dihapus</dt><dd>- ${number.format(c.conflicting_rows_removed)}</dd></div>
+            ${c.excluded_visits ? `<div><dt>Kunjungan dari 3 tempat yang tidak aktif</dt><dd>- ${number.format(c.excluded_visits)}</dd></div>` : ""}
+            <div class="eval-dl-total"><dt>Total kunjungan yang siap dipakai</dt><dd>${number.format(c.active_visits)}</dd></div>
           </dl>
         </article>
 
         <article class="question-card eval-card">
-          <h2>Rumus & parameter aktif</h2>
-          <p class="cbr-formula">(n × rata-rata serupa + k × rata-rata historis) / (n + k)</p>
+          <h2>Rumus & aturan perhitungan</h2>
+          <p class="cbr-formula">(n × rata-rata rombongan sama + k × rata-rata umum) / (n + k)</p>
+          <p class="eval-lead">Angka penyeimbang (k) dipakai agar tempat yang baru diulas sedikit orang tidak langsung menang hanya karena kebetulan mendapat nilai tinggi.</p>
           <dl class="eval-dl">
-            <div><dt>Mode basis data aktif</dt><dd>${data.evidence_type === "individual" ? "Kasus individual (v4)" : "Ringkasan agregat (bawaan)"}</dd></div>
-            <div><dt>Ambang minimal pengulas (n)</dt><dd>${data.min_reviewers} pengulas unik</dd></div>
+            <div><dt>Sumber data yang berjalan</dt><dd>${data.evidence_type === "individual" ? "Data kunjungan rinci (v4)" : "Ringkasan bawaan"}</dd></div>
+            <div><dt>Syarat minimal pengulas sama (n)</dt><dd>Minimal ${data.min_reviewers} orang</dd></div>
             <div><dt>Bobot penyeimbang (k)</dt><dd>${data.prior_weight}</dd></div>
-            <div><dt>Baseline MAE (historis)</dt><dd>${ev.baseline_mae == null ? "-" : cbrDecimal.format(ev.baseline_mae)}</dd></div>
+            <div><dt>Selisih rating pembanding (MAE umum)</dt><dd>${ev.baseline_mae == null ? "-" : `${cbrDecimal.format(ev.baseline_mae)} poin`}</dd></div>
           </dl>
         </article>
       </div>
 
       ${covRows.length ? `<article class="question-card eval-card">
-        <h2>Cakupan rekomendasi sebelum & sesudah optimasi</h2>
-        <p class="eval-lead">Menurunkan batas dukungan dari 10 menjadi 5 pengulas pada v4 menaikkan cakupan pada 3 wilayah dari ${ev.coverage_before_total}/90 menjadi ${ev.coverage_after_total}/90 kombinasi tanpa menurunkan akurasi MAE.</p>
+        <h2>Dampak melonggarkan syarat minimal pengulas</h2>
+        <p class="eval-lead">Dari 90 kemungkinan pilihan (3 wilayah × 5 rombongan × 6 minat), menurunkan syarat minimal dari 10 menjadi 5 orang membuat lebih banyak pilihan berhasil mendapat rekomendasi (naik dari ${ev.coverage_before_total}/90 menjadi ${ev.coverage_after_total}/90), tanpa membuat tebakan rating menjadi lebih meleset.</p>
         <div class="table-wrap">
           <table class="eval-table">
-            <thead><tr><th>Wilayah input</th><th>Sebelum (ambang 10)</th><th>Sesudah (ambang 5)</th><th>Pemenang unik</th></tr></thead>
+            <thead><tr><th>Wilayah</th><th>Syarat min. 10 orang</th><th>Syarat min. 5 orang</th><th>Variasi tempat terpilih</th></tr></thead>
             <tbody>
               ${covRows.map((key) => `<tr>
                 <td>${escapeText(regionLabels[key] ?? key)}</td>
-                <td>${ev.coverage_before[key].supported}/30</td>
-                <td><strong>${ev.coverage_after[key].supported}/30</strong></td>
-                <td>${ev.coverage_before[key].unique_winners} → ${ev.coverage_after[key].unique_winners}</td>
+                <td>${ev.coverage_before[key].supported} dari 30 pilihan</td>
+                <td><strong>${ev.coverage_after[key].supported} dari 30 pilihan</strong></td>
+                <td>${ev.coverage_before[key].unique_winners} → ${ev.coverage_after[key].unique_winners} tempat</td>
               </tr>`).join("")}
             </tbody>
           </table>
@@ -484,7 +486,7 @@ async function evaluationView() {
 
       <div class="form-actions cbr-actions">
         <a class="button" href="/?mulai=1">Mulai konsultasi ↗</a>
-        <a class="button outline" href="${escapeText(data.source)}" target="_blank" rel="noopener noreferrer">Sumber Mendeley ↗</a>
+        <a class="button outline" href="${escapeText(data.source)}" target="_blank" rel="noopener noreferrer">Lihat dataset asli ↗</a>
       </div>
     </section>`;
   } catch {
